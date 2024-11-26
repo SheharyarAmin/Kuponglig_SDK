@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **status** | [**UserStatus**](UserStatus.md) |  | [optional] [default to UserStatus.ACTIVE]
 **age** | **int** |  | 
 **gender** | [**Gender**](Gender.md) |  | 
+**joiningReferralCode** | **String** |  | 
+**userReferralCode** | **String** |  | 
 **interests** | [**List<Interests>**](Interests.md) |  | [default to const []]
 **createdAt** | **String** |  | 
 **updatedAt** | **String** |  | 

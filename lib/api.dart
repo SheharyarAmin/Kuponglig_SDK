@@ -32,10 +32,12 @@ part 'api/coupon_api.dart';
 part 'api/default_api.dart';
 part 'api/redeemed_coupons_api.dart';
 part 'api/saved_coupons_api.dart';
+part 'api/spin_wheel_api.dart';
 part 'api/store_api.dart';
 part 'api/user_api.dart';
 part 'api/user_points_api.dart';
 part 'api/vendor_api.dart';
+part 'api/won_coupons_api.dart';
 
 part 'model/authentication_token.dart';
 part 'model/coupon_model.dart';
@@ -46,7 +48,10 @@ part 'model/geo_point.dart';
 part 'model/http_validation_error.dart';
 part 'model/interests.dart';
 part 'model/platform.dart';
+part 'model/reward_type.dart';
 part 'model/save_coupon_request.dart';
+part 'model/spin_wheel_response.dart';
+part 'model/spinning_wheel_reward.dart';
 part 'model/store_model.dart';
 part 'model/store_status.dart';
 part 'model/store_types.dart';
@@ -57,6 +62,7 @@ part 'model/user_status.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
 part 'model/vendor_model.dart';
+part 'model/won_coupon_model.dart';
 
 
 /// An [ApiClient] instance that uses the default values obtained from

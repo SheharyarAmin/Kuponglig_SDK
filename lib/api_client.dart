@@ -200,8 +200,14 @@ class ApiClient {
           return InterestsTypeTransformer().decode(value);
         case 'Platform':
           return PlatformTypeTransformer().decode(value);
+        case 'RewardType':
+          return RewardTypeTypeTransformer().decode(value);
         case 'SaveCouponRequest':
           return SaveCouponRequest.fromJson(value);
+        case 'SpinWheelResponse':
+          return SpinWheelResponse.fromJson(value);
+        case 'SpinningWheelReward':
+          return SpinningWheelReward.fromJson(value);
         case 'StoreModel':
           return StoreModel.fromJson(value);
         case 'StoreStatus':
@@ -222,6 +228,8 @@ class ApiClient {
           return ValidationErrorLocInner.fromJson(value);
         case 'VendorModel':
           return VendorModel.fromJson(value);
+        case 'WonCouponModel':
+          return WonCouponModel.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

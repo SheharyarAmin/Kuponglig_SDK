@@ -70,6 +70,8 @@ Class | Method | HTTP request | Description
 *SavedCouponsApi* | [**deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDelete**](doc//SavedCouponsApi.md#deletesavedcouponapiv1savedcouponsuseridcouponiddelete) | **DELETE** /api/v1/saved_coupons/{user_id}/{coupon_id} | Delete Saved Coupon
 *SavedCouponsApi* | [**getSavedCouponsApiV1SavedCouponsUserIdGet**](doc//SavedCouponsApi.md#getsavedcouponsapiv1savedcouponsuseridget) | **GET** /api/v1/saved_coupons/{user_id} | Get Saved Coupons
 *SavedCouponsApi* | [**saveCouponApiV1SavedCouponsPost**](doc//SavedCouponsApi.md#savecouponapiv1savedcouponspost) | **POST** /api/v1/saved_coupons/ | Save Coupon
+*SpinWheelApi* | [**getSpinWheelConfigApiV1SpinWheelConfigUserIdGet**](doc//SpinWheelApi.md#getspinwheelconfigapiv1spinwheelconfiguseridget) | **GET** /api/v1/spin_wheel/config/{user_id} | Get Spin Wheel Config
+*SpinWheelApi* | [**processSpinResultApiV1SpinWheelPost**](doc//SpinWheelApi.md#processspinresultapiv1spinwheelpost) | **POST** /api/v1/spin_wheel/ | Process Spin Result
 *StoreApi* | [**createStoreApiV1StoreStoresPost**](doc//StoreApi.md#createstoreapiv1storestorespost) | **POST** /api/v1/store/stores | Create Store
 *StoreApi* | [**deleteStoreApiV1StoreStoresStoreIdDelete**](doc//StoreApi.md#deletestoreapiv1storestoresstoreiddelete) | **DELETE** /api/v1/store/stores/{store_id} | Delete Store
 *StoreApi* | [**getFirstStoreByVendorApiV1StoreStoresVendorFirstGet**](doc//StoreApi.md#getfirststorebyvendorapiv1storestoresvendorfirstget) | **GET** /api/v1/store/stores/vendor/first | Get First Store By Vendor
@@ -94,6 +96,8 @@ Class | Method | HTTP request | Description
 *VendorApi* | [**saveVendorApiV1VendorVendorsPost**](doc//VendorApi.md#savevendorapiv1vendorvendorspost) | **POST** /api/v1/vendor/vendors | Save Vendor
 *VendorApi* | [**updateVendorApiV1VendorVendorsVendorIdPut**](doc//VendorApi.md#updatevendorapiv1vendorvendorsvendoridput) | **PUT** /api/v1/vendor/vendors/{vendor_id} | Update Vendor
 *VendorApi* | [**uploadVendorIdCardApiV1VendorVendorsVendorIdUploadIdCardPost**](doc//VendorApi.md#uploadvendoridcardapiv1vendorvendorsvendoriduploadidcardpost) | **POST** /api/v1/vendor/vendors/{vendor_id}/upload-id-card | Upload Vendor Id Card
+*WonCouponsApi* | [**deleteWonCouponApiV1WonCouponsUserIdCouponIdDelete**](doc//WonCouponsApi.md#deletewoncouponapiv1woncouponsuseridcouponiddelete) | **DELETE** /api/v1/won_coupons/{user_id}/{coupon_id} | Delete Won Coupon
+*WonCouponsApi* | [**getWonCouponsApiV1WonCouponsUserIdGet**](doc//WonCouponsApi.md#getwoncouponsapiv1woncouponsuseridget) | **GET** /api/v1/won_coupons/{user_id} | Get Won Coupons
 
 
 ## Documentation For Models
@@ -107,7 +111,10 @@ Class | Method | HTTP request | Description
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [Interests](doc//Interests.md)
  - [Platform](doc//Platform.md)
+ - [RewardType](doc//RewardType.md)
  - [SaveCouponRequest](doc//SaveCouponRequest.md)
+ - [SpinWheelResponse](doc//SpinWheelResponse.md)
+ - [SpinningWheelReward](doc//SpinningWheelReward.md)
  - [StoreModel](doc//StoreModel.md)
  - [StoreStatus](doc//StoreStatus.md)
  - [StoreTypes](doc//StoreTypes.md)
@@ -118,6 +125,7 @@ Class | Method | HTTP request | Description
  - [ValidationError](doc//ValidationError.md)
  - [ValidationErrorLocInner](doc//ValidationErrorLocInner.md)
  - [VendorModel](doc//VendorModel.md)
+ - [WonCouponModel](doc//WonCouponModel.md)
 
 
 ## Documentation For Authorization

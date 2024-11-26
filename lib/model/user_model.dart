@@ -21,6 +21,8 @@ class UserModel {
     this.status = UserStatus.ACTIVE,
     required this.age,
     required this.gender,
+    required this.joiningReferralCode,
+    required this.userReferralCode,
     this.interests = const [],
     required this.createdAt,
     required this.updatedAt,
@@ -42,6 +44,10 @@ class UserModel {
 
   Gender gender;
 
+  String? joiningReferralCode;
+
+  String? userReferralCode;
+
   List<Interests> interests;
 
   String createdAt;
@@ -58,6 +64,8 @@ class UserModel {
     other.status == status &&
     other.age == age &&
     other.gender == gender &&
+    other.joiningReferralCode == joiningReferralCode &&
+    other.userReferralCode == userReferralCode &&
     _deepEquality.equals(other.interests, interests) &&
     other.createdAt == createdAt &&
     other.updatedAt == updatedAt;
@@ -73,12 +81,14 @@ class UserModel {
     (status.hashCode) +
     (age.hashCode) +
     (gender.hashCode) +
+    (joiningReferralCode == null ? 0 : joiningReferralCode!.hashCode) +
+    (userReferralCode == null ? 0 : userReferralCode!.hashCode) +
     (interests.hashCode) +
     (createdAt.hashCode) +
     (updatedAt.hashCode);
 
   @override
-  String toString() => 'UserModel[id=$id, username=$username, name=$name, email=$email, photoUrl=$photoUrl, status=$status, age=$age, gender=$gender, interests=$interests, createdAt=$createdAt, updatedAt=$updatedAt]';
+  String toString() => 'UserModel[id=$id, username=$username, name=$name, email=$email, photoUrl=$photoUrl, status=$status, age=$age, gender=$gender, joiningReferralCode=$joiningReferralCode, userReferralCode=$userReferralCode, interests=$interests, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -94,6 +104,16 @@ class UserModel {
       json[r'status'] = this.status;
       json[r'age'] = this.age;
       json[r'gender'] = this.gender;
+    if (this.joiningReferralCode != null) {
+      json[r'joiningReferralCode'] = this.joiningReferralCode;
+    } else {
+      json[r'joiningReferralCode'] = null;
+    }
+    if (this.userReferralCode != null) {
+      json[r'userReferralCode'] = this.userReferralCode;
+    } else {
+      json[r'userReferralCode'] = null;
+    }
       json[r'interests'] = this.interests;
       json[r'createdAt'] = this.createdAt;
       json[r'updatedAt'] = this.updatedAt;
@@ -127,6 +147,8 @@ class UserModel {
         status: UserStatus.fromJson(json[r'status']) ?? UserStatus.ACTIVE,
         age: mapValueOfType<int>(json, r'age')!,
         gender: Gender.fromJson(json[r'gender'])!,
+        joiningReferralCode: mapValueOfType<String>(json, r'joiningReferralCode'),
+        userReferralCode: mapValueOfType<String>(json, r'userReferralCode'),
         interests: Interests.listFromJson(json[r'interests']),
         createdAt: mapValueOfType<String>(json, r'createdAt')!,
         updatedAt: mapValueOfType<String>(json, r'updatedAt')!,
@@ -184,6 +206,8 @@ class UserModel {
     'photoUrl',
     'age',
     'gender',
+    'joiningReferralCode',
+    'userReferralCode',
     'interests',
     'createdAt',
     'updatedAt',
