@@ -55,6 +55,7 @@ part 'model/spin_wheel_response.dart';
 part 'model/spinning_wheel_reward.dart';
 part 'model/store_model.dart';
 part 'model/store_model_base.dart';
+part 'model/store_stats_model.dart';
 part 'model/store_status.dart';
 part 'model/store_types.dart';
 part 'model/token.dart';

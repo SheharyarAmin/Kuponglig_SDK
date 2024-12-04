@@ -79,6 +79,7 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**getNearbyStoresApiV1StoreNearbyGet**](doc//StoreApi.md#getnearbystoresapiv1storenearbyget) | **GET** /api/v1/store/nearby | Get Nearby Stores
 *StoreApi* | [**getNewStoreIdApiV1StoreNewIdGet**](doc//StoreApi.md#getnewstoreidapiv1storenewidget) | **GET** /api/v1/store/new-id | Get New Store Id
 *StoreApi* | [**getStoreApiV1StoreStoreIdGet**](doc//StoreApi.md#getstoreapiv1storestoreidget) | **GET** /api/v1/store/{store_id} | Get Store
+*StoreApi* | [**getStoreStatsApiV1StoreStatsStoreIdDateGet**](doc//StoreApi.md#getstorestatsapiv1storestatsstoreiddateget) | **GET** /api/v1/store/stats/{store_id}/{date} | Get Store Stats
 *StoreApi* | [**getStoresByVendorApiV1StoreVendorVendorIdGet**](doc//StoreApi.md#getstoresbyvendorapiv1storevendorvendoridget) | **GET** /api/v1/store/vendor/{vendor_id} | Get Stores By Vendor
 *StoreApi* | [**updateStoreApiV1StoreStoreIdPut**](doc//StoreApi.md#updatestoreapiv1storestoreidput) | **PUT** /api/v1/store/{store_id} | Update Store
 *UserApi* | [**createUserApiV1UserPost**](doc//UserApi.md#createuserapiv1userpost) | **POST** /api/v1/user/ | Create User
@@ -120,6 +121,7 @@ Class | Method | HTTP request | Description
  - [SpinningWheelReward](doc//SpinningWheelReward.md)
  - [StoreModel](doc//StoreModel.md)
  - [StoreModelBase](doc//StoreModelBase.md)
+ - [StoreStatsModel](doc//StoreStatsModel.md)
  - [StoreStatus](doc//StoreStatus.md)
  - [StoreTypes](doc//StoreTypes.md)
  - [Token](doc//Token.md)

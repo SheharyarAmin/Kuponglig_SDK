@@ -24,6 +24,7 @@ doc/SpinningWheelReward.md
 doc/StoreApi.md
 doc/StoreModel.md
 doc/StoreModelBase.md
+doc/StoreStatsModel.md
 doc/StoreStatus.md
 doc/StoreTypes.md
 doc/Token.md
@@ -76,6 +77,7 @@ lib/model/spin_wheel_response.dart
 lib/model/spinning_wheel_reward.dart
 lib/model/store_model.dart
 lib/model/store_model_base.dart
+lib/model/store_stats_model.dart
 lib/model/store_status.dart
 lib/model/store_types.dart
 lib/model/token.dart
@@ -89,6 +91,4 @@ lib/model/vendor_model.dart
 lib/model/vendor_status.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
-test/id_response_test.dart
-test/store_model_base_test.dart
-test/vendor_status_test.dart
+test/store_stats_model_test.dart

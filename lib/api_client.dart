@@ -218,6 +218,8 @@ class ApiClient {
           return StoreModel.fromJson(value);
         case 'StoreModelBase':
           return StoreModelBase.fromJson(value);
+        case 'StoreStatsModel':
+          return StoreStatsModel.fromJson(value);
         case 'StoreStatus':
           return StoreStatusTypeTransformer().decode(value);
         case 'StoreTypes':
