@@ -46,6 +46,7 @@ part 'model/coupon_target_type.dart';
 part 'model/gender.dart';
 part 'model/geo_point.dart';
 part 'model/http_validation_error.dart';
+part 'model/id_response.dart';
 part 'model/interests.dart';
 part 'model/platform.dart';
 part 'model/reward_type.dart';
@@ -53,6 +54,7 @@ part 'model/save_coupon_request.dart';
 part 'model/spin_wheel_response.dart';
 part 'model/spinning_wheel_reward.dart';
 part 'model/store_model.dart';
+part 'model/store_model_base.dart';
 part 'model/store_status.dart';
 part 'model/store_types.dart';
 part 'model/token.dart';
@@ -63,6 +65,7 @@ part 'model/user_status.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
 part 'model/vendor_model.dart';
+part 'model/vendor_status.dart';
 part 'model/won_coupon_model.dart';
 
 

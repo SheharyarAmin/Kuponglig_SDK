@@ -24,13 +24,13 @@ class StoreApi {
   ///
   /// Parameters:
   ///
-  /// * [StoreModel] storeModel (required):
-  Future<Response> createStoreApiV1StoreStoresPostWithHttpInfo(StoreModel storeModel,) async {
+  /// * [StoreModelBase] storeModelBase (required):
+  Future<Response> createStoreApiV1StorePostWithHttpInfo(StoreModelBase storeModelBase,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/store/stores';
+    final path = r'/api/v1/store/';
 
     // ignore: prefer_final_locals
-    Object? postBody = storeModel;
+    Object? postBody = storeModelBase;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -56,9 +56,9 @@ class StoreApi {
   ///
   /// Parameters:
   ///
-  /// * [StoreModel] storeModel (required):
-  Future<StoreModel?> createStoreApiV1StoreStoresPost(StoreModel storeModel,) async {
-    final response = await createStoreApiV1StoreStoresPostWithHttpInfo(storeModel,);
+  /// * [StoreModelBase] storeModelBase (required):
+  Future<StoreModel?> createStoreApiV1StorePost(StoreModelBase storeModelBase,) async {
+    final response = await createStoreApiV1StorePostWithHttpInfo(storeModelBase,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -81,9 +81,9 @@ class StoreApi {
   /// Parameters:
   ///
   /// * [String] storeId (required):
-  Future<Response> deleteStoreApiV1StoreStoresStoreIdDeleteWithHttpInfo(String storeId,) async {
+  Future<Response> deleteStoreApiV1StoreStoreIdDeleteWithHttpInfo(String storeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/store/stores/{store_id}'
+    final path = r'/api/v1/store/{store_id}'
       .replaceAll('{store_id}', storeId);
 
     // ignore: prefer_final_locals
@@ -114,8 +114,8 @@ class StoreApi {
   /// Parameters:
   ///
   /// * [String] storeId (required):
-  Future<Object?> deleteStoreApiV1StoreStoresStoreIdDelete(String storeId,) async {
-    final response = await deleteStoreApiV1StoreStoresStoreIdDeleteWithHttpInfo(storeId,);
+  Future<Object?> deleteStoreApiV1StoreStoreIdDelete(String storeId,) async {
+    final response = await deleteStoreApiV1StoreStoreIdDeleteWithHttpInfo(storeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -129,7 +129,7 @@ class StoreApi {
     return null;
   }
 
-  /// Get First Store By Vendor
+  /// Get First Store
   ///
   /// Endpoint to fetch the first store for a specific vendor. - Returns the first store belonging to the given vendor.
   ///
@@ -138,9 +138,10 @@ class StoreApi {
   /// Parameters:
   ///
   /// * [String] vendorId (required):
-  Future<Response> getFirstStoreByVendorApiV1StoreStoresVendorFirstGetWithHttpInfo(String vendorId,) async {
+  Future<Response> getFirstStoreApiV1StoreVendorFirstVendorIdGetWithHttpInfo(String vendorId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/store/stores/vendor/first';
+    final path = r'/api/v1/store/vendor/first/{vendor_id}'
+      .replaceAll('{vendor_id}', vendorId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -148,8 +149,6 @@ class StoreApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-      queryParams.addAll(_queryParams('', 'vendor_id', vendorId));
 
     const contentTypes = <String>[];
 
@@ -165,15 +164,15 @@ class StoreApi {
     );
   }
 
-  /// Get First Store By Vendor
+  /// Get First Store
   ///
   /// Endpoint to fetch the first store for a specific vendor. - Returns the first store belonging to the given vendor.
   ///
   /// Parameters:
   ///
   /// * [String] vendorId (required):
-  Future<StoreModel?> getFirstStoreByVendorApiV1StoreStoresVendorFirstGet(String vendorId,) async {
-    final response = await getFirstStoreByVendorApiV1StoreStoresVendorFirstGetWithHttpInfo(vendorId,);
+  Future<StoreModel?> getFirstStoreApiV1StoreVendorFirstVendorIdGet(String vendorId,) async {
+    final response = await getFirstStoreApiV1StoreVendorFirstVendorIdGetWithHttpInfo(vendorId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -200,9 +199,9 @@ class StoreApi {
   /// * [num] lon (required):
   ///
   /// * [num] radius (required):
-  Future<Response> getNearbyStoresApiV1StoreStoresNearbyGetWithHttpInfo(num lat, num lon, num radius,) async {
+  Future<Response> getNearbyStoresApiV1StoreNearbyGetWithHttpInfo(num lat, num lon, num radius,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/store/stores/nearby';
+    final path = r'/api/v1/store/nearby';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -240,8 +239,8 @@ class StoreApi {
   /// * [num] lon (required):
   ///
   /// * [num] radius (required):
-  Future<List<StoreModel>?> getNearbyStoresApiV1StoreStoresNearbyGet(num lat, num lon, num radius,) async {
-    final response = await getNearbyStoresApiV1StoreStoresNearbyGetWithHttpInfo(lat, lon, radius,);
+  Future<List<StoreModel>?> getNearbyStoresApiV1StoreNearbyGet(num lat, num lon, num radius,) async {
+    final response = await getNearbyStoresApiV1StoreNearbyGetWithHttpInfo(lat, lon, radius,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -258,6 +257,54 @@ class StoreApi {
     return null;
   }
 
+  /// Get New Store Id
+  ///
+  /// Endpoint to generate a new store ID. - Returns a new store ID.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> getNewStoreIdApiV1StoreNewIdGetWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/store/new-id';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get New Store Id
+  ///
+  /// Endpoint to generate a new store ID. - Returns a new store ID.
+  Future<IDResponse?> getNewStoreIdApiV1StoreNewIdGet() async {
+    final response = await getNewStoreIdApiV1StoreNewIdGetWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'IDResponse',) as IDResponse;
+    
+    }
+    return null;
+  }
+
   /// Get Store
   ///
   /// Endpoint to retrieve a store by its ID. - Fetches store data based on store_id.
@@ -267,9 +314,9 @@ class StoreApi {
   /// Parameters:
   ///
   /// * [String] storeId (required):
-  Future<Response> getStoreApiV1StoreStoresStoreIdGetWithHttpInfo(String storeId,) async {
+  Future<Response> getStoreApiV1StoreStoreIdGetWithHttpInfo(String storeId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/store/stores/{store_id}'
+    final path = r'/api/v1/store/{store_id}'
       .replaceAll('{store_id}', storeId);
 
     // ignore: prefer_final_locals
@@ -300,8 +347,8 @@ class StoreApi {
   /// Parameters:
   ///
   /// * [String] storeId (required):
-  Future<StoreModel?> getStoreApiV1StoreStoresStoreIdGet(String storeId,) async {
-    final response = await getStoreApiV1StoreStoresStoreIdGetWithHttpInfo(storeId,);
+  Future<StoreModel?> getStoreApiV1StoreStoreIdGet(String storeId,) async {
+    final response = await getStoreApiV1StoreStoreIdGetWithHttpInfo(storeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -324,9 +371,9 @@ class StoreApi {
   /// Parameters:
   ///
   /// * [String] vendorId (required):
-  Future<Response> getStoresByVendorApiV1StoreStoresVendorVendorIdGetWithHttpInfo(String vendorId,) async {
+  Future<Response> getStoresByVendorApiV1StoreVendorVendorIdGetWithHttpInfo(String vendorId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/store/stores/vendor/{vendor_id}'
+    final path = r'/api/v1/store/vendor/{vendor_id}'
       .replaceAll('{vendor_id}', vendorId);
 
     // ignore: prefer_final_locals
@@ -357,8 +404,8 @@ class StoreApi {
   /// Parameters:
   ///
   /// * [String] vendorId (required):
-  Future<List<StoreModel>?> getStoresByVendorApiV1StoreStoresVendorVendorIdGet(String vendorId,) async {
-    final response = await getStoresByVendorApiV1StoreStoresVendorVendorIdGetWithHttpInfo(vendorId,);
+  Future<List<StoreModel>?> getStoresByVendorApiV1StoreVendorVendorIdGet(String vendorId,) async {
+    final response = await getStoresByVendorApiV1StoreVendorVendorIdGetWithHttpInfo(vendorId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -383,10 +430,13 @@ class StoreApi {
   ///
   /// Parameters:
   ///
+  /// * [String] storeId (required):
+  ///
   /// * [StoreModel] storeModel (required):
-  Future<Response> updateStoreApiV1StoreStoresPutWithHttpInfo(StoreModel storeModel,) async {
+  Future<Response> updateStoreApiV1StoreStoreIdPutWithHttpInfo(String storeId, StoreModel storeModel,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/store/stores';
+    final path = r'/api/v1/store/{store_id}'
+      .replaceAll('{store_id}', storeId);
 
     // ignore: prefer_final_locals
     Object? postBody = storeModel;
@@ -415,9 +465,11 @@ class StoreApi {
   ///
   /// Parameters:
   ///
+  /// * [String] storeId (required):
+  ///
   /// * [StoreModel] storeModel (required):
-  Future<StoreModel?> updateStoreApiV1StoreStoresPut(StoreModel storeModel,) async {
-    final response = await updateStoreApiV1StoreStoresPutWithHttpInfo(storeModel,);
+  Future<StoreModel?> updateStoreApiV1StoreStoreIdPut(String storeId, StoreModel storeModel,) async {
+    final response = await updateStoreApiV1StoreStoreIdPutWithHttpInfo(storeId, storeModel,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

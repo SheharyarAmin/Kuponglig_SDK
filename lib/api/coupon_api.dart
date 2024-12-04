@@ -189,6 +189,66 @@ class CouponApi {
     return null;
   }
 
+  /// Get Top Coupons
+  ///
+  /// Endpoint to fetch top coupons for a specific store. - Takes store_id as a URL parameter. - Returns a list of top CouponModel objects for the given store.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] storeId (required):
+  Future<Response> getTopCouponsApiV1CouponTopCouponsStoreIdGetWithHttpInfo(String storeId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/coupon/top_coupons/{store_id}'
+      .replaceAll('{store_id}', storeId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Top Coupons
+  ///
+  /// Endpoint to fetch top coupons for a specific store. - Takes store_id as a URL parameter. - Returns a list of top CouponModel objects for the given store.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] storeId (required):
+  Future<List<CouponModel>?> getTopCouponsApiV1CouponTopCouponsStoreIdGet(String storeId,) async {
+    final response = await getTopCouponsApiV1CouponTopCouponsStoreIdGetWithHttpInfo(storeId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModel>') as List)
+        .cast<CouponModel>()
+        .toList(growable: false);
+
+    }
+    return null;
+  }
+
   /// Mark Coupon Expired
   ///
   /// Endpoint to mark a coupon as expired. - Takes coupon_id as a URL parameter. - Marks the coupon as expired in the Firestore database.

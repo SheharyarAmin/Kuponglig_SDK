@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **username** | **String** |  | 
 **phone** | **String** |  | 
 **phoneVerified** | **bool** |  | [optional] [default to false]
-**status** | **String** |  | [optional] [default to 'PENDING']
+**status** | [**VendorStatus**](VendorStatus.md) |  | [optional] [default to VendorStatus.ACTIVE]
 **idCardFrontUrl** | **String** |  | 
 **idCardBackUrl** | **String** |  | 
 **createdAt** | **String** |  | 

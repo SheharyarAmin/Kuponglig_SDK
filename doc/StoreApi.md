@@ -5,21 +5,22 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://kouponglig-server-1089408962215.europe-west1.run.app*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createStoreApiV1StoreStoresPost**](StoreApi.md#createstoreapiv1storestorespost) | **POST** /api/v1/store/stores | Create Store
-[**deleteStoreApiV1StoreStoresStoreIdDelete**](StoreApi.md#deletestoreapiv1storestoresstoreiddelete) | **DELETE** /api/v1/store/stores/{store_id} | Delete Store
-[**getFirstStoreByVendorApiV1StoreStoresVendorFirstGet**](StoreApi.md#getfirststorebyvendorapiv1storestoresvendorfirstget) | **GET** /api/v1/store/stores/vendor/first | Get First Store By Vendor
-[**getNearbyStoresApiV1StoreStoresNearbyGet**](StoreApi.md#getnearbystoresapiv1storestoresnearbyget) | **GET** /api/v1/store/stores/nearby | Get Nearby Stores
-[**getStoreApiV1StoreStoresStoreIdGet**](StoreApi.md#getstoreapiv1storestoresstoreidget) | **GET** /api/v1/store/stores/{store_id} | Get Store
-[**getStoresByVendorApiV1StoreStoresVendorVendorIdGet**](StoreApi.md#getstoresbyvendorapiv1storestoresvendorvendoridget) | **GET** /api/v1/store/stores/vendor/{vendor_id} | Get Stores By Vendor
-[**updateStoreApiV1StoreStoresPut**](StoreApi.md#updatestoreapiv1storestoresput) | **PUT** /api/v1/store/stores | Update Store
+[**createStoreApiV1StorePost**](StoreApi.md#createstoreapiv1storepost) | **POST** /api/v1/store/ | Create Store
+[**deleteStoreApiV1StoreStoreIdDelete**](StoreApi.md#deletestoreapiv1storestoreiddelete) | **DELETE** /api/v1/store/{store_id} | Delete Store
+[**getFirstStoreApiV1StoreVendorFirstVendorIdGet**](StoreApi.md#getfirststoreapiv1storevendorfirstvendoridget) | **GET** /api/v1/store/vendor/first/{vendor_id} | Get First Store
+[**getNearbyStoresApiV1StoreNearbyGet**](StoreApi.md#getnearbystoresapiv1storenearbyget) | **GET** /api/v1/store/nearby | Get Nearby Stores
+[**getNewStoreIdApiV1StoreNewIdGet**](StoreApi.md#getnewstoreidapiv1storenewidget) | **GET** /api/v1/store/new-id | Get New Store Id
+[**getStoreApiV1StoreStoreIdGet**](StoreApi.md#getstoreapiv1storestoreidget) | **GET** /api/v1/store/{store_id} | Get Store
+[**getStoresByVendorApiV1StoreVendorVendorIdGet**](StoreApi.md#getstoresbyvendorapiv1storevendorvendoridget) | **GET** /api/v1/store/vendor/{vendor_id} | Get Stores By Vendor
+[**updateStoreApiV1StoreStoreIdPut**](StoreApi.md#updatestoreapiv1storestoreidput) | **PUT** /api/v1/store/{store_id} | Update Store
 
 
-# **createStoreApiV1StoreStoresPost**
-> StoreModel createStoreApiV1StoreStoresPost(storeModel)
+# **createStoreApiV1StorePost**
+> StoreModel createStoreApiV1StorePost(storeModelBase)
 
 Create Store
 
@@ -30,13 +31,13 @@ Endpoint to create a new store. - Takes StoreModel as input. - Creates and retur
 import 'package:openapi/api.dart';
 
 final api_instance = StoreApi();
-final storeModel = StoreModel(); // StoreModel | 
+final storeModelBase = StoreModelBase(); // StoreModelBase | 
 
 try {
-    final result = api_instance.createStoreApiV1StoreStoresPost(storeModel);
+    final result = api_instance.createStoreApiV1StorePost(storeModelBase);
     print(result);
 } catch (e) {
-    print('Exception when calling StoreApi->createStoreApiV1StoreStoresPost: $e\n');
+    print('Exception when calling StoreApi->createStoreApiV1StorePost: $e\n');
 }
 ```
 
@@ -44,7 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeModel** | [**StoreModel**](StoreModel.md)|  | 
+ **storeModelBase** | [**StoreModelBase**](StoreModelBase.md)|  | 
 
 ### Return type
 
@@ -61,8 +62,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deleteStoreApiV1StoreStoresStoreIdDelete**
-> Object deleteStoreApiV1StoreStoresStoreIdDelete(storeId)
+# **deleteStoreApiV1StoreStoreIdDelete**
+> Object deleteStoreApiV1StoreStoreIdDelete(storeId)
 
 Delete Store
 
@@ -76,10 +77,10 @@ final api_instance = StoreApi();
 final storeId = storeId_example; // String | 
 
 try {
-    final result = api_instance.deleteStoreApiV1StoreStoresStoreIdDelete(storeId);
+    final result = api_instance.deleteStoreApiV1StoreStoreIdDelete(storeId);
     print(result);
 } catch (e) {
-    print('Exception when calling StoreApi->deleteStoreApiV1StoreStoresStoreIdDelete: $e\n');
+    print('Exception when calling StoreApi->deleteStoreApiV1StoreStoreIdDelete: $e\n');
 }
 ```
 
@@ -104,10 +105,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getFirstStoreByVendorApiV1StoreStoresVendorFirstGet**
-> StoreModel getFirstStoreByVendorApiV1StoreStoresVendorFirstGet(vendorId)
+# **getFirstStoreApiV1StoreVendorFirstVendorIdGet**
+> StoreModel getFirstStoreApiV1StoreVendorFirstVendorIdGet(vendorId)
 
-Get First Store By Vendor
+Get First Store
 
 Endpoint to fetch the first store for a specific vendor. - Returns the first store belonging to the given vendor.
 
@@ -119,10 +120,10 @@ final api_instance = StoreApi();
 final vendorId = vendorId_example; // String | 
 
 try {
-    final result = api_instance.getFirstStoreByVendorApiV1StoreStoresVendorFirstGet(vendorId);
+    final result = api_instance.getFirstStoreApiV1StoreVendorFirstVendorIdGet(vendorId);
     print(result);
 } catch (e) {
-    print('Exception when calling StoreApi->getFirstStoreByVendorApiV1StoreStoresVendorFirstGet: $e\n');
+    print('Exception when calling StoreApi->getFirstStoreApiV1StoreVendorFirstVendorIdGet: $e\n');
 }
 ```
 
@@ -147,8 +148,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getNearbyStoresApiV1StoreStoresNearbyGet**
-> List<StoreModel> getNearbyStoresApiV1StoreStoresNearbyGet(lat, lon, radius)
+# **getNearbyStoresApiV1StoreNearbyGet**
+> List<StoreModel> getNearbyStoresApiV1StoreNearbyGet(lat, lon, radius)
 
 Get Nearby Stores
 
@@ -164,10 +165,10 @@ final lon = 8.14; // num |
 final radius = 8.14; // num | 
 
 try {
-    final result = api_instance.getNearbyStoresApiV1StoreStoresNearbyGet(lat, lon, radius);
+    final result = api_instance.getNearbyStoresApiV1StoreNearbyGet(lat, lon, radius);
     print(result);
 } catch (e) {
-    print('Exception when calling StoreApi->getNearbyStoresApiV1StoreStoresNearbyGet: $e\n');
+    print('Exception when calling StoreApi->getNearbyStoresApiV1StoreNearbyGet: $e\n');
 }
 ```
 
@@ -194,8 +195,47 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getStoreApiV1StoreStoresStoreIdGet**
-> StoreModel getStoreApiV1StoreStoresStoreIdGet(storeId)
+# **getNewStoreIdApiV1StoreNewIdGet**
+> IDResponse getNewStoreIdApiV1StoreNewIdGet()
+
+Get New Store Id
+
+Endpoint to generate a new store ID. - Returns a new store ID.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = StoreApi();
+
+try {
+    final result = api_instance.getNewStoreIdApiV1StoreNewIdGet();
+    print(result);
+} catch (e) {
+    print('Exception when calling StoreApi->getNewStoreIdApiV1StoreNewIdGet: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**IDResponse**](IDResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getStoreApiV1StoreStoreIdGet**
+> StoreModel getStoreApiV1StoreStoreIdGet(storeId)
 
 Get Store
 
@@ -209,10 +249,10 @@ final api_instance = StoreApi();
 final storeId = storeId_example; // String | 
 
 try {
-    final result = api_instance.getStoreApiV1StoreStoresStoreIdGet(storeId);
+    final result = api_instance.getStoreApiV1StoreStoreIdGet(storeId);
     print(result);
 } catch (e) {
-    print('Exception when calling StoreApi->getStoreApiV1StoreStoresStoreIdGet: $e\n');
+    print('Exception when calling StoreApi->getStoreApiV1StoreStoreIdGet: $e\n');
 }
 ```
 
@@ -237,8 +277,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getStoresByVendorApiV1StoreStoresVendorVendorIdGet**
-> List<StoreModel> getStoresByVendorApiV1StoreStoresVendorVendorIdGet(vendorId)
+# **getStoresByVendorApiV1StoreVendorVendorIdGet**
+> List<StoreModel> getStoresByVendorApiV1StoreVendorVendorIdGet(vendorId)
 
 Get Stores By Vendor
 
@@ -252,10 +292,10 @@ final api_instance = StoreApi();
 final vendorId = vendorId_example; // String | 
 
 try {
-    final result = api_instance.getStoresByVendorApiV1StoreStoresVendorVendorIdGet(vendorId);
+    final result = api_instance.getStoresByVendorApiV1StoreVendorVendorIdGet(vendorId);
     print(result);
 } catch (e) {
-    print('Exception when calling StoreApi->getStoresByVendorApiV1StoreStoresVendorVendorIdGet: $e\n');
+    print('Exception when calling StoreApi->getStoresByVendorApiV1StoreVendorVendorIdGet: $e\n');
 }
 ```
 
@@ -280,8 +320,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updateStoreApiV1StoreStoresPut**
-> StoreModel updateStoreApiV1StoreStoresPut(storeModel)
+# **updateStoreApiV1StoreStoreIdPut**
+> StoreModel updateStoreApiV1StoreStoreIdPut(storeId, storeModel)
 
 Update Store
 
@@ -292,13 +332,14 @@ Endpoint to update an existing store. - Takes StoreModel as input. - Updates the
 import 'package:openapi/api.dart';
 
 final api_instance = StoreApi();
+final storeId = storeId_example; // String | 
 final storeModel = StoreModel(); // StoreModel | 
 
 try {
-    final result = api_instance.updateStoreApiV1StoreStoresPut(storeModel);
+    final result = api_instance.updateStoreApiV1StoreStoreIdPut(storeId, storeModel);
     print(result);
 } catch (e) {
-    print('Exception when calling StoreApi->updateStoreApiV1StoreStoresPut: $e\n');
+    print('Exception when calling StoreApi->updateStoreApiV1StoreStoreIdPut: $e\n');
 }
 ```
 
@@ -306,6 +347,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **storeId** | **String**|  | 
  **storeModel** | [**StoreModel**](StoreModel.md)|  | 
 
 ### Return type

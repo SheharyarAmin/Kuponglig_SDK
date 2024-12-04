@@ -25,13 +25,27 @@ class StoreStatus {
 
   static const PENDING = StoreStatus._(r'PENDING');
   static const ACTIVE = StoreStatus._(r'ACTIVE');
+  static const SUSPENDED = StoreStatus._(r'SUSPENDED');
   static const INACTIVE = StoreStatus._(r'INACTIVE');
+  static const ARCHIVED = StoreStatus._(r'ARCHIVED');
+  static const DELETED = StoreStatus._(r'DELETED');
+  static const TEMPORARILY_DISABLED = StoreStatus._(r'TEMPORARILY_DISABLED');
+  static const WAITING_APPROVAL = StoreStatus._(r'WAITING_APPROVAL');
+  static const FLAGGED = StoreStatus._(r'FLAGGED');
+  static const BANNED = StoreStatus._(r'BANNED');
 
   /// List of all possible values in this [enum][StoreStatus].
   static const values = <StoreStatus>[
     PENDING,
     ACTIVE,
+    SUSPENDED,
     INACTIVE,
+    ARCHIVED,
+    DELETED,
+    TEMPORARILY_DISABLED,
+    WAITING_APPROVAL,
+    FLAGGED,
+    BANNED,
   ];
 
   static StoreStatus? fromJson(dynamic value) => StoreStatusTypeTransformer().decode(value);
@@ -72,7 +86,14 @@ class StoreStatusTypeTransformer {
       switch (data) {
         case r'PENDING': return StoreStatus.PENDING;
         case r'ACTIVE': return StoreStatus.ACTIVE;
+        case r'SUSPENDED': return StoreStatus.SUSPENDED;
         case r'INACTIVE': return StoreStatus.INACTIVE;
+        case r'ARCHIVED': return StoreStatus.ARCHIVED;
+        case r'DELETED': return StoreStatus.DELETED;
+        case r'TEMPORARILY_DISABLED': return StoreStatus.TEMPORARILY_DISABLED;
+        case r'WAITING_APPROVAL': return StoreStatus.WAITING_APPROVAL;
+        case r'FLAGGED': return StoreStatus.FLAGGED;
+        case r'BANNED': return StoreStatus.BANNED;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

@@ -5,13 +5,14 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://kouponglig-server-1089408962215.europe-west1.run.app*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addOrUpdateCouponEndpointApiV1CouponPost**](CouponApi.md#addorupdatecouponendpointapiv1couponpost) | **POST** /api/v1/coupon/ | Add Or Update Coupon Endpoint
 [**getCouponApiV1CouponCouponIdGet**](CouponApi.md#getcouponapiv1couponcouponidget) | **GET** /api/v1/coupon/{coupon_id} | Get Coupon
 [**getCouponsByStoreApiV1CouponStoreStoreIdGet**](CouponApi.md#getcouponsbystoreapiv1couponstorestoreidget) | **GET** /api/v1/coupon/store/{store_id} | Get Coupons By Store
+[**getTopCouponsApiV1CouponTopCouponsStoreIdGet**](CouponApi.md#gettopcouponsapiv1coupontopcouponsstoreidget) | **GET** /api/v1/coupon/top_coupons/{store_id} | Get Top Coupons
 [**markCouponExpiredApiV1CouponExpireCouponIdPut**](CouponApi.md#markcouponexpiredapiv1couponexpirecouponidput) | **PUT** /api/v1/coupon/expire/{coupon_id} | Mark Coupon Expired
 
 
@@ -120,6 +121,49 @@ try {
     print(result);
 } catch (e) {
     print('Exception when calling CouponApi->getCouponsByStoreApiV1CouponStoreStoreIdGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storeId** | **String**|  | 
+
+### Return type
+
+[**List<CouponModel>**](CouponModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getTopCouponsApiV1CouponTopCouponsStoreIdGet**
+> List<CouponModel> getTopCouponsApiV1CouponTopCouponsStoreIdGet(storeId)
+
+Get Top Coupons
+
+Endpoint to fetch top coupons for a specific store. - Takes store_id as a URL parameter. - Returns a list of top CouponModel objects for the given store.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = CouponApi();
+final storeId = storeId_example; // String | 
+
+try {
+    final result = api_instance.getTopCouponsApiV1CouponTopCouponsStoreIdGet(storeId);
+    print(result);
+} catch (e) {
+    print('Exception when calling CouponApi->getTopCouponsApiV1CouponTopCouponsStoreIdGet: $e\n');
 }
 ```
 

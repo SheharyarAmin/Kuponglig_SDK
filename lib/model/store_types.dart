@@ -23,15 +23,25 @@ class StoreTypes {
 
   String toJson() => value;
 
-  static const RETAIL = StoreTypes._(r'RETAIL');
-  static const ONLINE = StoreTypes._(r'ONLINE');
-  static const WHOLESALE = StoreTypes._(r'WHOLESALE');
+  static const CLOTHING = StoreTypes._(r'CLOTHING');
+  static const GROCERY = StoreTypes._(r'GROCERY');
+  static const ELECTRONICS = StoreTypes._(r'ELECTRONICS');
+  static const FURNITURE = StoreTypes._(r'FURNITURE');
+  static const ACCESSORIES = StoreTypes._(r'ACCESSORIES');
+  static const PHARMACY = StoreTypes._(r'PHARMACY');
+  static const RESTAURANT = StoreTypes._(r'RESTAURANT');
+  static const OTHER = StoreTypes._(r'OTHER');
 
   /// List of all possible values in this [enum][StoreTypes].
   static const values = <StoreTypes>[
-    RETAIL,
-    ONLINE,
-    WHOLESALE,
+    CLOTHING,
+    GROCERY,
+    ELECTRONICS,
+    FURNITURE,
+    ACCESSORIES,
+    PHARMACY,
+    RESTAURANT,
+    OTHER,
   ];
 
   static StoreTypes? fromJson(dynamic value) => StoreTypesTypeTransformer().decode(value);
@@ -70,9 +80,14 @@ class StoreTypesTypeTransformer {
   StoreTypes? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'RETAIL': return StoreTypes.RETAIL;
-        case r'ONLINE': return StoreTypes.ONLINE;
-        case r'WHOLESALE': return StoreTypes.WHOLESALE;
+        case r'CLOTHING': return StoreTypes.CLOTHING;
+        case r'GROCERY': return StoreTypes.GROCERY;
+        case r'ELECTRONICS': return StoreTypes.ELECTRONICS;
+        case r'FURNITURE': return StoreTypes.FURNITURE;
+        case r'ACCESSORIES': return StoreTypes.ACCESSORIES;
+        case r'PHARMACY': return StoreTypes.PHARMACY;
+        case r'RESTAURANT': return StoreTypes.RESTAURANT;
+        case r'OTHER': return StoreTypes.OTHER;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

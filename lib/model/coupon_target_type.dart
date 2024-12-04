@@ -23,16 +23,14 @@ class CouponTargetType {
 
   String toJson() => value;
 
-  static const USER = CouponTargetType._(r'USER');
-  static const STORE = CouponTargetType._(r'STORE');
-  static const CATEGORY = CouponTargetType._(r'CATEGORY');
+  static const SALES = CouponTargetType._(r'SALES');
+  static const CUSTOMER = CouponTargetType._(r'CUSTOMER');
   static const ALL = CouponTargetType._(r'ALL');
 
   /// List of all possible values in this [enum][CouponTargetType].
   static const values = <CouponTargetType>[
-    USER,
-    STORE,
-    CATEGORY,
+    SALES,
+    CUSTOMER,
     ALL,
   ];
 
@@ -72,9 +70,8 @@ class CouponTargetTypeTypeTransformer {
   CouponTargetType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'USER': return CouponTargetType.USER;
-        case r'STORE': return CouponTargetType.STORE;
-        case r'CATEGORY': return CouponTargetType.CATEGORY;
+        case r'SALES': return CouponTargetType.SALES;
+        case r'CUSTOMER': return CouponTargetType.CUSTOMER;
         case r'ALL': return CouponTargetType.ALL;
         default:
           if (!allowNull) {

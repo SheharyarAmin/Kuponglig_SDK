@@ -11,6 +11,7 @@ doc/DefaultApi.md
 doc/Gender.md
 doc/GeoPoint.md
 doc/HTTPValidationError.md
+doc/IDResponse.md
 doc/Interests.md
 doc/Platform.md
 doc/RedeemedCouponsApi.md
@@ -22,6 +23,7 @@ doc/SpinWheelResponse.md
 doc/SpinningWheelReward.md
 doc/StoreApi.md
 doc/StoreModel.md
+doc/StoreModelBase.md
 doc/StoreStatus.md
 doc/StoreTypes.md
 doc/Token.md
@@ -35,6 +37,7 @@ doc/ValidationError.md
 doc/ValidationErrorLocInner.md
 doc/VendorApi.md
 doc/VendorModel.md
+doc/VendorStatus.md
 doc/WonCouponModel.md
 doc/WonCouponsApi.md
 git_push.sh
@@ -64,6 +67,7 @@ lib/model/coupon_target_type.dart
 lib/model/gender.dart
 lib/model/geo_point.dart
 lib/model/http_validation_error.dart
+lib/model/id_response.dart
 lib/model/interests.dart
 lib/model/platform.dart
 lib/model/reward_type.dart
@@ -71,6 +75,7 @@ lib/model/save_coupon_request.dart
 lib/model/spin_wheel_response.dart
 lib/model/spinning_wheel_reward.dart
 lib/model/store_model.dart
+lib/model/store_model_base.dart
 lib/model/store_status.dart
 lib/model/store_types.dart
 lib/model/token.dart
@@ -81,6 +86,9 @@ lib/model/user_status.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 lib/model/vendor_model.dart
+lib/model/vendor_status.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
-test/user_model_from_client_test.dart
+test/id_response_test.dart
+test/store_model_base_test.dart
+test/vendor_status_test.dart

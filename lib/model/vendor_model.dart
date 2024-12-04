@@ -20,7 +20,7 @@ class VendorModel {
     required this.username,
     required this.phone,
     this.phoneVerified = false,
-    this.status = 'PENDING',
+    this.status = VendorStatus.ACTIVE,
     required this.idCardFrontUrl,
     required this.idCardBackUrl,
     required this.createdAt,
@@ -41,7 +41,7 @@ class VendorModel {
 
   bool phoneVerified;
 
-  String status;
+  VendorStatus status;
 
   String idCardFrontUrl;
 
@@ -128,7 +128,7 @@ class VendorModel {
         username: mapValueOfType<String>(json, r'username')!,
         phone: mapValueOfType<String>(json, r'phone')!,
         phoneVerified: mapValueOfType<bool>(json, r'phoneVerified') ?? false,
-        status: mapValueOfType<String>(json, r'status') ?? 'PENDING',
+        status: VendorStatus.fromJson(json[r'status']) ?? VendorStatus.ACTIVE,
         idCardFrontUrl: mapValueOfType<String>(json, r'idCardFrontUrl')!,
         idCardBackUrl: mapValueOfType<String>(json, r'idCardBackUrl')!,
         createdAt: mapValueOfType<String>(json, r'createdAt')!,

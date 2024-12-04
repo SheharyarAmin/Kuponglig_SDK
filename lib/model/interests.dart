@@ -23,23 +23,31 @@ class Interests {
 
   String toJson() => value;
 
-  static const home = Interests._(r'Home');
-  static const fashion = Interests._(r'Fashion');
-  static const electronics = Interests._(r'Electronics');
   static const shopping = Interests._(r'Shopping');
+  static const food = Interests._(r'Food');
+  static const travel = Interests._(r'Travel');
+  static const beauty = Interests._(r'Beauty');
   static const fitness = Interests._(r'Fitness');
+  static const fashion = Interests._(r'Fashion');
+  static const home = Interests._(r'Home');
+  static const health = Interests._(r'Health');
   static const outdoors = Interests._(r'Outdoors');
   static const entertainment = Interests._(r'Entertainment');
+  static const electronics = Interests._(r'Electronics');
 
   /// List of all possible values in this [enum][Interests].
   static const values = <Interests>[
-    home,
-    fashion,
-    electronics,
     shopping,
+    food,
+    travel,
+    beauty,
     fitness,
+    fashion,
+    home,
+    health,
     outdoors,
     entertainment,
+    electronics,
   ];
 
   static Interests? fromJson(dynamic value) => InterestsTypeTransformer().decode(value);
@@ -78,13 +86,17 @@ class InterestsTypeTransformer {
   Interests? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'Home': return Interests.home;
-        case r'Fashion': return Interests.fashion;
-        case r'Electronics': return Interests.electronics;
         case r'Shopping': return Interests.shopping;
+        case r'Food': return Interests.food;
+        case r'Travel': return Interests.travel;
+        case r'Beauty': return Interests.beauty;
         case r'Fitness': return Interests.fitness;
+        case r'Fashion': return Interests.fashion;
+        case r'Home': return Interests.home;
+        case r'Health': return Interests.health;
         case r'Outdoors': return Interests.outdoors;
         case r'Entertainment': return Interests.entertainment;
+        case r'Electronics': return Interests.electronics;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

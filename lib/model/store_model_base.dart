@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class StoreModel {
-  /// Returns a new [StoreModel] instance.
-  StoreModel({
+class StoreModelBase {
+  /// Returns a new [StoreModelBase] instance.
+  StoreModelBase({
     required this.id,
     required this.name,
     required this.address,
@@ -32,10 +32,6 @@ class StoreModel {
     this.youtube,
     this.imagesURLs = const [],
     required this.coordinates,
-    required this.qrId,
-    required this.geohash,
-    required this.createdAt,
-    required this.updatedAt,
   });
 
   String id;
@@ -76,16 +72,8 @@ class StoreModel {
 
   GeoPoint coordinates;
 
-  String qrId;
-
-  String geohash;
-
-  String createdAt;
-
-  String updatedAt;
-
   @override
-  bool operator ==(Object other) => identical(this, other) || other is StoreModel &&
+  bool operator ==(Object other) => identical(this, other) || other is StoreModelBase &&
     other.id == id &&
     other.name == name &&
     other.address == address &&
@@ -104,11 +92,7 @@ class StoreModel {
     other.instagram == instagram &&
     other.youtube == youtube &&
     _deepEquality.equals(other.imagesURLs, imagesURLs) &&
-    other.coordinates == coordinates &&
-    other.qrId == qrId &&
-    other.geohash == geohash &&
-    other.createdAt == createdAt &&
-    other.updatedAt == updatedAt;
+    other.coordinates == coordinates;
 
   @override
   int get hashCode =>
@@ -131,14 +115,10 @@ class StoreModel {
     (instagram == null ? 0 : instagram!.hashCode) +
     (youtube == null ? 0 : youtube!.hashCode) +
     (imagesURLs.hashCode) +
-    (coordinates.hashCode) +
-    (qrId.hashCode) +
-    (geohash.hashCode) +
-    (createdAt.hashCode) +
-    (updatedAt.hashCode);
+    (coordinates.hashCode);
 
   @override
-  String toString() => 'StoreModel[id=$id, name=$name, address=$address, phone=$phone, email=$email, type=$type, status=$status, vendorId=$vendorId, logoUrl=$logoUrl, organizationNumber=$organizationNumber, organizationBranchNumber=$organizationBranchNumber, bannerUrl=$bannerUrl, description=$description, website=$website, facebook=$facebook, instagram=$instagram, youtube=$youtube, imagesURLs=$imagesURLs, coordinates=$coordinates, qrId=$qrId, geohash=$geohash, createdAt=$createdAt, updatedAt=$updatedAt]';
+  String toString() => 'StoreModelBase[id=$id, name=$name, address=$address, phone=$phone, email=$email, type=$type, status=$status, vendorId=$vendorId, logoUrl=$logoUrl, organizationNumber=$organizationNumber, organizationBranchNumber=$organizationBranchNumber, bannerUrl=$bannerUrl, description=$description, website=$website, facebook=$facebook, instagram=$instagram, youtube=$youtube, imagesURLs=$imagesURLs, coordinates=$coordinates]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -181,17 +161,13 @@ class StoreModel {
     }
       json[r'imagesURLs'] = this.imagesURLs;
       json[r'coordinates'] = this.coordinates;
-      json[r'qrId'] = this.qrId;
-      json[r'geohash'] = this.geohash;
-      json[r'createdAt'] = this.createdAt;
-      json[r'updatedAt'] = this.updatedAt;
     return json;
   }
 
-  /// Returns a new [StoreModel] instance and imports its values from
+  /// Returns a new [StoreModelBase] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static StoreModel? fromJson(dynamic value) {
+  static StoreModelBase? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -200,13 +176,13 @@ class StoreModel {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "StoreModel[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "StoreModel[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "StoreModelBase[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "StoreModelBase[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return StoreModel(
+      return StoreModelBase(
         id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         address: mapValueOfType<String>(json, r'address')!,
@@ -228,20 +204,16 @@ class StoreModel {
             ? (json[r'imagesURLs'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         coordinates: GeoPoint.fromJson(json[r'coordinates'])!,
-        qrId: mapValueOfType<String>(json, r'qrId')!,
-        geohash: mapValueOfType<String>(json, r'geohash')!,
-        createdAt: mapValueOfType<String>(json, r'createdAt')!,
-        updatedAt: mapValueOfType<String>(json, r'updatedAt')!,
       );
     }
     return null;
   }
 
-  static List<StoreModel> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <StoreModel>[];
+  static List<StoreModelBase> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <StoreModelBase>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = StoreModel.fromJson(row);
+        final value = StoreModelBase.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -250,12 +222,12 @@ class StoreModel {
     return result.toList(growable: growable);
   }
 
-  static Map<String, StoreModel> mapFromJson(dynamic json) {
-    final map = <String, StoreModel>{};
+  static Map<String, StoreModelBase> mapFromJson(dynamic json) {
+    final map = <String, StoreModelBase>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = StoreModel.fromJson(entry.value);
+        final value = StoreModelBase.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -264,14 +236,14 @@ class StoreModel {
     return map;
   }
 
-  // maps a json object with a list of StoreModel-objects as value to a dart map
-  static Map<String, List<StoreModel>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<StoreModel>>{};
+  // maps a json object with a list of StoreModelBase-objects as value to a dart map
+  static Map<String, List<StoreModelBase>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<StoreModelBase>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = StoreModel.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = StoreModelBase.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -291,10 +263,6 @@ class StoreModel {
     'organizationBranchNumber',
     'description',
     'coordinates',
-    'qrId',
-    'geohash',
-    'createdAt',
-    'updatedAt',
   };
 }
 

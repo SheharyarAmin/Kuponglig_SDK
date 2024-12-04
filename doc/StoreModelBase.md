@@ -1,4 +1,4 @@
-# openapi.model.StoreModel
+# openapi.model.StoreModelBase
 
 ## Load the model package
 ```dart
@@ -27,10 +27,6 @@ Name | Type | Description | Notes
 **youtube** | **String** |  | [optional] 
 **imagesURLs** | **List<String>** |  | [optional] [default to const []]
 **coordinates** | [**GeoPoint**](GeoPoint.md) |  | 
-**qrId** | **String** |  | 
-**geohash** | **String** |  | 
-**createdAt** | **String** |  | 
-**updatedAt** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

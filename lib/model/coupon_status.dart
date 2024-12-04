@@ -25,15 +25,15 @@ class CouponStatus {
 
   static const ACTIVE = CouponStatus._(r'ACTIVE');
   static const EXPIRED = CouponStatus._(r'EXPIRED');
-  static const REDEEMED = CouponStatus._(r'REDEEMED');
-  static const PENDING = CouponStatus._(r'PENDING');
+  static const DELETED = CouponStatus._(r'DELETED');
+  static const INACTIVE = CouponStatus._(r'INACTIVE');
 
   /// List of all possible values in this [enum][CouponStatus].
   static const values = <CouponStatus>[
     ACTIVE,
     EXPIRED,
-    REDEEMED,
-    PENDING,
+    DELETED,
+    INACTIVE,
   ];
 
   static CouponStatus? fromJson(dynamic value) => CouponStatusTypeTransformer().decode(value);
@@ -74,8 +74,8 @@ class CouponStatusTypeTransformer {
       switch (data) {
         case r'ACTIVE': return CouponStatus.ACTIVE;
         case r'EXPIRED': return CouponStatus.EXPIRED;
-        case r'REDEEMED': return CouponStatus.REDEEMED;
-        case r'PENDING': return CouponStatus.PENDING;
+        case r'DELETED': return CouponStatus.DELETED;
+        case r'INACTIVE': return CouponStatus.INACTIVE;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
