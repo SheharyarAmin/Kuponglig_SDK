@@ -5,7 +5,7 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://kouponglig-server-1089408962215.europe-west1.run.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

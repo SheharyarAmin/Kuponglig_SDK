@@ -57,6 +57,7 @@ part 'model/store_status.dart';
 part 'model/store_types.dart';
 part 'model/token.dart';
 part 'model/user_model.dart';
+part 'model/user_model_from_client.dart';
 part 'model/user_points_transaction_model.dart';
 part 'model/user_status.dart';
 part 'model/validation_error.dart';

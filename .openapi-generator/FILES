@@ -27,6 +27,7 @@ doc/StoreTypes.md
 doc/Token.md
 doc/UserApi.md
 doc/UserModel.md
+doc/UserModelFromClient.md
 doc/UserPointsApi.md
 doc/UserPointsTransactionModel.md
 doc/UserStatus.md
@@ -74,6 +75,7 @@ lib/model/store_status.dart
 lib/model/store_types.dart
 lib/model/token.dart
 lib/model/user_model.dart
+lib/model/user_model_from_client.dart
 lib/model/user_points_transaction_model.dart
 lib/model/user_status.dart
 lib/model/validation_error.dart
@@ -81,4 +83,4 @@ lib/model/validation_error_loc_inner.dart
 lib/model/vendor_model.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
-test/spinning_wheel_reward_test.dart
+test/user_model_from_client_test.dart

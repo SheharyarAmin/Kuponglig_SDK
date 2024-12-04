@@ -24,13 +24,13 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [UserModel] userModel (required):
-  Future<Response> createUserApiV1UserPostWithHttpInfo(UserModel userModel,) async {
+  /// * [UserModelFromClient] userModelFromClient (required):
+  Future<Response> createUserApiV1UserPostWithHttpInfo(UserModelFromClient userModelFromClient,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/user/';
 
     // ignore: prefer_final_locals
-    Object? postBody = userModel;
+    Object? postBody = userModelFromClient;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -56,9 +56,9 @@ class UserApi {
   ///
   /// Parameters:
   ///
-  /// * [UserModel] userModel (required):
-  Future<UserModel?> createUserApiV1UserPost(UserModel userModel,) async {
-    final response = await createUserApiV1UserPostWithHttpInfo(userModel,);
+  /// * [UserModelFromClient] userModelFromClient (required):
+  Future<UserModelFromClient?> createUserApiV1UserPost(UserModelFromClient userModelFromClient,) async {
+    final response = await createUserApiV1UserPostWithHttpInfo(userModelFromClient,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -66,7 +66,7 @@ class UserApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserModel',) as UserModel;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserModelFromClient',) as UserModelFromClient;
     
     }
     return null;

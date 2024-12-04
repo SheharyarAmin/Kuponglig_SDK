@@ -5,7 +5,7 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://kouponglig-server-1089408962215.europe-west1.run.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **createUserApiV1UserPost**
-> UserModel createUserApiV1UserPost(userModel)
+> UserModelFromClient createUserApiV1UserPost(userModelFromClient)
 
 Create User
 
@@ -31,10 +31,10 @@ Endpoint to create a new user.
 import 'package:openapi/api.dart';
 
 final api_instance = UserApi();
-final userModel = UserModel(); // UserModel | 
+final userModelFromClient = UserModelFromClient(); // UserModelFromClient | 
 
 try {
-    final result = api_instance.createUserApiV1UserPost(userModel);
+    final result = api_instance.createUserApiV1UserPost(userModelFromClient);
     print(result);
 } catch (e) {
     print('Exception when calling UserApi->createUserApiV1UserPost: $e\n');
@@ -45,11 +45,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userModel** | [**UserModel**](UserModel.md)|  | 
+ **userModelFromClient** | [**UserModelFromClient**](UserModelFromClient.md)|  | 
 
 ### Return type
 
-[**UserModel**](UserModel.md)
+[**UserModelFromClient**](UserModelFromClient.md)
 
 ### Authorization
 

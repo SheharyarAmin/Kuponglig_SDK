@@ -25,27 +25,26 @@ class SpinningWheelReward {
   String rewardValue;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is SpinningWheelReward &&
-          other.userId == userId &&
-          other.rewardType == rewardType &&
-          other.rewardValue == rewardValue;
+  bool operator ==(Object other) => identical(this, other) || other is SpinningWheelReward &&
+    other.userId == userId &&
+    other.rewardType == rewardType &&
+    other.rewardValue == rewardValue;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (userId.hashCode) + (rewardType.hashCode) + (rewardValue.hashCode);
+    // ignore: unnecessary_parenthesis
+    (userId.hashCode) +
+    (rewardType.hashCode) +
+    (rewardValue.hashCode);
 
   @override
-  String toString() =>
-      'SpinningWheelReward[userId=$userId, rewardType=$rewardType, rewardValue=$rewardValue]';
+  String toString() => 'SpinningWheelReward[userId=$userId, rewardType=$rewardType, rewardValue=$rewardValue]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'user_id'] = this.userId;
-    json[r'reward_type'] = this.rewardType;
-    json[r'reward_value'] = this.rewardValue;
+      json[r'user_id'] = this.userId;
+      json[r'reward_type'] = this.rewardType;
+      json[r'reward_value'] = this.rewardValue;
     return json;
   }
 
@@ -61,10 +60,8 @@ class SpinningWheelReward {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "SpinningWheelReward[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "SpinningWheelReward[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "SpinningWheelReward[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "SpinningWheelReward[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -78,10 +75,7 @@ class SpinningWheelReward {
     return null;
   }
 
-  static List<SpinningWheelReward> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<SpinningWheelReward> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <SpinningWheelReward>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -109,19 +103,13 @@ class SpinningWheelReward {
   }
 
   // maps a json object with a list of SpinningWheelReward-objects as value to a dart map
-  static Map<String, List<SpinningWheelReward>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<SpinningWheelReward>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<SpinningWheelReward>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = SpinningWheelReward.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = SpinningWheelReward.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -134,3 +122,4 @@ class SpinningWheelReward {
     'reward_value',
   };
 }
+
