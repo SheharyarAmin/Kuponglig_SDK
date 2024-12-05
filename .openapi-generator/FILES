@@ -5,6 +5,8 @@ analysis_options.yaml
 doc/AuthenticationToken.md
 doc/CouponApi.md
 doc/CouponModel.md
+doc/CouponRedemptionResponse.md
+doc/CouponRedemptionStatus.md
 doc/CouponStatus.md
 doc/CouponTargetType.md
 doc/DefaultApi.md
@@ -63,6 +65,8 @@ lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
 lib/model/authentication_token.dart
 lib/model/coupon_model.dart
+lib/model/coupon_redemption_response.dart
+lib/model/coupon_redemption_status.dart
 lib/model/coupon_status.dart
 lib/model/coupon_target_type.dart
 lib/model/gender.dart
@@ -91,4 +95,5 @@ lib/model/vendor_model.dart
 lib/model/vendor_status.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
-test/store_stats_model_test.dart
+test/coupon_redemption_response_test.dart
+test/coupon_redemption_status_test.dart

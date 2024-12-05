@@ -286,7 +286,7 @@ class UserApi {
   /// * [String] couponId (required):
   ///
   /// * [String] userId (required):
-  Future<Object?> redeemCouponByCodeApiV1RedeemedCouponsRedeemPost(String qrId, String couponId, String userId,) async {
+  Future<CouponRedemptionResponse?> redeemCouponByCodeApiV1RedeemedCouponsRedeemPost(String qrId, String couponId, String userId,) async {
     final response = await redeemCouponByCodeApiV1RedeemedCouponsRedeemPostWithHttpInfo(qrId, couponId, userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -295,7 +295,7 @@ class UserApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CouponRedemptionResponse',) as CouponRedemptionResponse;
     
     }
     return null;

@@ -190,6 +190,10 @@ class ApiClient {
           return AuthenticationToken.fromJson(value);
         case 'CouponModel':
           return CouponModel.fromJson(value);
+        case 'CouponRedemptionResponse':
+          return CouponRedemptionResponse.fromJson(value);
+        case 'CouponRedemptionStatus':
+          return CouponRedemptionStatusTypeTransformer().decode(value);
         case 'CouponStatus':
           return CouponStatusTypeTransformer().decode(value);
         case 'CouponTargetType':

@@ -1,4 +1,4 @@
-# openapi.model.SpinningWheelReward
+# openapi.model.CouponRedemptionResponse
 
 ## Load the model package
 ```dart
@@ -8,10 +8,9 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **String** |  | 
-**title** | **String** |  | 
-**rewardType** | [**RewardType**](RewardType.md) |  | 
-**rewardValue** | **String** |  | 
+**message** | **String** |  | 
+**redeemed** | **bool** |  | 
+**status** | [**CouponRedemptionStatus**](CouponRedemptionStatus.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

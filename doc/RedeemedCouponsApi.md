@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **redeemCouponByCodeApiV1RedeemedCouponsRedeemPost**
-> Object redeemCouponByCodeApiV1RedeemedCouponsRedeemPost(qrId, couponId, userId)
+> CouponRedemptionResponse redeemCouponByCodeApiV1RedeemedCouponsRedeemPost(qrId, couponId, userId)
 
 Redeem Coupon By Code
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**CouponRedemptionResponse**](CouponRedemptionResponse.md)
 
 ### Authorization
 

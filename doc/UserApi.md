@@ -188,7 +188,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **redeemCouponByCodeApiV1RedeemedCouponsRedeemPost**
-> Object redeemCouponByCodeApiV1RedeemedCouponsRedeemPost(qrId, couponId, userId)
+> CouponRedemptionResponse redeemCouponByCodeApiV1RedeemedCouponsRedeemPost(qrId, couponId, userId)
 
 Redeem Coupon By Code
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**CouponRedemptionResponse**](CouponRedemptionResponse.md)
 
 ### Authorization
 

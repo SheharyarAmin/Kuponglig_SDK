@@ -14,11 +14,14 @@ class SpinningWheelReward {
   /// Returns a new [SpinningWheelReward] instance.
   SpinningWheelReward({
     required this.userId,
+    required this.title,
     required this.rewardType,
     required this.rewardValue,
   });
 
   String userId;
+
+  String title;
 
   RewardType rewardType;
 
@@ -27,6 +30,7 @@ class SpinningWheelReward {
   @override
   bool operator ==(Object other) => identical(this, other) || other is SpinningWheelReward &&
     other.userId == userId &&
+    other.title == title &&
     other.rewardType == rewardType &&
     other.rewardValue == rewardValue;
 
@@ -34,15 +38,17 @@ class SpinningWheelReward {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (userId.hashCode) +
+    (title.hashCode) +
     (rewardType.hashCode) +
     (rewardValue.hashCode);
 
   @override
-  String toString() => 'SpinningWheelReward[userId=$userId, rewardType=$rewardType, rewardValue=$rewardValue]';
+  String toString() => 'SpinningWheelReward[userId=$userId, title=$title, rewardType=$rewardType, rewardValue=$rewardValue]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'user_id'] = this.userId;
+      json[r'title'] = this.title;
       json[r'reward_type'] = this.rewardType;
       json[r'reward_value'] = this.rewardValue;
     return json;
@@ -68,6 +74,7 @@ class SpinningWheelReward {
 
       return SpinningWheelReward(
         userId: mapValueOfType<String>(json, r'user_id')!,
+        title: mapValueOfType<String>(json, r'title')!,
         rewardType: RewardType.fromJson(json[r'reward_type'])!,
         rewardValue: mapValueOfType<String>(json, r'reward_value')!,
       );
@@ -118,6 +125,7 @@ class SpinningWheelReward {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'user_id',
+    'title',
     'reward_type',
     'reward_value',
   };

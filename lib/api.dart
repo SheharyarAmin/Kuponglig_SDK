@@ -41,6 +41,8 @@ part 'api/won_coupons_api.dart';
 
 part 'model/authentication_token.dart';
 part 'model/coupon_model.dart';
+part 'model/coupon_redemption_response.dart';
+part 'model/coupon_redemption_status.dart';
 part 'model/coupon_status.dart';
 part 'model/coupon_target_type.dart';
 part 'model/gender.dart';

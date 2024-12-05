@@ -107,6 +107,8 @@ Class | Method | HTTP request | Description
 
  - [AuthenticationToken](doc//AuthenticationToken.md)
  - [CouponModel](doc//CouponModel.md)
+ - [CouponRedemptionResponse](doc//CouponRedemptionResponse.md)
+ - [CouponRedemptionStatus](doc//CouponRedemptionStatus.md)
  - [CouponStatus](doc//CouponStatus.md)
  - [CouponTargetType](doc//CouponTargetType.md)
  - [Gender](doc//Gender.md)
