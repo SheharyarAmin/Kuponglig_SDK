@@ -123,6 +123,7 @@ Class | Method | HTTP request | Description
  - [Platform](doc//Platform.md)
  - [RewardType](doc//RewardType.md)
  - [SaveCouponRequest](doc//SaveCouponRequest.md)
+ - [SessionResponse](doc//SessionResponse.md)
  - [SpinWheelResponse](doc//SpinWheelResponse.md)
  - [SpinningWheelReward](doc//SpinningWheelReward.md)
  - [StoreModel](doc//StoreModel.md)

@@ -56,6 +56,7 @@ part 'model/interests.dart';
 part 'model/platform.dart';
 part 'model/reward_type.dart';
 part 'model/save_coupon_request.dart';
+part 'model/session_response.dart';
 part 'model/spin_wheel_response.dart';
 part 'model/spinning_wheel_reward.dart';
 part 'model/store_model.dart';

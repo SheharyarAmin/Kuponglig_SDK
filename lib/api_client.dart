@@ -216,6 +216,8 @@ class ApiClient {
           return RewardTypeTypeTransformer().decode(value);
         case 'SaveCouponRequest':
           return SaveCouponRequest.fromJson(value);
+        case 'SessionResponse':
+          return SessionResponse.fromJson(value);
         case 'SpinWheelResponse':
           return SpinWheelResponse.fromJson(value);
         case 'SpinningWheelReward':

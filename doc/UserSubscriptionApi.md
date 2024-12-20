@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **createUserCheckoutSessionApiV1UserSubscriptionCreateCheckoutSessionPost**
-> Object createUserCheckoutSessionApiV1UserSubscriptionCreateCheckoutSessionPost(createUserSubscriptionSession)
+> SessionResponse createUserCheckoutSessionApiV1UserSubscriptionCreateCheckoutSessionPost(createUserSubscriptionSession)
 
 Create User Checkout Session
 
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**SessionResponse**](SessionResponse.md)
 
 ### Authorization
 

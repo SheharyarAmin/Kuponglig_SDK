@@ -21,6 +21,7 @@ doc/RedeemedCouponsApi.md
 doc/RewardType.md
 doc/SaveCouponRequest.md
 doc/SavedCouponsApi.md
+doc/SessionResponse.md
 doc/SpinWheelApi.md
 doc/SpinWheelResponse.md
 doc/SpinningWheelReward.md
@@ -84,6 +85,7 @@ lib/model/interests.dart
 lib/model/platform.dart
 lib/model/reward_type.dart
 lib/model/save_coupon_request.dart
+lib/model/session_response.dart
 lib/model/spin_wheel_response.dart
 lib/model/spinning_wheel_reward.dart
 lib/model/store_model.dart
@@ -103,4 +105,4 @@ lib/model/vendor_model.dart
 lib/model/vendor_status.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
-test/user_subscription_model_test.dart
+test/session_response_test.dart
