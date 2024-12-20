@@ -38,6 +38,7 @@ doc/UserPointsApi.md
 doc/UserPointsTransactionModel.md
 doc/UserStatus.md
 doc/UserSubscriptionApi.md
+doc/UserSubscriptionModel.md
 doc/ValidationError.md
 doc/ValidationErrorLocInner.md
 doc/VendorApi.md
@@ -95,12 +96,11 @@ lib/model/user_model.dart
 lib/model/user_model_from_client.dart
 lib/model/user_points_transaction_model.dart
 lib/model/user_status.dart
+lib/model/user_subscription_model.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 lib/model/vendor_model.dart
 lib/model/vendor_status.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
-test/create_user_subscription_session_test.dart
-test/user_subscription_api_test.dart
-test/webhook_api_test.dart
+test/user_subscription_model_test.dart

@@ -240,6 +240,8 @@ class ApiClient {
           return UserPointsTransactionModel.fromJson(value);
         case 'UserStatus':
           return UserStatusTypeTransformer().decode(value);
+        case 'UserSubscriptionModel':
+          return UserSubscriptionModel.fromJson(value);
         case 'ValidationError':
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':

@@ -106,7 +106,7 @@ class UserSubscriptionApi {
   /// Parameters:
   ///
   /// * [String] userId (required):
-  Future<Object?> getUserSubscriptionStatusApiV1UserSubscriptionStatusUserIdGet(String userId,) async {
+  Future<UserSubscriptionModel?> getUserSubscriptionStatusApiV1UserSubscriptionStatusUserIdGet(String userId,) async {
     final response = await getUserSubscriptionStatusApiV1UserSubscriptionStatusUserIdGetWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -115,7 +115,7 @@ class UserSubscriptionApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserSubscriptionModel',) as UserSubscriptionModel;
     
     }
     return null;

@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
  - [UserModelFromClient](doc//UserModelFromClient.md)
  - [UserPointsTransactionModel](doc//UserPointsTransactionModel.md)
  - [UserStatus](doc//UserStatus.md)
+ - [UserSubscriptionModel](doc//UserSubscriptionModel.md)
  - [ValidationError](doc//ValidationError.md)
  - [ValidationErrorLocInner](doc//ValidationErrorLocInner.md)
  - [VendorModel](doc//VendorModel.md)
