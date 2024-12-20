@@ -94,11 +94,14 @@ Class | Method | HTTP request | Description
 *UserPointsApi* | [**deductPointsApiV1UserPointsDeductPost**](doc//UserPointsApi.md#deductpointsapiv1userpointsdeductpost) | **POST** /api/v1/user_points/deduct | Deduct Points
 *UserPointsApi* | [**getPointsBalanceApiV1UserPointsBalanceUserIdGet**](doc//UserPointsApi.md#getpointsbalanceapiv1userpointsbalanceuseridget) | **GET** /api/v1/user_points/balance/{user_id} | Get Points Balance
 *UserPointsApi* | [**getPointsTransactionsApiV1UserPointsTransactionsUserIdGet**](doc//UserPointsApi.md#getpointstransactionsapiv1userpointstransactionsuseridget) | **GET** /api/v1/user_points/transactions/{user_id} | Get Points Transactions
+*UserSubscriptionApi* | [**createUserCheckoutSessionApiV1UserSubscriptionCreateCheckoutSessionPost**](doc//UserSubscriptionApi.md#createusercheckoutsessionapiv1usersubscriptioncreatecheckoutsessionpost) | **POST** /api/v1/user/subscription/create-checkout-session | Create User Checkout Session
+*UserSubscriptionApi* | [**getUserSubscriptionStatusApiV1UserSubscriptionStatusUserIdGet**](doc//UserSubscriptionApi.md#getusersubscriptionstatusapiv1usersubscriptionstatususeridget) | **GET** /api/v1/user/subscription/status/{user_id} | Get User Subscription Status
 *VendorApi* | [**deleteVendorApiV1VendorVendorsVendorIdDelete**](doc//VendorApi.md#deletevendorapiv1vendorvendorsvendoriddelete) | **DELETE** /api/v1/vendor/vendors/{vendor_id} | Delete Vendor
 *VendorApi* | [**getVendorApiV1VendorVendorsVendorIdGet**](doc//VendorApi.md#getvendorapiv1vendorvendorsvendoridget) | **GET** /api/v1/vendor/vendors/{vendor_id} | Get Vendor
 *VendorApi* | [**saveVendorApiV1VendorVendorsPost**](doc//VendorApi.md#savevendorapiv1vendorvendorspost) | **POST** /api/v1/vendor/vendors | Save Vendor
 *VendorApi* | [**updateVendorApiV1VendorVendorsVendorIdPut**](doc//VendorApi.md#updatevendorapiv1vendorvendorsvendoridput) | **PUT** /api/v1/vendor/vendors/{vendor_id} | Update Vendor
 *VendorApi* | [**uploadVendorIdCardApiV1VendorVendorsVendorIdUploadIdCardPost**](doc//VendorApi.md#uploadvendoridcardapiv1vendorvendorsvendoriduploadidcardpost) | **POST** /api/v1/vendor/vendors/{vendor_id}/upload-id-card | Upload Vendor Id Card
+*WebhookApi* | [**stripeWebhookApiV1StripeWebhookPost**](doc//WebhookApi.md#stripewebhookapiv1stripewebhookpost) | **POST** /api/v1/stripe/webhook | Stripe Webhook
 *WonCouponsApi* | [**deleteWonCouponApiV1WonCouponsUserIdCouponIdDelete**](doc//WonCouponsApi.md#deletewoncouponapiv1woncouponsuseridcouponiddelete) | **DELETE** /api/v1/won_coupons/{user_id}/{coupon_id} | Delete Won Coupon
 *WonCouponsApi* | [**getWonCouponsApiV1WonCouponsUserIdGet**](doc//WonCouponsApi.md#getwoncouponsapiv1woncouponsuseridget) | **GET** /api/v1/won_coupons/{user_id} | Get Won Coupons
 
@@ -111,6 +114,7 @@ Class | Method | HTTP request | Description
  - [CouponRedemptionStatus](doc//CouponRedemptionStatus.md)
  - [CouponStatus](doc//CouponStatus.md)
  - [CouponTargetType](doc//CouponTargetType.md)
+ - [CreateUserSubscriptionSession](doc//CreateUserSubscriptionSession.md)
  - [Gender](doc//Gender.md)
  - [GeoPoint](doc//GeoPoint.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)

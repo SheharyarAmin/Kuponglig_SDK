@@ -36,7 +36,9 @@ part 'api/spin_wheel_api.dart';
 part 'api/store_api.dart';
 part 'api/user_api.dart';
 part 'api/user_points_api.dart';
+part 'api/user_subscription_api.dart';
 part 'api/vendor_api.dart';
+part 'api/webhook_api.dart';
 part 'api/won_coupons_api.dart';
 
 part 'model/authentication_token.dart';
@@ -45,6 +47,7 @@ part 'model/coupon_redemption_response.dart';
 part 'model/coupon_redemption_status.dart';
 part 'model/coupon_status.dart';
 part 'model/coupon_target_type.dart';
+part 'model/create_user_subscription_session.dart';
 part 'model/gender.dart';
 part 'model/geo_point.dart';
 part 'model/http_validation_error.dart';

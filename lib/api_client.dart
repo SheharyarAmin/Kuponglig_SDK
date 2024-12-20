@@ -198,6 +198,8 @@ class ApiClient {
           return CouponStatusTypeTransformer().decode(value);
         case 'CouponTargetType':
           return CouponTargetTypeTypeTransformer().decode(value);
+        case 'CreateUserSubscriptionSession':
+          return CreateUserSubscriptionSession.fromJson(value);
         case 'Gender':
           return GenderTypeTransformer().decode(value);
         case 'GeoPoint':
