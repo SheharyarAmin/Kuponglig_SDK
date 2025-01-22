@@ -9,13 +9,13 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **userId** | **String** |  | 
-**stripeCustomerId** | **String** |  | [optional] 
+**stripeCustomerId** | **String** |  | 
 **subscriptionId** | **String** |  | [optional] 
-**subscriptionStatus** | **String** |  | [optional] [default to 'inactive']
-**subscriptionPlan** | **String** |  | [optional] 
+**subscriptionStatus** | **String** |  | [optional] [default to 'unpaid']
+**currentPeriodStart** | [**DateTime**](DateTime.md) |  | [optional] 
 **currentPeriodEnd** | [**DateTime**](DateTime.md) |  | [optional] 
+**lastPayment** | [**DateTime**](DateTime.md) |  | [optional] 
 **trialEnd** | [**DateTime**](DateTime.md) |  | [optional] 
-**productId** | **String** |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] 
 

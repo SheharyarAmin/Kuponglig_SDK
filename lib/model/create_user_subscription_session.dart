@@ -15,36 +15,52 @@ class CreateUserSubscriptionSession {
   CreateUserSubscriptionSession({
     required this.userId,
     required this.email,
+    required this.name,
     required this.priceId,
+    this.setupIntentId,
   });
 
   String userId;
 
   String email;
 
+  String name;
+
   String priceId;
+
+  String? setupIntentId;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CreateUserSubscriptionSession &&
     other.userId == userId &&
     other.email == email &&
-    other.priceId == priceId;
+    other.name == name &&
+    other.priceId == priceId &&
+    other.setupIntentId == setupIntentId;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (userId.hashCode) +
     (email.hashCode) +
-    (priceId.hashCode);
+    (name.hashCode) +
+    (priceId.hashCode) +
+    (setupIntentId == null ? 0 : setupIntentId!.hashCode);
 
   @override
-  String toString() => 'CreateUserSubscriptionSession[userId=$userId, email=$email, priceId=$priceId]';
+  String toString() => 'CreateUserSubscriptionSession[userId=$userId, email=$email, name=$name, priceId=$priceId, setupIntentId=$setupIntentId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'user_id'] = this.userId;
       json[r'email'] = this.email;
+      json[r'name'] = this.name;
       json[r'price_id'] = this.priceId;
+    if (this.setupIntentId != null) {
+      json[r'setup_intent_id'] = this.setupIntentId;
+    } else {
+      json[r'setup_intent_id'] = null;
+    }
     return json;
   }
 
@@ -69,7 +85,9 @@ class CreateUserSubscriptionSession {
       return CreateUserSubscriptionSession(
         userId: mapValueOfType<String>(json, r'user_id')!,
         email: mapValueOfType<String>(json, r'email')!,
+        name: mapValueOfType<String>(json, r'name')!,
         priceId: mapValueOfType<String>(json, r'price_id')!,
+        setupIntentId: mapValueOfType<String>(json, r'setup_intent_id'),
       );
     }
     return null;
@@ -119,6 +137,7 @@ class CreateUserSubscriptionSession {
   static const requiredKeys = <String>{
     'user_id',
     'email',
+    'name',
     'price_id',
   };
 }

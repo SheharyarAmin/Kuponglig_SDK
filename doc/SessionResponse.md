@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **customerid** | **String** |  | 
 **ephemeralKey** | **String** |  | 
 **clientSecret** | **String** |  | 
+**setupIntent** | **bool** |  | [optional] [default to false]
+**trial** | **bool** |  | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

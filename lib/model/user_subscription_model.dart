@@ -14,32 +14,32 @@ class UserSubscriptionModel {
   /// Returns a new [UserSubscriptionModel] instance.
   UserSubscriptionModel({
     required this.userId,
-    this.stripeCustomerId,
+    required this.stripeCustomerId,
     this.subscriptionId,
-    this.subscriptionStatus = 'inactive',
-    this.subscriptionPlan,
+    this.subscriptionStatus = 'unpaid',
+    this.currentPeriodStart,
     this.currentPeriodEnd,
+    this.lastPayment,
     this.trialEnd,
-    this.productId,
     this.createdAt,
     this.updatedAt,
   });
 
   String userId;
 
-  String? stripeCustomerId;
+  String stripeCustomerId;
 
   String? subscriptionId;
 
   String subscriptionStatus;
 
-  String? subscriptionPlan;
+  DateTime? currentPeriodStart;
 
   DateTime? currentPeriodEnd;
 
-  DateTime? trialEnd;
+  DateTime? lastPayment;
 
-  String? productId;
+  DateTime? trialEnd;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -63,10 +63,10 @@ class UserSubscriptionModel {
     other.stripeCustomerId == stripeCustomerId &&
     other.subscriptionId == subscriptionId &&
     other.subscriptionStatus == subscriptionStatus &&
-    other.subscriptionPlan == subscriptionPlan &&
+    other.currentPeriodStart == currentPeriodStart &&
     other.currentPeriodEnd == currentPeriodEnd &&
+    other.lastPayment == lastPayment &&
     other.trialEnd == trialEnd &&
-    other.productId == productId &&
     other.createdAt == createdAt &&
     other.updatedAt == updatedAt;
 
@@ -74,52 +74,48 @@ class UserSubscriptionModel {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (userId.hashCode) +
-    (stripeCustomerId == null ? 0 : stripeCustomerId!.hashCode) +
+    (stripeCustomerId.hashCode) +
     (subscriptionId == null ? 0 : subscriptionId!.hashCode) +
     (subscriptionStatus.hashCode) +
-    (subscriptionPlan == null ? 0 : subscriptionPlan!.hashCode) +
+    (currentPeriodStart == null ? 0 : currentPeriodStart!.hashCode) +
     (currentPeriodEnd == null ? 0 : currentPeriodEnd!.hashCode) +
+    (lastPayment == null ? 0 : lastPayment!.hashCode) +
     (trialEnd == null ? 0 : trialEnd!.hashCode) +
-    (productId == null ? 0 : productId!.hashCode) +
     (createdAt == null ? 0 : createdAt!.hashCode) +
     (updatedAt == null ? 0 : updatedAt!.hashCode);
 
   @override
-  String toString() => 'UserSubscriptionModel[userId=$userId, stripeCustomerId=$stripeCustomerId, subscriptionId=$subscriptionId, subscriptionStatus=$subscriptionStatus, subscriptionPlan=$subscriptionPlan, currentPeriodEnd=$currentPeriodEnd, trialEnd=$trialEnd, productId=$productId, createdAt=$createdAt, updatedAt=$updatedAt]';
+  String toString() => 'UserSubscriptionModel[userId=$userId, stripeCustomerId=$stripeCustomerId, subscriptionId=$subscriptionId, subscriptionStatus=$subscriptionStatus, currentPeriodStart=$currentPeriodStart, currentPeriodEnd=$currentPeriodEnd, lastPayment=$lastPayment, trialEnd=$trialEnd, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'user_id'] = this.userId;
-    if (this.stripeCustomerId != null) {
       json[r'stripe_customer_id'] = this.stripeCustomerId;
-    } else {
-      json[r'stripe_customer_id'] = null;
-    }
     if (this.subscriptionId != null) {
       json[r'subscription_id'] = this.subscriptionId;
     } else {
       json[r'subscription_id'] = null;
     }
       json[r'subscription_status'] = this.subscriptionStatus;
-    if (this.subscriptionPlan != null) {
-      json[r'subscription_plan'] = this.subscriptionPlan;
+    if (this.currentPeriodStart != null) {
+      json[r'current_period_start'] = this.currentPeriodStart!.toUtc().toIso8601String();
     } else {
-      json[r'subscription_plan'] = null;
+      json[r'current_period_start'] = null;
     }
     if (this.currentPeriodEnd != null) {
       json[r'current_period_end'] = this.currentPeriodEnd!.toUtc().toIso8601String();
     } else {
       json[r'current_period_end'] = null;
     }
+    if (this.lastPayment != null) {
+      json[r'last_payment'] = this.lastPayment!.toUtc().toIso8601String();
+    } else {
+      json[r'last_payment'] = null;
+    }
     if (this.trialEnd != null) {
       json[r'trial_end'] = this.trialEnd!.toUtc().toIso8601String();
     } else {
       json[r'trial_end'] = null;
-    }
-    if (this.productId != null) {
-      json[r'product_id'] = this.productId;
-    } else {
-      json[r'product_id'] = null;
     }
     if (this.createdAt != null) {
       json[r'created_at'] = this.createdAt!.toUtc().toIso8601String();
@@ -154,13 +150,13 @@ class UserSubscriptionModel {
 
       return UserSubscriptionModel(
         userId: mapValueOfType<String>(json, r'user_id')!,
-        stripeCustomerId: mapValueOfType<String>(json, r'stripe_customer_id'),
+        stripeCustomerId: mapValueOfType<String>(json, r'stripe_customer_id')!,
         subscriptionId: mapValueOfType<String>(json, r'subscription_id'),
-        subscriptionStatus: mapValueOfType<String>(json, r'subscription_status') ?? 'inactive',
-        subscriptionPlan: mapValueOfType<String>(json, r'subscription_plan'),
+        subscriptionStatus: mapValueOfType<String>(json, r'subscription_status') ?? 'unpaid',
+        currentPeriodStart: mapDateTime(json, r'current_period_start', r''),
         currentPeriodEnd: mapDateTime(json, r'current_period_end', r''),
+        lastPayment: mapDateTime(json, r'last_payment', r''),
         trialEnd: mapDateTime(json, r'trial_end', r''),
-        productId: mapValueOfType<String>(json, r'product_id'),
         createdAt: mapDateTime(json, r'created_at', r''),
         updatedAt: mapDateTime(json, r'updated_at', r''),
       );
@@ -211,6 +207,7 @@ class UserSubscriptionModel {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'user_id',
+    'stripe_customer_id',
   };
 }
 

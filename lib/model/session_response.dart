@@ -16,6 +16,8 @@ class SessionResponse {
     required this.customerid,
     required this.ephemeralKey,
     required this.clientSecret,
+    this.setupIntent = false,
+    this.trial = false,
   });
 
   String customerid;
@@ -24,27 +26,37 @@ class SessionResponse {
 
   String clientSecret;
 
+  bool setupIntent;
+
+  bool trial;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is SessionResponse &&
     other.customerid == customerid &&
     other.ephemeralKey == ephemeralKey &&
-    other.clientSecret == clientSecret;
+    other.clientSecret == clientSecret &&
+    other.setupIntent == setupIntent &&
+    other.trial == trial;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (customerid.hashCode) +
     (ephemeralKey.hashCode) +
-    (clientSecret.hashCode);
+    (clientSecret.hashCode) +
+    (setupIntent.hashCode) +
+    (trial.hashCode);
 
   @override
-  String toString() => 'SessionResponse[customerid=$customerid, ephemeralKey=$ephemeralKey, clientSecret=$clientSecret]';
+  String toString() => 'SessionResponse[customerid=$customerid, ephemeralKey=$ephemeralKey, clientSecret=$clientSecret, setupIntent=$setupIntent, trial=$trial]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'customerid'] = this.customerid;
       json[r'ephemeral_key'] = this.ephemeralKey;
       json[r'client_secret'] = this.clientSecret;
+      json[r'setup_intent'] = this.setupIntent;
+      json[r'trial'] = this.trial;
     return json;
   }
 
@@ -70,6 +82,8 @@ class SessionResponse {
         customerid: mapValueOfType<String>(json, r'customerid')!,
         ephemeralKey: mapValueOfType<String>(json, r'ephemeral_key')!,
         clientSecret: mapValueOfType<String>(json, r'client_secret')!,
+        setupIntent: mapValueOfType<bool>(json, r'setup_intent') ?? false,
+        trial: mapValueOfType<bool>(json, r'trial') ?? false,
       );
     }
     return null;
