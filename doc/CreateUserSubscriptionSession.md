@@ -11,8 +11,6 @@ Name | Type | Description | Notes
 **userId** | **String** |  | 
 **email** | **String** |  | 
 **priceId** | **String** |  | 
-**successUrl** | **String** |  | 
-**cancelUrl** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

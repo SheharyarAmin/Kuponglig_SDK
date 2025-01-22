@@ -13,26 +13,38 @@ part of openapi.api;
 class SessionResponse {
   /// Returns a new [SessionResponse] instance.
   SessionResponse({
-    required this.checkoutUrl,
+    required this.customerid,
+    required this.ephemeralKey,
+    required this.clientSecret,
   });
 
-  String checkoutUrl;
+  String customerid;
+
+  String ephemeralKey;
+
+  String clientSecret;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SessionResponse &&
-    other.checkoutUrl == checkoutUrl;
+    other.customerid == customerid &&
+    other.ephemeralKey == ephemeralKey &&
+    other.clientSecret == clientSecret;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (checkoutUrl.hashCode);
+    (customerid.hashCode) +
+    (ephemeralKey.hashCode) +
+    (clientSecret.hashCode);
 
   @override
-  String toString() => 'SessionResponse[checkoutUrl=$checkoutUrl]';
+  String toString() => 'SessionResponse[customerid=$customerid, ephemeralKey=$ephemeralKey, clientSecret=$clientSecret]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'checkout_url'] = this.checkoutUrl;
+      json[r'customerid'] = this.customerid;
+      json[r'ephemeral_key'] = this.ephemeralKey;
+      json[r'client_secret'] = this.clientSecret;
     return json;
   }
 
@@ -55,7 +67,9 @@ class SessionResponse {
       }());
 
       return SessionResponse(
-        checkoutUrl: mapValueOfType<String>(json, r'checkout_url')!,
+        customerid: mapValueOfType<String>(json, r'customerid')!,
+        ephemeralKey: mapValueOfType<String>(json, r'ephemeral_key')!,
+        clientSecret: mapValueOfType<String>(json, r'client_secret')!,
       );
     }
     return null;
@@ -103,7 +117,9 @@ class SessionResponse {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'checkout_url',
+    'customerid',
+    'ephemeral_key',
+    'client_secret',
   };
 }
 

@@ -16,8 +16,6 @@ class CreateUserSubscriptionSession {
     required this.userId,
     required this.email,
     required this.priceId,
-    required this.successUrl,
-    required this.cancelUrl,
   });
 
   String userId;
@@ -26,37 +24,27 @@ class CreateUserSubscriptionSession {
 
   String priceId;
 
-  String successUrl;
-
-  String cancelUrl;
-
   @override
   bool operator ==(Object other) => identical(this, other) || other is CreateUserSubscriptionSession &&
     other.userId == userId &&
     other.email == email &&
-    other.priceId == priceId &&
-    other.successUrl == successUrl &&
-    other.cancelUrl == cancelUrl;
+    other.priceId == priceId;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (userId.hashCode) +
     (email.hashCode) +
-    (priceId.hashCode) +
-    (successUrl.hashCode) +
-    (cancelUrl.hashCode);
+    (priceId.hashCode);
 
   @override
-  String toString() => 'CreateUserSubscriptionSession[userId=$userId, email=$email, priceId=$priceId, successUrl=$successUrl, cancelUrl=$cancelUrl]';
+  String toString() => 'CreateUserSubscriptionSession[userId=$userId, email=$email, priceId=$priceId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'user_id'] = this.userId;
       json[r'email'] = this.email;
       json[r'price_id'] = this.priceId;
-      json[r'success_url'] = this.successUrl;
-      json[r'cancel_url'] = this.cancelUrl;
     return json;
   }
 
@@ -82,8 +70,6 @@ class CreateUserSubscriptionSession {
         userId: mapValueOfType<String>(json, r'user_id')!,
         email: mapValueOfType<String>(json, r'email')!,
         priceId: mapValueOfType<String>(json, r'price_id')!,
-        successUrl: mapValueOfType<String>(json, r'success_url')!,
-        cancelUrl: mapValueOfType<String>(json, r'cancel_url')!,
       );
     }
     return null;
@@ -134,8 +120,6 @@ class CreateUserSubscriptionSession {
     'user_id',
     'email',
     'price_id',
-    'success_url',
-    'cancel_url',
   };
 }
 

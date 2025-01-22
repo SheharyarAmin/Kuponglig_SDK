@@ -11,11 +11,7 @@
 part of openapi.api;
 
 class ApiClient {
-  ApiClient({
-    this.basePath =
-        'https://kouponglig-server-1089408962215.europe-west1.run.app',
-    this.authentication,
-  });
+  ApiClient({this.basePath = 'http://localhost', this.authentication,});
 
   final String basePath;
   final Authentication? authentication;

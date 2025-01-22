@@ -105,4 +105,3 @@ lib/model/vendor_model.dart
 lib/model/vendor_status.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
-test/session_response_test.dart
