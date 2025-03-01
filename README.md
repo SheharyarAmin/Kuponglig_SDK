@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**getStoreStatsApiV1StoreStatsStoreIdDateGet**](doc//StoreApi.md#getstorestatsapiv1storestatsstoreiddateget) | **GET** /api/v1/store/stats/{store_id}/{date} | Get Store Stats
 *StoreApi* | [**getStoresByVendorApiV1StoreVendorVendorIdGet**](doc//StoreApi.md#getstoresbyvendorapiv1storevendorvendoridget) | **GET** /api/v1/store/vendor/{vendor_id} | Get Stores By Vendor
 *StoreApi* | [**updateStoreApiV1StoreStoreIdPut**](doc//StoreApi.md#updatestoreapiv1storestoreidput) | **PUT** /api/v1/store/{store_id} | Update Store
+*StripeWebhookApi* | [**stripeWebhookApiV1StripeWebhookPost**](doc//StripeWebhookApi.md#stripewebhookapiv1stripewebhookpost) | **POST** /api/v1/stripe/webhook | Stripe Webhook
 *UserApi* | [**createUserApiV1UserPost**](doc//UserApi.md#createuserapiv1userpost) | **POST** /api/v1/user/ | Create User
 *UserApi* | [**deleteUserEndpointApiV1UserUserIdDelete**](doc//UserApi.md#deleteuserendpointapiv1useruseriddelete) | **DELETE** /api/v1/user/{user_id} | Delete User Endpoint
 *UserApi* | [**getAllUsersApiV1UserGet**](doc//UserApi.md#getallusersapiv1userget) | **GET** /api/v1/user/ | Get All Users
@@ -101,7 +102,6 @@ Class | Method | HTTP request | Description
 *VendorApi* | [**saveVendorApiV1VendorVendorsPost**](doc//VendorApi.md#savevendorapiv1vendorvendorspost) | **POST** /api/v1/vendor/vendors | Save Vendor
 *VendorApi* | [**updateVendorApiV1VendorVendorsVendorIdPut**](doc//VendorApi.md#updatevendorapiv1vendorvendorsvendoridput) | **PUT** /api/v1/vendor/vendors/{vendor_id} | Update Vendor
 *VendorApi* | [**uploadVendorIdCardApiV1VendorVendorsVendorIdUploadIdCardPost**](doc//VendorApi.md#uploadvendoridcardapiv1vendorvendorsvendoriduploadidcardpost) | **POST** /api/v1/vendor/vendors/{vendor_id}/upload-id-card | Upload Vendor Id Card
-*WebhookApi* | [**stripeWebhookApiV1StripeWebhookPost**](doc//WebhookApi.md#stripewebhookapiv1stripewebhookpost) | **POST** /api/v1/stripe/webhook | Stripe Webhook
 *WonCouponsApi* | [**deleteWonCouponApiV1WonCouponsUserIdCouponIdDelete**](doc//WonCouponsApi.md#deletewoncouponapiv1woncouponsuseridcouponiddelete) | **DELETE** /api/v1/won_coupons/{user_id}/{coupon_id} | Delete Won Coupon
 *WonCouponsApi* | [**getWonCouponsApiV1WonCouponsUserIdGet**](doc//WonCouponsApi.md#getwoncouponsapiv1woncouponsuseridget) | **GET** /api/v1/won_coupons/{user_id} | Get Won Coupons
 
@@ -131,6 +131,7 @@ Class | Method | HTTP request | Description
  - [StoreStatsModel](doc//StoreStatsModel.md)
  - [StoreStatus](doc//StoreStatus.md)
  - [StoreTypes](doc//StoreTypes.md)
+ - [SubscriptionStatus](doc//SubscriptionStatus.md)
  - [Token](doc//Token.md)
  - [UserModel](doc//UserModel.md)
  - [UserModelFromClient](doc//UserModelFromClient.md)

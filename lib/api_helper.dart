@@ -82,6 +82,9 @@ String parameterToString(dynamic value) {
   if (value is StoreTypes) {
     return StoreTypesTypeTransformer().encode(value).toString();
   }
+  if (value is SubscriptionStatus) {
+    return SubscriptionStatusTypeTransformer().encode(value).toString();
+  }
   if (value is UserStatus) {
     return UserStatusTypeTransformer().encode(value).toString();
   }

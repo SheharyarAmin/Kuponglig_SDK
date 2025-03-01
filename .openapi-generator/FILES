@@ -31,6 +31,8 @@ doc/StoreModelBase.md
 doc/StoreStatsModel.md
 doc/StoreStatus.md
 doc/StoreTypes.md
+doc/StripeWebhookApi.md
+doc/SubscriptionStatus.md
 doc/Token.md
 doc/UserApi.md
 doc/UserModel.md
@@ -45,7 +47,6 @@ doc/ValidationErrorLocInner.md
 doc/VendorApi.md
 doc/VendorModel.md
 doc/VendorStatus.md
-doc/WebhookApi.md
 doc/WonCouponModel.md
 doc/WonCouponsApi.md
 git_push.sh
@@ -56,11 +57,11 @@ lib/api/redeemed_coupons_api.dart
 lib/api/saved_coupons_api.dart
 lib/api/spin_wheel_api.dart
 lib/api/store_api.dart
+lib/api/stripe_webhook_api.dart
 lib/api/user_api.dart
 lib/api/user_points_api.dart
 lib/api/user_subscription_api.dart
 lib/api/vendor_api.dart
-lib/api/webhook_api.dart
 lib/api/won_coupons_api.dart
 lib/api_client.dart
 lib/api_exception.dart
@@ -93,6 +94,7 @@ lib/model/store_model_base.dart
 lib/model/store_stats_model.dart
 lib/model/store_status.dart
 lib/model/store_types.dart
+lib/model/subscription_status.dart
 lib/model/token.dart
 lib/model/user_model.dart
 lib/model/user_model_from_client.dart
@@ -105,3 +107,5 @@ lib/model/vendor_model.dart
 lib/model/vendor_status.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
+test/stripe_webhook_api_test.dart
+test/subscription_status_test.dart

@@ -228,6 +228,8 @@ class ApiClient {
           return StoreStatusTypeTransformer().decode(value);
         case 'StoreTypes':
           return StoreTypesTypeTransformer().decode(value);
+        case 'SubscriptionStatus':
+          return SubscriptionStatusTypeTransformer().decode(value);
         case 'Token':
           return Token.fromJson(value);
         case 'UserModel':
