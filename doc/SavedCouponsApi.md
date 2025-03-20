@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDelete**
-> Object deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDelete(userId, couponId)
+> bool deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDelete(userId, couponId)
 
 Delete Saved Coupon
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+**bool**
 
 ### Authorization
 
@@ -99,7 +99,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **saveCouponApiV1SavedCouponsPost**
-> Object saveCouponApiV1SavedCouponsPost(saveCouponRequest)
+> bool saveCouponApiV1SavedCouponsPost(saveCouponRequest)
 
 Save Coupon
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+**bool**
 
 ### Authorization
 

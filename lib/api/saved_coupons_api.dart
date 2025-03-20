@@ -59,7 +59,7 @@ class SavedCouponsApi {
   /// * [String] userId (required):
   ///
   /// * [String] couponId (required):
-  Future<Object?> deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDelete(String userId, String couponId,) async {
+  Future<bool?> deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDelete(String userId, String couponId,) async {
     final response = await deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDeleteWithHttpInfo(userId, couponId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -68,7 +68,7 @@ class SavedCouponsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
     
     }
     return null;
@@ -167,7 +167,7 @@ class SavedCouponsApi {
   /// Parameters:
   ///
   /// * [SaveCouponRequest] saveCouponRequest (required):
-  Future<Object?> saveCouponApiV1SavedCouponsPost(SaveCouponRequest saveCouponRequest,) async {
+  Future<bool?> saveCouponApiV1SavedCouponsPost(SaveCouponRequest saveCouponRequest,) async {
     final response = await saveCouponApiV1SavedCouponsPostWithHttpInfo(saveCouponRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -176,7 +176,7 @@ class SavedCouponsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
     
     }
     return null;

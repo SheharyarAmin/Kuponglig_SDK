@@ -41,14 +41,14 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:openapi/api.dart';
 
 
-final api_instance = CouponApi();
-final couponModel = CouponModel(); // CouponModel | 
+final api_instance = AnalyticsApi();
+final analyticsEventBatch = AnalyticsEventBatch(); // AnalyticsEventBatch | 
 
 try {
-    final result = api_instance.addOrUpdateCouponEndpointApiV1CouponPost(couponModel);
+    final result = api_instance.processAnalyticsBatchApiV1AnalyticsBatchPost(analyticsEventBatch);
     print(result);
 } catch (e) {
-    print('Exception when calling CouponApi->addOrUpdateCouponEndpointApiV1CouponPost: $e\n');
+    print('Exception when calling AnalyticsApi->processAnalyticsBatchApiV1AnalyticsBatchPost: $e\n');
 }
 
 ```
@@ -59,6 +59,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AnalyticsApi* | [**processAnalyticsBatchApiV1AnalyticsBatchPost**](doc//AnalyticsApi.md#processanalyticsbatchapiv1analyticsbatchpost) | **POST** /api/v1/analytics/batch | Process Analytics Batch
 *CouponApi* | [**addOrUpdateCouponEndpointApiV1CouponPost**](doc//CouponApi.md#addorupdatecouponendpointapiv1couponpost) | **POST** /api/v1/coupon/ | Add Or Update Coupon Endpoint
 *CouponApi* | [**getCouponApiV1CouponCouponIdGet**](doc//CouponApi.md#getcouponapiv1couponcouponidget) | **GET** /api/v1/coupon/{coupon_id} | Get Coupon
 *CouponApi* | [**getCouponsByStoreApiV1CouponStoreStoreIdGet**](doc//CouponApi.md#getcouponsbystoreapiv1couponstorestoreidget) | **GET** /api/v1/coupon/store/{store_id} | Get Coupons By Store
@@ -79,7 +80,6 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**getNearbyStoresApiV1StoreNearbyGet**](doc//StoreApi.md#getnearbystoresapiv1storenearbyget) | **GET** /api/v1/store/nearby | Get Nearby Stores
 *StoreApi* | [**getNewStoreIdApiV1StoreNewIdGet**](doc//StoreApi.md#getnewstoreidapiv1storenewidget) | **GET** /api/v1/store/new-id | Get New Store Id
 *StoreApi* | [**getStoreApiV1StoreStoreIdGet**](doc//StoreApi.md#getstoreapiv1storestoreidget) | **GET** /api/v1/store/{store_id} | Get Store
-*StoreApi* | [**getStoreStatsApiV1StoreStatsStoreIdDateGet**](doc//StoreApi.md#getstorestatsapiv1storestatsstoreiddateget) | **GET** /api/v1/store/stats/{store_id}/{date} | Get Store Stats
 *StoreApi* | [**getStoresByVendorApiV1StoreVendorVendorIdGet**](doc//StoreApi.md#getstoresbyvendorapiv1storevendorvendoridget) | **GET** /api/v1/store/vendor/{vendor_id} | Get Stores By Vendor
 *StoreApi* | [**updateStoreApiV1StoreStoreIdPut**](doc//StoreApi.md#updatestoreapiv1storestoreidput) | **PUT** /api/v1/store/{store_id} | Update Store
 *StripeWebhookApi* | [**stripeWebhookApiV1StripeWebhookPost**](doc//StripeWebhookApi.md#stripewebhookapiv1stripewebhookpost) | **POST** /api/v1/stripe/webhook | Stripe Webhook
@@ -102,24 +102,38 @@ Class | Method | HTTP request | Description
 *VendorApi* | [**saveVendorApiV1VendorVendorsPost**](doc//VendorApi.md#savevendorapiv1vendorvendorspost) | **POST** /api/v1/vendor/vendors | Save Vendor
 *VendorApi* | [**updateVendorApiV1VendorVendorsVendorIdPut**](doc//VendorApi.md#updatevendorapiv1vendorvendorsvendoridput) | **PUT** /api/v1/vendor/vendors/{vendor_id} | Update Vendor
 *VendorApi* | [**uploadVendorIdCardApiV1VendorVendorsVendorIdUploadIdCardPost**](doc//VendorApi.md#uploadvendoridcardapiv1vendorvendorsvendoriduploadidcardpost) | **POST** /api/v1/vendor/vendors/{vendor_id}/upload-id-card | Upload Vendor Id Card
+*VendorDashboardApi* | [**getDashboardStatsApiV1VendorDashboardStatsPost**](doc//VendorDashboardApi.md#getdashboardstatsapiv1vendordashboardstatspost) | **POST** /api/v1/vendor_dashboard/stats | Get Dashboard Stats
+*VendorDashboardApi* | [**getVendorStoresApiV1VendorDashboardStoresGet**](doc//VendorDashboardApi.md#getvendorstoresapiv1vendordashboardstoresget) | **GET** /api/v1/vendor_dashboard/stores | Get Vendor Stores
 *WonCouponsApi* | [**deleteWonCouponApiV1WonCouponsUserIdCouponIdDelete**](doc//WonCouponsApi.md#deletewoncouponapiv1woncouponsuseridcouponiddelete) | **DELETE** /api/v1/won_coupons/{user_id}/{coupon_id} | Delete Won Coupon
 *WonCouponsApi* | [**getWonCouponsApiV1WonCouponsUserIdGet**](doc//WonCouponsApi.md#getwoncouponsapiv1woncouponsuseridget) | **GET** /api/v1/won_coupons/{user_id} | Get Won Coupons
 
 
 ## Documentation For Models
 
+ - [ActivityMetrics](doc//ActivityMetrics.md)
+ - [AnalyticsEvent](doc//AnalyticsEvent.md)
+ - [AnalyticsEventBatch](doc//AnalyticsEventBatch.md)
+ - [AnalyticsEventType](doc//AnalyticsEventType.md)
  - [AuthenticationToken](doc//AuthenticationToken.md)
+ - [CoreStats](doc//CoreStats.md)
  - [CouponModel](doc//CouponModel.md)
+ - [CouponPerformance](doc//CouponPerformance.md)
  - [CouponRedemptionResponse](doc//CouponRedemptionResponse.md)
  - [CouponRedemptionStatus](doc//CouponRedemptionStatus.md)
  - [CouponStatus](doc//CouponStatus.md)
  - [CouponTargetType](doc//CouponTargetType.md)
  - [CreateUserSubscriptionSession](doc//CreateUserSubscriptionSession.md)
+ - [DashboardRequest](doc//DashboardRequest.md)
+ - [DashboardResponse](doc//DashboardResponse.md)
  - [Gender](doc//Gender.md)
  - [GeoPoint](doc//GeoPoint.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
+ - [HourlyActivityData](doc//HourlyActivityData.md)
+ - [HourlyMetric](doc//HourlyMetric.md)
  - [IDResponse](doc//IDResponse.md)
  - [Interests](doc//Interests.md)
+ - [MetricSortBy](doc//MetricSortBy.md)
+ - [PerformanceDetails](doc//PerformanceDetails.md)
  - [Platform](doc//Platform.md)
  - [RewardType](doc//RewardType.md)
  - [SaveCouponRequest](doc//SaveCouponRequest.md)
@@ -128,10 +142,10 @@ Class | Method | HTTP request | Description
  - [SpinningWheelReward](doc//SpinningWheelReward.md)
  - [StoreModel](doc//StoreModel.md)
  - [StoreModelBase](doc//StoreModelBase.md)
- - [StoreStatsModel](doc//StoreStatsModel.md)
  - [StoreStatus](doc//StoreStatus.md)
  - [StoreTypes](doc//StoreTypes.md)
  - [SubscriptionStatus](doc//SubscriptionStatus.md)
+ - [TimeFrame](doc//TimeFrame.md)
  - [Token](doc//Token.md)
  - [UserModel](doc//UserModel.md)
  - [UserModelFromClient](doc//UserModelFromClient.md)

@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 Add Or Update Coupon Endpoint
 
-Endpoint to add or update a coupon in Firestore. - Takes CouponModel object as input. - Adds or updates the coupon in the Firestore database.
+Endpoint to add or update a coupon. - Takes CouponModel as input. - Creates or updates the coupon in the Firestore database.
 
 ### Example
 ```dart
@@ -64,7 +64,7 @@ No authorization required
 
 Get Coupon
 
-Endpoint to fetch a coupon by its ID. - Takes coupon_id as a URL parameter. - Returns a CouponModel object for the given ID.
+Endpoint to fetch a coupon by its ID. - Takes coupon_id as a URL parameter. - Returns a CouponModel object for the given ID. - Records a view for statistics tracking.
 
 ### Example
 ```dart

@@ -182,10 +182,22 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
+        case 'ActivityMetrics':
+          return ActivityMetrics.fromJson(value);
+        case 'AnalyticsEvent':
+          return AnalyticsEvent.fromJson(value);
+        case 'AnalyticsEventBatch':
+          return AnalyticsEventBatch.fromJson(value);
+        case 'AnalyticsEventType':
+          return AnalyticsEventTypeTypeTransformer().decode(value);
         case 'AuthenticationToken':
           return AuthenticationToken.fromJson(value);
+        case 'CoreStats':
+          return CoreStats.fromJson(value);
         case 'CouponModel':
           return CouponModel.fromJson(value);
+        case 'CouponPerformance':
+          return CouponPerformance.fromJson(value);
         case 'CouponRedemptionResponse':
           return CouponRedemptionResponse.fromJson(value);
         case 'CouponRedemptionStatus':
@@ -196,16 +208,28 @@ class ApiClient {
           return CouponTargetTypeTypeTransformer().decode(value);
         case 'CreateUserSubscriptionSession':
           return CreateUserSubscriptionSession.fromJson(value);
+        case 'DashboardRequest':
+          return DashboardRequest.fromJson(value);
+        case 'DashboardResponse':
+          return DashboardResponse.fromJson(value);
         case 'Gender':
           return GenderTypeTransformer().decode(value);
         case 'GeoPoint':
           return GeoPoint.fromJson(value);
         case 'HTTPValidationError':
           return HTTPValidationError.fromJson(value);
+        case 'HourlyActivityData':
+          return HourlyActivityData.fromJson(value);
+        case 'HourlyMetric':
+          return HourlyMetric.fromJson(value);
         case 'IDResponse':
           return IDResponse.fromJson(value);
         case 'Interests':
           return InterestsTypeTransformer().decode(value);
+        case 'MetricSortBy':
+          return MetricSortByTypeTransformer().decode(value);
+        case 'PerformanceDetails':
+          return PerformanceDetails.fromJson(value);
         case 'Platform':
           return PlatformTypeTransformer().decode(value);
         case 'RewardType':
@@ -222,14 +246,14 @@ class ApiClient {
           return StoreModel.fromJson(value);
         case 'StoreModelBase':
           return StoreModelBase.fromJson(value);
-        case 'StoreStatsModel':
-          return StoreStatsModel.fromJson(value);
         case 'StoreStatus':
           return StoreStatusTypeTransformer().decode(value);
         case 'StoreTypes':
           return StoreTypesTypeTransformer().decode(value);
         case 'SubscriptionStatus':
           return SubscriptionStatusTypeTransformer().decode(value);
+        case 'TimeFrame':
+          return TimeFrameTypeTransformer().decode(value);
         case 'Token':
           return Token.fromJson(value);
         case 'UserModel':

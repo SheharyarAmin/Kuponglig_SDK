@@ -15,7 +15,6 @@ Method | HTTP request | Description
 [**getNearbyStoresApiV1StoreNearbyGet**](StoreApi.md#getnearbystoresapiv1storenearbyget) | **GET** /api/v1/store/nearby | Get Nearby Stores
 [**getNewStoreIdApiV1StoreNewIdGet**](StoreApi.md#getnewstoreidapiv1storenewidget) | **GET** /api/v1/store/new-id | Get New Store Id
 [**getStoreApiV1StoreStoreIdGet**](StoreApi.md#getstoreapiv1storestoreidget) | **GET** /api/v1/store/{store_id} | Get Store
-[**getStoreStatsApiV1StoreStatsStoreIdDateGet**](StoreApi.md#getstorestatsapiv1storestatsstoreiddateget) | **GET** /api/v1/store/stats/{store_id}/{date} | Get Store Stats
 [**getStoresByVendorApiV1StoreVendorVendorIdGet**](StoreApi.md#getstoresbyvendorapiv1storevendorvendoridget) | **GET** /api/v1/store/vendor/{vendor_id} | Get Stores By Vendor
 [**updateStoreApiV1StoreStoreIdPut**](StoreApi.md#updatestoreapiv1storestoreidput) | **PUT** /api/v1/store/{store_id} | Update Store
 
@@ -266,51 +265,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StoreModel**](StoreModel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getStoreStatsApiV1StoreStatsStoreIdDateGet**
-> StoreStatsModel getStoreStatsApiV1StoreStatsStoreIdDateGet(storeId, date)
-
-Get Store Stats
-
-Endpoint to fetch store stats for a specific store on a specific date. - `store_id`: ID of the store. - `date`: Date in the format YYYY-MM-DD. - Returns the store stats for the given store and date.
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-
-final api_instance = StoreApi();
-final storeId = storeId_example; // String | 
-final date = 2013-10-20T19:20:30+01:00; // DateTime | 
-
-try {
-    final result = api_instance.getStoreStatsApiV1StoreStatsStoreIdDateGet(storeId, date);
-    print(result);
-} catch (e) {
-    print('Exception when calling StoreApi->getStoreStatsApiV1StoreStatsStoreIdDateGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **storeId** | **String**|  | 
- **date** | **DateTime**|  | 
-
-### Return type
-
-[**StoreStatsModel**](StoreStatsModel.md)
 
 ### Authorization
 

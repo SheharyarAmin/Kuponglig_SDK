@@ -18,7 +18,7 @@ class CouponApi {
 
   /// Add Or Update Coupon Endpoint
   ///
-  /// Endpoint to add or update a coupon in Firestore. - Takes CouponModel object as input. - Adds or updates the coupon in the Firestore database.
+  /// Endpoint to add or update a coupon. - Takes CouponModel as input. - Creates or updates the coupon in the Firestore database.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -52,7 +52,7 @@ class CouponApi {
 
   /// Add Or Update Coupon Endpoint
   ///
-  /// Endpoint to add or update a coupon in Firestore. - Takes CouponModel object as input. - Adds or updates the coupon in the Firestore database.
+  /// Endpoint to add or update a coupon. - Takes CouponModel as input. - Creates or updates the coupon in the Firestore database.
   ///
   /// Parameters:
   ///
@@ -74,7 +74,7 @@ class CouponApi {
 
   /// Get Coupon
   ///
-  /// Endpoint to fetch a coupon by its ID. - Takes coupon_id as a URL parameter. - Returns a CouponModel object for the given ID.
+  /// Endpoint to fetch a coupon by its ID. - Takes coupon_id as a URL parameter. - Returns a CouponModel object for the given ID. - Records a view for statistics tracking.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -109,7 +109,7 @@ class CouponApi {
 
   /// Get Coupon
   ///
-  /// Endpoint to fetch a coupon by its ID. - Takes coupon_id as a URL parameter. - Returns a CouponModel object for the given ID.
+  /// Endpoint to fetch a coupon by its ID. - Takes coupon_id as a URL parameter. - Returns a CouponModel object for the given ID. - Records a view for statistics tracking.
   ///
   /// Parameters:
   ///

@@ -55,6 +55,9 @@ String parameterToString(dynamic value) {
   if (value is DateTime) {
     return value.toUtc().toIso8601String();
   }
+  if (value is AnalyticsEventType) {
+    return AnalyticsEventTypeTypeTransformer().encode(value).toString();
+  }
   if (value is CouponRedemptionStatus) {
     return CouponRedemptionStatusTypeTransformer().encode(value).toString();
   }
@@ -70,6 +73,9 @@ String parameterToString(dynamic value) {
   if (value is Interests) {
     return InterestsTypeTransformer().encode(value).toString();
   }
+  if (value is MetricSortBy) {
+    return MetricSortByTypeTransformer().encode(value).toString();
+  }
   if (value is Platform) {
     return PlatformTypeTransformer().encode(value).toString();
   }
@@ -84,6 +90,9 @@ String parameterToString(dynamic value) {
   }
   if (value is SubscriptionStatus) {
     return SubscriptionStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is TimeFrame) {
+    return TimeFrameTypeTransformer().encode(value).toString();
   }
   if (value is UserStatus) {
     return UserStatusTypeTransformer().encode(value).toString();

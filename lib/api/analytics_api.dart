@@ -11,26 +11,32 @@
 part of openapi.api;
 
 
-class WebhookApi {
-  WebhookApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+class AnalyticsApi {
+  AnalyticsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
-  /// Stripe Webhook
+  /// Process Analytics Batch
+  ///
+  /// Process a batch of analytics events and update relevant statistics
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> stripeWebhookApiV1StripeWebhookPostWithHttpInfo() async {
+  ///
+  /// Parameters:
+  ///
+  /// * [AnalyticsEventBatch] analyticsEventBatch (required):
+  Future<Response> processAnalyticsBatchApiV1AnalyticsBatchPostWithHttpInfo(AnalyticsEventBatch analyticsEventBatch,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/stripe/webhook';
+    final path = r'/api/v1/analytics/batch';
 
     // ignore: prefer_final_locals
-    Object? postBody;
+    Object? postBody = analyticsEventBatch;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
 
     return apiClient.invokeAPI(
@@ -44,9 +50,15 @@ class WebhookApi {
     );
   }
 
-  /// Stripe Webhook
-  Future<Object?> stripeWebhookApiV1StripeWebhookPost() async {
-    final response = await stripeWebhookApiV1StripeWebhookPostWithHttpInfo();
+  /// Process Analytics Batch
+  ///
+  /// Process a batch of analytics events and update relevant statistics
+  ///
+  /// Parameters:
+  ///
+  /// * [AnalyticsEventBatch] analyticsEventBatch (required):
+  Future<bool?> processAnalyticsBatchApiV1AnalyticsBatchPost(AnalyticsEventBatch analyticsEventBatch,) async {
+    final response = await processAnalyticsBatchApiV1AnalyticsBatchPostWithHttpInfo(analyticsEventBatch,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -54,7 +66,7 @@ class WebhookApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
     
     }
     return null;
