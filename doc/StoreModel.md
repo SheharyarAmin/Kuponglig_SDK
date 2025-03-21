@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **phone** | **String** |  | 
 **email** | **String** |  | 
 **type** | [**StoreTypes**](StoreTypes.md) |  | 
-**status** | [**StoreStatus**](StoreStatus.md) |  | [optional] [default to StoreStatus.PENDING]
+**status** | [**StoreStatus**](StoreStatus.md) |  | [optional] [default to StoreStatus.ACTIVE]
 **vendorId** | **String** |  | 
 **logoUrl** | **String** |  | 
 **organizationNumber** | **String** |  | 

@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **termsAndConditions** | **String** |  | 
 **minPurchaseAmount** | **num** |  | 
 **isPremium** | **bool** |  | 
+**unlockPoints** | **int** |  | [optional] 
+**isUnlocked** | **bool** |  | [optional] [default to false]
 **createdAt** | [**DateTime**](DateTime.md) |  | 
 **updatedAt** | [**DateTime**](DateTime.md) |  | 
 

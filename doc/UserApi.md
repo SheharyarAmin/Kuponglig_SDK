@@ -13,9 +13,11 @@ Method | HTTP request | Description
 [**deleteUserEndpointApiV1UserUserIdDelete**](UserApi.md#deleteuserendpointapiv1useruseriddelete) | **DELETE** /api/v1/user/{user_id} | Delete User Endpoint
 [**getAllUsersApiV1UserGet**](UserApi.md#getallusersapiv1userget) | **GET** /api/v1/user/ | Get All Users
 [**getUserApiV1UserUserIdGet**](UserApi.md#getuserapiv1useruseridget) | **GET** /api/v1/user/{user_id} | Get User
+[**getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet**](UserApi.md#getuserunlockedcouponlistapiv1unlockcouponsuseruseridunlockedget) | **GET** /api/v1/unlock-coupons/user/{user_id}/unlocked | Get User Unlocked Coupon List
 [**redeemCouponByCodeApiV1RedeemedCouponsRedeemPost**](UserApi.md#redeemcouponbycodeapiv1redeemedcouponsredeempost) | **POST** /api/v1/redeemed_coupons/redeem | Redeem Coupon By Code
 [**redeemCouponByCodeApiV1UserRedeemCouponPost**](UserApi.md#redeemcouponbycodeapiv1userredeemcouponpost) | **POST** /api/v1/user/redeem-coupon | Redeem Coupon By Code
 [**redeemCouponByCodeApiV1UserRedeemCouponPost_0**](UserApi.md#redeemcouponbycodeapiv1userredeemcouponpost_0) | **POST** /api/v1/user/redeem-coupon | Redeem Coupon By Code
+[**unlockPremiumCouponApiV1UnlockCouponsUnlockUserIdCouponIdPost**](UserApi.md#unlockpremiumcouponapiv1unlockcouponsunlockuseridcouponidpost) | **POST** /api/v1/unlock-coupons/unlock/{user_id}/{coupon_id} | Unlock Premium Coupon
 [**updateUserApiV1UserUserIdPut**](UserApi.md#updateuserapiv1useruseridput) | **PUT** /api/v1/user/{user_id} | Update User
 
 
@@ -187,6 +189,47 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet**
+> List<UnlockedCouponModel> getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet(userId)
+
+Get User Unlocked Coupon List
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = UserApi();
+final userId = userId_example; // String | 
+
+try {
+    final result = api_instance.getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet(userId);
+    print(result);
+} catch (e) {
+    print('Exception when calling UserApi->getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**|  | 
+
+### Return type
+
+[**List<UnlockedCouponModel>**](UnlockedCouponModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **redeemCouponByCodeApiV1RedeemedCouponsRedeemPost**
 > CouponRedemptionResponse redeemCouponByCodeApiV1RedeemedCouponsRedeemPost(qrId, couponId, userId)
 
@@ -306,6 +349,49 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **unlockPremiumCouponApiV1UnlockCouponsUnlockUserIdCouponIdPost**
+> UnlockedCouponResponse unlockPremiumCouponApiV1UnlockCouponsUnlockUserIdCouponIdPost(userId, couponId)
+
+Unlock Premium Coupon
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = UserApi();
+final userId = userId_example; // String | 
+final couponId = couponId_example; // String | 
+
+try {
+    final result = api_instance.unlockPremiumCouponApiV1UnlockCouponsUnlockUserIdCouponIdPost(userId, couponId);
+    print(result);
+} catch (e) {
+    print('Exception when calling UserApi->unlockPremiumCouponApiV1UnlockCouponsUnlockUserIdCouponIdPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**|  | 
+ **couponId** | **String**|  | 
+
+### Return type
+
+[**UnlockedCouponResponse**](UnlockedCouponResponse.md)
 
 ### Authorization
 

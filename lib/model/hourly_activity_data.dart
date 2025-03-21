@@ -15,19 +15,19 @@ class HourlyActivityData {
   HourlyActivityData({
     this.hourlyData = const {},
     required this.maxValue,
-    this.topHours = const [],
+    this.topHours = const {},
   });
 
-  /// Map of hour to visit count
-  Map<String, int> hourlyData;
+  /// Map of hour to detailed metrics
+  Map<String, HourlyMetricData> hourlyData;
 
-  /// Maximum visits for heatmap scaling
+  /// Maximum total visits for heatmap scaling
   ///
   /// Minimum value: 0
   int maxValue;
 
-  /// Top 3 peak hours sorted by visit count
-  List<HourlyMetric> topHours;
+  /// Top 3 peak hours mapped to their detailed metrics
+  Map<String, HourlyMetricData> topHours;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is HourlyActivityData &&
@@ -72,9 +72,9 @@ class HourlyActivityData {
       }());
 
       return HourlyActivityData(
-        hourlyData: mapCastOfType<String, int>(json, r'hourly_data')!,
+        hourlyData: HourlyMetricData.mapFromJson(json[r'hourly_data']),
         maxValue: mapValueOfType<int>(json, r'max_value')!,
-        topHours: HourlyMetric.listFromJson(json[r'top_hours']),
+        topHours: HourlyMetricData.mapFromJson(json[r'top_hours']),
       );
     }
     return null;

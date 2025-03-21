@@ -41,14 +41,14 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:openapi/api.dart';
 
 
-final api_instance = AnalyticsApi();
-final analyticsEventBatch = AnalyticsEventBatch(); // AnalyticsEventBatch | 
+final api_instance = AccountDeletionApi();
+final requestId = requestId_example; // String | 
 
 try {
-    final result = api_instance.processAnalyticsBatchApiV1AnalyticsBatchPost(analyticsEventBatch);
+    final result = api_instance.getDeletionStatusApiV1DeletionDeletionRequestRequestIdGet(requestId);
     print(result);
 } catch (e) {
-    print('Exception when calling AnalyticsApi->processAnalyticsBatchApiV1AnalyticsBatchPost: $e\n');
+    print('Exception when calling AccountDeletionApi->getDeletionStatusApiV1DeletionDeletionRequestRequestIdGet: $e\n');
 }
 
 ```
@@ -59,6 +59,9 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccountDeletionApi* | [**getDeletionStatusApiV1DeletionDeletionRequestRequestIdGet**](doc//AccountDeletionApi.md#getdeletionstatusapiv1deletiondeletionrequestrequestidget) | **GET** /api/v1/deletion/deletion-request/{request_id} | Get Deletion Status
+*AccountDeletionApi* | [**requestUserDeletionApiV1DeletionRequestUserDeletionUserIdPost**](doc//AccountDeletionApi.md#requestuserdeletionapiv1deletionrequestuserdeletionuseridpost) | **POST** /api/v1/deletion/request-user-deletion/{user_id} | Request User Deletion
+*AccountDeletionApi* | [**requestVendorDeletionApiV1DeletionRequestVendorDeletionVendorIdPost**](doc//AccountDeletionApi.md#requestvendordeletionapiv1deletionrequestvendordeletionvendoridpost) | **POST** /api/v1/deletion/request-vendor-deletion/{vendor_id} | Request Vendor Deletion
 *AnalyticsApi* | [**processAnalyticsBatchApiV1AnalyticsBatchPost**](doc//AnalyticsApi.md#processanalyticsbatchapiv1analyticsbatchpost) | **POST** /api/v1/analytics/batch | Process Analytics Batch
 *CouponApi* | [**addOrUpdateCouponEndpointApiV1CouponPost**](doc//CouponApi.md#addorupdatecouponendpointapiv1couponpost) | **POST** /api/v1/coupon/ | Add Or Update Coupon Endpoint
 *CouponApi* | [**getCouponApiV1CouponCouponIdGet**](doc//CouponApi.md#getcouponapiv1couponcouponidget) | **GET** /api/v1/coupon/{coupon_id} | Get Coupon
@@ -83,13 +86,17 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**getStoresByVendorApiV1StoreVendorVendorIdGet**](doc//StoreApi.md#getstoresbyvendorapiv1storevendorvendoridget) | **GET** /api/v1/store/vendor/{vendor_id} | Get Stores By Vendor
 *StoreApi* | [**updateStoreApiV1StoreStoreIdPut**](doc//StoreApi.md#updatestoreapiv1storestoreidput) | **PUT** /api/v1/store/{store_id} | Update Store
 *StripeWebhookApi* | [**stripeWebhookApiV1StripeWebhookPost**](doc//StripeWebhookApi.md#stripewebhookapiv1stripewebhookpost) | **POST** /api/v1/stripe/webhook | Stripe Webhook
+*UnlockedCouponsApi* | [**getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet**](doc//UnlockedCouponsApi.md#getuserunlockedcouponlistapiv1unlockcouponsuseruseridunlockedget) | **GET** /api/v1/unlock-coupons/user/{user_id}/unlocked | Get User Unlocked Coupon List
+*UnlockedCouponsApi* | [**unlockPremiumCouponApiV1UnlockCouponsUnlockUserIdCouponIdPost**](doc//UnlockedCouponsApi.md#unlockpremiumcouponapiv1unlockcouponsunlockuseridcouponidpost) | **POST** /api/v1/unlock-coupons/unlock/{user_id}/{coupon_id} | Unlock Premium Coupon
 *UserApi* | [**createUserApiV1UserPost**](doc//UserApi.md#createuserapiv1userpost) | **POST** /api/v1/user/ | Create User
 *UserApi* | [**deleteUserEndpointApiV1UserUserIdDelete**](doc//UserApi.md#deleteuserendpointapiv1useruseriddelete) | **DELETE** /api/v1/user/{user_id} | Delete User Endpoint
 *UserApi* | [**getAllUsersApiV1UserGet**](doc//UserApi.md#getallusersapiv1userget) | **GET** /api/v1/user/ | Get All Users
 *UserApi* | [**getUserApiV1UserUserIdGet**](doc//UserApi.md#getuserapiv1useruseridget) | **GET** /api/v1/user/{user_id} | Get User
+*UserApi* | [**getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet**](doc//UserApi.md#getuserunlockedcouponlistapiv1unlockcouponsuseruseridunlockedget) | **GET** /api/v1/unlock-coupons/user/{user_id}/unlocked | Get User Unlocked Coupon List
 *UserApi* | [**redeemCouponByCodeApiV1RedeemedCouponsRedeemPost**](doc//UserApi.md#redeemcouponbycodeapiv1redeemedcouponsredeempost) | **POST** /api/v1/redeemed_coupons/redeem | Redeem Coupon By Code
 *UserApi* | [**redeemCouponByCodeApiV1UserRedeemCouponPost**](doc//UserApi.md#redeemcouponbycodeapiv1userredeemcouponpost) | **POST** /api/v1/user/redeem-coupon | Redeem Coupon By Code
 *UserApi* | [**redeemCouponByCodeApiV1UserRedeemCouponPost_0**](doc//UserApi.md#redeemcouponbycodeapiv1userredeemcouponpost_0) | **POST** /api/v1/user/redeem-coupon | Redeem Coupon By Code
+*UserApi* | [**unlockPremiumCouponApiV1UnlockCouponsUnlockUserIdCouponIdPost**](doc//UserApi.md#unlockpremiumcouponapiv1unlockcouponsunlockuseridcouponidpost) | **POST** /api/v1/unlock-coupons/unlock/{user_id}/{coupon_id} | Unlock Premium Coupon
 *UserApi* | [**updateUserApiV1UserUserIdPut**](doc//UserApi.md#updateuserapiv1useruseridput) | **PUT** /api/v1/user/{user_id} | Update User
 *UserPointsApi* | [**addPointsApiV1UserPointsAddPost**](doc//UserPointsApi.md#addpointsapiv1userpointsaddpost) | **POST** /api/v1/user_points/add | Add Points
 *UserPointsApi* | [**deductPointsApiV1UserPointsDeductPost**](doc//UserPointsApi.md#deductpointsapiv1userpointsdeductpost) | **POST** /api/v1/user_points/deduct | Deduct Points
@@ -125,11 +132,14 @@ Class | Method | HTTP request | Description
  - [CreateUserSubscriptionSession](doc//CreateUserSubscriptionSession.md)
  - [DashboardRequest](doc//DashboardRequest.md)
  - [DashboardResponse](doc//DashboardResponse.md)
+ - [DeletionRequestModel](doc//DeletionRequestModel.md)
+ - [DeletionRequestStatus](doc//DeletionRequestStatus.md)
+ - [DeletionRequestType](doc//DeletionRequestType.md)
  - [Gender](doc//Gender.md)
  - [GeoPoint](doc//GeoPoint.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [HourlyActivityData](doc//HourlyActivityData.md)
- - [HourlyMetric](doc//HourlyMetric.md)
+ - [HourlyMetricData](doc//HourlyMetricData.md)
  - [IDResponse](doc//IDResponse.md)
  - [Interests](doc//Interests.md)
  - [MetricSortBy](doc//MetricSortBy.md)
@@ -147,6 +157,9 @@ Class | Method | HTTP request | Description
  - [SubscriptionStatus](doc//SubscriptionStatus.md)
  - [TimeFrame](doc//TimeFrame.md)
  - [Token](doc//Token.md)
+ - [UnlockStatus](doc//UnlockStatus.md)
+ - [UnlockedCouponModel](doc//UnlockedCouponModel.md)
+ - [UnlockedCouponResponse](doc//UnlockedCouponResponse.md)
  - [UserModel](doc//UserModel.md)
  - [UserModelFromClient](doc//UserModelFromClient.md)
  - [UserPointsTransactionModel](doc//UserPointsTransactionModel.md)

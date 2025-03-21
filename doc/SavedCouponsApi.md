@@ -19,6 +19,8 @@ Method | HTTP request | Description
 
 Delete Saved Coupon
 
+Delete a saved coupon for a user
+
 ### Example
 ```dart
 import 'package:openapi/api.dart';
@@ -62,6 +64,8 @@ No authorization required
 
 Get Saved Coupons
 
+Get all saved coupons for a user
+
 ### Example
 ```dart
 import 'package:openapi/api.dart';
@@ -102,6 +106,8 @@ No authorization required
 > bool saveCouponApiV1SavedCouponsPost(saveCouponRequest)
 
 Save Coupon
+
+Save a coupon for a user
 
 ### Example
 ```dart

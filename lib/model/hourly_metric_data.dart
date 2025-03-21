@@ -10,18 +10,14 @@
 
 part of openapi.api;
 
-class HourlyMetric {
-  /// Returns a new [HourlyMetric] instance.
-  HourlyMetric({
-    required this.hour,
+class HourlyMetricData {
+  /// Returns a new [HourlyMetricData] instance.
+  HourlyMetricData({
     required this.visits,
     required this.couponViews,
     required this.storeViews,
     required this.saves,
   });
-
-  /// 24-hour format
-  String hour;
 
   /// Minimum value: 0
   int visits;
@@ -36,8 +32,7 @@ class HourlyMetric {
   int saves;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is HourlyMetric &&
-    other.hour == hour &&
+  bool operator ==(Object other) => identical(this, other) || other is HourlyMetricData &&
     other.visits == visits &&
     other.couponViews == couponViews &&
     other.storeViews == storeViews &&
@@ -46,18 +41,16 @@ class HourlyMetric {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (hour.hashCode) +
     (visits.hashCode) +
     (couponViews.hashCode) +
     (storeViews.hashCode) +
     (saves.hashCode);
 
   @override
-  String toString() => 'HourlyMetric[hour=$hour, visits=$visits, couponViews=$couponViews, storeViews=$storeViews, saves=$saves]';
+  String toString() => 'HourlyMetricData[visits=$visits, couponViews=$couponViews, storeViews=$storeViews, saves=$saves]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'hour'] = this.hour;
       json[r'visits'] = this.visits;
       json[r'coupon_views'] = this.couponViews;
       json[r'store_views'] = this.storeViews;
@@ -65,10 +58,10 @@ class HourlyMetric {
     return json;
   }
 
-  /// Returns a new [HourlyMetric] instance and imports its values from
+  /// Returns a new [HourlyMetricData] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static HourlyMetric? fromJson(dynamic value) {
+  static HourlyMetricData? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -77,14 +70,13 @@ class HourlyMetric {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "HourlyMetric[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "HourlyMetric[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "HourlyMetricData[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "HourlyMetricData[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return HourlyMetric(
-        hour: mapValueOfType<String>(json, r'hour')!,
+      return HourlyMetricData(
         visits: mapValueOfType<int>(json, r'visits')!,
         couponViews: mapValueOfType<int>(json, r'coupon_views')!,
         storeViews: mapValueOfType<int>(json, r'store_views')!,
@@ -94,11 +86,11 @@ class HourlyMetric {
     return null;
   }
 
-  static List<HourlyMetric> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <HourlyMetric>[];
+  static List<HourlyMetricData> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <HourlyMetricData>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = HourlyMetric.fromJson(row);
+        final value = HourlyMetricData.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -107,12 +99,12 @@ class HourlyMetric {
     return result.toList(growable: growable);
   }
 
-  static Map<String, HourlyMetric> mapFromJson(dynamic json) {
-    final map = <String, HourlyMetric>{};
+  static Map<String, HourlyMetricData> mapFromJson(dynamic json) {
+    final map = <String, HourlyMetricData>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = HourlyMetric.fromJson(entry.value);
+        final value = HourlyMetricData.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -121,14 +113,14 @@ class HourlyMetric {
     return map;
   }
 
-  // maps a json object with a list of HourlyMetric-objects as value to a dart map
-  static Map<String, List<HourlyMetric>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<HourlyMetric>>{};
+  // maps a json object with a list of HourlyMetricData-objects as value to a dart map
+  static Map<String, List<HourlyMetricData>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<HourlyMetricData>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = HourlyMetric.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = HourlyMetricData.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -136,7 +128,6 @@ class HourlyMetric {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'hour',
     'visits',
     'coupon_views',
     'store_views',

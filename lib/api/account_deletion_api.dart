@@ -11,86 +11,24 @@
 part of openapi.api;
 
 
-class SavedCouponsApi {
-  SavedCouponsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+class AccountDeletionApi {
+  AccountDeletionApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
-  /// Delete Saved Coupon
+  /// Get Deletion Status
   ///
-  /// Delete a saved coupon for a user
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] userId (required):
-  ///
-  /// * [String] couponId (required):
-  Future<Response> deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDeleteWithHttpInfo(String userId, String couponId,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/saved_coupons/{user_id}/{coupon_id}'
-      .replaceAll('{user_id}', userId)
-      .replaceAll('{coupon_id}', couponId);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'DELETE',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Delete Saved Coupon
-  ///
-  /// Delete a saved coupon for a user
-  ///
-  /// Parameters:
-  ///
-  /// * [String] userId (required):
-  ///
-  /// * [String] couponId (required):
-  Future<bool?> deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDelete(String userId, String couponId,) async {
-    final response = await deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDeleteWithHttpInfo(userId, couponId,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
-    
-    }
-    return null;
-  }
-
-  /// Get Saved Coupons
-  ///
-  /// Get all saved coupons for a user
+  /// Get the status of a deletion request
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [String] userId (required):
-  Future<Response> getSavedCouponsApiV1SavedCouponsUserIdGetWithHttpInfo(String userId,) async {
+  /// * [String] requestId (required):
+  Future<Response> getDeletionStatusApiV1DeletionDeletionRequestRequestIdGetWithHttpInfo(String requestId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/saved_coupons/{user_id}'
-      .replaceAll('{user_id}', userId);
+    final path = r'/api/v1/deletion/deletion-request/{request_id}'
+      .replaceAll('{request_id}', requestId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -113,15 +51,15 @@ class SavedCouponsApi {
     );
   }
 
-  /// Get Saved Coupons
+  /// Get Deletion Status
   ///
-  /// Get all saved coupons for a user
+  /// Get the status of a deletion request
   ///
   /// Parameters:
   ///
-  /// * [String] userId (required):
-  Future<List<CouponModel>?> getSavedCouponsApiV1SavedCouponsUserIdGet(String userId,) async {
-    final response = await getSavedCouponsApiV1SavedCouponsUserIdGetWithHttpInfo(userId,);
+  /// * [String] requestId (required):
+  Future<DeletionRequestModel?> getDeletionStatusApiV1DeletionDeletionRequestRequestIdGet(String requestId,) async {
+    final response = await getDeletionStatusApiV1DeletionDeletionRequestRequestIdGetWithHttpInfo(requestId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -129,36 +67,34 @@ class SavedCouponsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModel>') as List)
-        .cast<CouponModel>()
-        .toList(growable: false);
-
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeletionRequestModel',) as DeletionRequestModel;
+    
     }
     return null;
   }
 
-  /// Save Coupon
+  /// Request User Deletion
   ///
-  /// Save a coupon for a user
+  /// Request deletion of a user account and all associated data
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [SaveCouponRequest] saveCouponRequest (required):
-  Future<Response> saveCouponApiV1SavedCouponsPostWithHttpInfo(SaveCouponRequest saveCouponRequest,) async {
+  /// * [String] userId (required):
+  Future<Response> requestUserDeletionApiV1DeletionRequestUserDeletionUserIdPostWithHttpInfo(String userId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/saved_coupons/';
+    final path = r'/api/v1/deletion/request-user-deletion/{user_id}'
+      .replaceAll('{user_id}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = saveCouponRequest;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    const contentTypes = <String>[];
 
 
     return apiClient.invokeAPI(
@@ -172,15 +108,15 @@ class SavedCouponsApi {
     );
   }
 
-  /// Save Coupon
+  /// Request User Deletion
   ///
-  /// Save a coupon for a user
+  /// Request deletion of a user account and all associated data
   ///
   /// Parameters:
   ///
-  /// * [SaveCouponRequest] saveCouponRequest (required):
-  Future<bool?> saveCouponApiV1SavedCouponsPost(SaveCouponRequest saveCouponRequest,) async {
-    final response = await saveCouponApiV1SavedCouponsPostWithHttpInfo(saveCouponRequest,);
+  /// * [String] userId (required):
+  Future<DeletionRequestModel?> requestUserDeletionApiV1DeletionRequestUserDeletionUserIdPost(String userId,) async {
+    final response = await requestUserDeletionApiV1DeletionRequestUserDeletionUserIdPostWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -188,7 +124,64 @@ class SavedCouponsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'bool',) as bool;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeletionRequestModel',) as DeletionRequestModel;
+    
+    }
+    return null;
+  }
+
+  /// Request Vendor Deletion
+  ///
+  /// Request deletion of a vendor account and all associated data
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] vendorId (required):
+  Future<Response> requestVendorDeletionApiV1DeletionRequestVendorDeletionVendorIdPostWithHttpInfo(String vendorId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/deletion/request-vendor-deletion/{vendor_id}'
+      .replaceAll('{vendor_id}', vendorId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Request Vendor Deletion
+  ///
+  /// Request deletion of a vendor account and all associated data
+  ///
+  /// Parameters:
+  ///
+  /// * [String] vendorId (required):
+  Future<DeletionRequestModel?> requestVendorDeletionApiV1DeletionRequestVendorDeletionVendorIdPost(String vendorId,) async {
+    final response = await requestVendorDeletionApiV1DeletionRequestVendorDeletionVendorIdPostWithHttpInfo(vendorId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DeletionRequestModel',) as DeletionRequestModel;
     
     }
     return null;

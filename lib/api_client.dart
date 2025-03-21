@@ -212,6 +212,12 @@ class ApiClient {
           return DashboardRequest.fromJson(value);
         case 'DashboardResponse':
           return DashboardResponse.fromJson(value);
+        case 'DeletionRequestModel':
+          return DeletionRequestModel.fromJson(value);
+        case 'DeletionRequestStatus':
+          return DeletionRequestStatusTypeTransformer().decode(value);
+        case 'DeletionRequestType':
+          return DeletionRequestTypeTypeTransformer().decode(value);
         case 'Gender':
           return GenderTypeTransformer().decode(value);
         case 'GeoPoint':
@@ -220,8 +226,8 @@ class ApiClient {
           return HTTPValidationError.fromJson(value);
         case 'HourlyActivityData':
           return HourlyActivityData.fromJson(value);
-        case 'HourlyMetric':
-          return HourlyMetric.fromJson(value);
+        case 'HourlyMetricData':
+          return HourlyMetricData.fromJson(value);
         case 'IDResponse':
           return IDResponse.fromJson(value);
         case 'Interests':
@@ -256,6 +262,12 @@ class ApiClient {
           return TimeFrameTypeTransformer().decode(value);
         case 'Token':
           return Token.fromJson(value);
+        case 'UnlockStatus':
+          return UnlockStatusTypeTransformer().decode(value);
+        case 'UnlockedCouponModel':
+          return UnlockedCouponModel.fromJson(value);
+        case 'UnlockedCouponResponse':
+          return UnlockedCouponResponse.fromJson(value);
         case 'UserModel':
           return UserModel.fromJson(value);
         case 'UserModelFromClient':

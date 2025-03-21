@@ -2,6 +2,7 @@
 .travis.yml
 README.md
 analysis_options.yaml
+doc/AccountDeletionApi.md
 doc/ActivityMetrics.md
 doc/AnalyticsApi.md
 doc/AnalyticsEvent.md
@@ -20,11 +21,14 @@ doc/CreateUserSubscriptionSession.md
 doc/DashboardRequest.md
 doc/DashboardResponse.md
 doc/DefaultApi.md
+doc/DeletionRequestModel.md
+doc/DeletionRequestStatus.md
+doc/DeletionRequestType.md
 doc/Gender.md
 doc/GeoPoint.md
 doc/HTTPValidationError.md
 doc/HourlyActivityData.md
-doc/HourlyMetric.md
+doc/HourlyMetricData.md
 doc/IDResponse.md
 doc/Interests.md
 doc/MetricSortBy.md
@@ -47,6 +51,10 @@ doc/StripeWebhookApi.md
 doc/SubscriptionStatus.md
 doc/TimeFrame.md
 doc/Token.md
+doc/UnlockStatus.md
+doc/UnlockedCouponModel.md
+doc/UnlockedCouponResponse.md
+doc/UnlockedCouponsApi.md
 doc/UserApi.md
 doc/UserModel.md
 doc/UserModelFromClient.md
@@ -65,6 +73,7 @@ doc/WonCouponModel.md
 doc/WonCouponsApi.md
 git_push.sh
 lib/api.dart
+lib/api/account_deletion_api.dart
 lib/api/analytics_api.dart
 lib/api/coupon_api.dart
 lib/api/default_api.dart
@@ -73,6 +82,7 @@ lib/api/saved_coupons_api.dart
 lib/api/spin_wheel_api.dart
 lib/api/store_api.dart
 lib/api/stripe_webhook_api.dart
+lib/api/unlocked_coupons_api.dart
 lib/api/user_api.dart
 lib/api/user_points_api.dart
 lib/api/user_subscription_api.dart
@@ -102,10 +112,13 @@ lib/model/coupon_target_type.dart
 lib/model/create_user_subscription_session.dart
 lib/model/dashboard_request.dart
 lib/model/dashboard_response.dart
+lib/model/deletion_request_model.dart
+lib/model/deletion_request_status.dart
+lib/model/deletion_request_type.dart
 lib/model/gender.dart
 lib/model/geo_point.dart
 lib/model/hourly_activity_data.dart
-lib/model/hourly_metric.dart
+lib/model/hourly_metric_data.dart
 lib/model/http_validation_error.dart
 lib/model/id_response.dart
 lib/model/interests.dart
@@ -124,6 +137,9 @@ lib/model/store_types.dart
 lib/model/subscription_status.dart
 lib/model/time_frame.dart
 lib/model/token.dart
+lib/model/unlock_status.dart
+lib/model/unlocked_coupon_model.dart
+lib/model/unlocked_coupon_response.dart
 lib/model/user_model.dart
 lib/model/user_model_from_client.dart
 lib/model/user_points_transaction_model.dart
@@ -135,3 +151,4 @@ lib/model/vendor_model.dart
 lib/model/vendor_status.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
+test/hourly_metric_data_test.dart

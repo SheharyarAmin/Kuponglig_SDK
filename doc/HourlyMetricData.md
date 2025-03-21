@@ -1,4 +1,4 @@
-# openapi.model.HourlyMetric
+# openapi.model.HourlyMetricData
 
 ## Load the model package
 ```dart
@@ -8,7 +8,6 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hour** | **String** | 24-hour format | 
 **visits** | **int** |  | 
 **couponViews** | **int** |  | 
 **storeViews** | **int** |  | 

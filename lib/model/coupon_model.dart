@@ -31,6 +31,8 @@ class CouponModel {
     required this.termsAndConditions,
     required this.minPurchaseAmount,
     required this.isPremium,
+    this.unlockPoints,
+    this.isUnlocked = false,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -71,6 +73,10 @@ class CouponModel {
 
   bool isPremium;
 
+  int? unlockPoints;
+
+  bool isUnlocked;
+
   DateTime createdAt;
 
   DateTime updatedAt;
@@ -95,6 +101,8 @@ class CouponModel {
     other.termsAndConditions == termsAndConditions &&
     other.minPurchaseAmount == minPurchaseAmount &&
     other.isPremium == isPremium &&
+    other.unlockPoints == unlockPoints &&
+    other.isUnlocked == isUnlocked &&
     other.createdAt == createdAt &&
     other.updatedAt == updatedAt;
 
@@ -119,11 +127,13 @@ class CouponModel {
     (termsAndConditions.hashCode) +
     (minPurchaseAmount.hashCode) +
     (isPremium.hashCode) +
+    (unlockPoints == null ? 0 : unlockPoints!.hashCode) +
+    (isUnlocked.hashCode) +
     (createdAt.hashCode) +
     (updatedAt.hashCode);
 
   @override
-  String toString() => 'CouponModel[id=$id, vendorId=$vendorId, storeId=$storeId, title=$title, description=$description, actualValue=$actualValue, discountValue=$discountValue, saleValue=$saleValue, totalSaleValueLimit=$totalSaleValueLimit, startDate=$startDate, expirationDate=$expirationDate, totalCoupons=$totalCoupons, redeemedCoupons=$redeemedCoupons, status=$status, targetType=$targetType, termsAndConditions=$termsAndConditions, minPurchaseAmount=$minPurchaseAmount, isPremium=$isPremium, createdAt=$createdAt, updatedAt=$updatedAt]';
+  String toString() => 'CouponModel[id=$id, vendorId=$vendorId, storeId=$storeId, title=$title, description=$description, actualValue=$actualValue, discountValue=$discountValue, saleValue=$saleValue, totalSaleValueLimit=$totalSaleValueLimit, startDate=$startDate, expirationDate=$expirationDate, totalCoupons=$totalCoupons, redeemedCoupons=$redeemedCoupons, status=$status, targetType=$targetType, termsAndConditions=$termsAndConditions, minPurchaseAmount=$minPurchaseAmount, isPremium=$isPremium, unlockPoints=$unlockPoints, isUnlocked=$isUnlocked, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -161,6 +171,12 @@ class CouponModel {
       json[r'termsAndConditions'] = this.termsAndConditions;
       json[r'minPurchaseAmount'] = this.minPurchaseAmount;
       json[r'isPremium'] = this.isPremium;
+    if (this.unlockPoints != null) {
+      json[r'unlockPoints'] = this.unlockPoints;
+    } else {
+      json[r'unlockPoints'] = null;
+    }
+      json[r'isUnlocked'] = this.isUnlocked;
       json[r'createdAt'] = this.createdAt.toUtc().toIso8601String();
       json[r'updatedAt'] = this.updatedAt.toUtc().toIso8601String();
     return json;
@@ -205,6 +221,8 @@ class CouponModel {
         termsAndConditions: mapValueOfType<String>(json, r'termsAndConditions')!,
         minPurchaseAmount: num.parse('${json[r'minPurchaseAmount']}'),
         isPremium: mapValueOfType<bool>(json, r'isPremium')!,
+        unlockPoints: mapValueOfType<int>(json, r'unlockPoints'),
+        isUnlocked: mapValueOfType<bool>(json, r'isUnlocked') ?? false,
         createdAt: mapDateTime(json, r'createdAt', r'')!,
         updatedAt: mapDateTime(json, r'updatedAt', r'')!,
       );

@@ -67,6 +67,12 @@ String parameterToString(dynamic value) {
   if (value is CouponTargetType) {
     return CouponTargetTypeTypeTransformer().encode(value).toString();
   }
+  if (value is DeletionRequestStatus) {
+    return DeletionRequestStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is DeletionRequestType) {
+    return DeletionRequestTypeTypeTransformer().encode(value).toString();
+  }
   if (value is Gender) {
     return GenderTypeTransformer().encode(value).toString();
   }
@@ -93,6 +99,9 @@ String parameterToString(dynamic value) {
   }
   if (value is TimeFrame) {
     return TimeFrameTypeTransformer().encode(value).toString();
+  }
+  if (value is UnlockStatus) {
+    return UnlockStatusTypeTransformer().encode(value).toString();
   }
   if (value is UserStatus) {
     return UserStatusTypeTransformer().encode(value).toString();
