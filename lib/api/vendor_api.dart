@@ -16,9 +16,66 @@ class VendorApi {
 
   final ApiClient apiClient;
 
+  /// Cancel Vendor Deletion
+  ///
+  /// Endpoint to cancel a scheduled vendor deletion.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] vendorId (required):
+  Future<Response> cancelVendorDeletionApiV1VendorVendorsVendorIdCancelDeletionPostWithHttpInfo(String vendorId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/vendor/vendors/{vendor_id}/cancel-deletion'
+      .replaceAll('{vendor_id}', vendorId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Cancel Vendor Deletion
+  ///
+  /// Endpoint to cancel a scheduled vendor deletion.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] vendorId (required):
+  Future<Object?> cancelVendorDeletionApiV1VendorVendorsVendorIdCancelDeletionPost(String vendorId,) async {
+    final response = await cancelVendorDeletionApiV1VendorVendorsVendorIdCancelDeletionPostWithHttpInfo(vendorId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+    
+    }
+    return null;
+  }
+
   /// Delete Vendor
   ///
-  /// Endpoint to delete vendor data from Firestore. Calls the `delete_vendor_data` function from CRUD operations.
+  /// Endpoint to schedule vendor deletion after 15 days. Creates a deletion request that will be processed by the cleanup scheduler.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -53,7 +110,7 @@ class VendorApi {
 
   /// Delete Vendor
   ///
-  /// Endpoint to delete vendor data from Firestore. Calls the `delete_vendor_data` function from CRUD operations.
+  /// Endpoint to schedule vendor deletion after 15 days. Creates a deletion request that will be processed by the cleanup scheduler.
   ///
   /// Parameters:
   ///
@@ -75,14 +132,18 @@ class VendorApi {
 
   /// Get Vendor
   ///
-  /// Endpoint to retrieve vendor data from Firestore by vendor_id. Calls the `get_vendor_data` function from CRUD operations.
+  /// Endpoint to retrieve vendor data from Firestore by vendor_id. When check_deletion_status=True, it will also check if there's a pending deletion request. When login=True, any pending deletion requests will be automatically canceled.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] vendorId (required):
-  Future<Response> getVendorApiV1VendorVendorsVendorIdGetWithHttpInfo(String vendorId,) async {
+  ///
+  /// * [bool] checkDeletionStatus:
+  ///
+  /// * [bool] login:
+  Future<Response> getVendorApiV1VendorVendorsVendorIdGetWithHttpInfo(String vendorId, { bool? checkDeletionStatus, bool? login, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/vendor/vendors/{vendor_id}'
       .replaceAll('{vendor_id}', vendorId);
@@ -93,6 +154,13 @@ class VendorApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (checkDeletionStatus != null) {
+      queryParams.addAll(_queryParams('', 'check_deletion_status', checkDeletionStatus));
+    }
+    if (login != null) {
+      queryParams.addAll(_queryParams('', 'login', login));
+    }
 
     const contentTypes = <String>[];
 
@@ -110,13 +178,17 @@ class VendorApi {
 
   /// Get Vendor
   ///
-  /// Endpoint to retrieve vendor data from Firestore by vendor_id. Calls the `get_vendor_data` function from CRUD operations.
+  /// Endpoint to retrieve vendor data from Firestore by vendor_id. When check_deletion_status=True, it will also check if there's a pending deletion request. When login=True, any pending deletion requests will be automatically canceled.
   ///
   /// Parameters:
   ///
   /// * [String] vendorId (required):
-  Future<VendorModel?> getVendorApiV1VendorVendorsVendorIdGet(String vendorId,) async {
-    final response = await getVendorApiV1VendorVendorsVendorIdGetWithHttpInfo(vendorId,);
+  ///
+  /// * [bool] checkDeletionStatus:
+  ///
+  /// * [bool] login:
+  Future<VendorModel?> getVendorApiV1VendorVendorsVendorIdGet(String vendorId, { bool? checkDeletionStatus, bool? login, }) async {
+    final response = await getVendorApiV1VendorVendorsVendorIdGetWithHttpInfo(vendorId,  checkDeletionStatus: checkDeletionStatus, login: login, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

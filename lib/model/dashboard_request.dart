@@ -104,8 +104,7 @@ class DashboardRequest {
         timeFrame: TimeFrame.fromJson(json[r'time_frame'])!,
         includeExtendedMetrics: mapValueOfType<bool>(json, r'include_extended_metrics') ?? false,
         metricSort: MetricSortBy.fromJson(json[r'metric_sort']),
-        dateRange: mapValueOfType<Map<String, DateTime>>(json, r'date_range'),
-
+        dateRange: DateTime.mapFromJson(json[r'date_range']),
       );
     }
     return null;

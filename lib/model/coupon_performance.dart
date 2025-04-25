@@ -15,15 +15,15 @@ class CouponPerformance {
   CouponPerformance({
     required this.id,
     required this.title,
-    required this.description,
+    this.description,
     required this.category,
     required this.status,
     required this.expiryDate,
-    required this.value,
-    required this.originalPrice,
+    this.value,
+    this.originalPrice,
     required this.redemptionRate,
     required this.revenueGenerated,
-    required this.profitMargin,
+    this.profitMargin,
     required this.totalViews,
     required this.totalSaves,
     required this.totalRedemptions,
@@ -33,7 +33,7 @@ class CouponPerformance {
 
   String title;
 
-  String description;
+  String? description;
 
   String category;
 
@@ -41,9 +41,11 @@ class CouponPerformance {
 
   DateTime expiryDate;
 
-  num value;
+  /// Minimum value: 0
+  num? value;
 
-  num originalPrice;
+  /// Minimum value: 0
+  num? originalPrice;
 
   /// With 1 decimal place
   ///
@@ -56,11 +58,9 @@ class CouponPerformance {
   /// Minimum value: 0
   num revenueGenerated;
 
-  /// With 1 decimal place
-  ///
   /// Minimum value: 0
   /// Maximum value: 100
-  num profitMargin;
+  num? profitMargin;
 
   /// Minimum value: 0
   int totalViews;
@@ -93,15 +93,15 @@ class CouponPerformance {
     // ignore: unnecessary_parenthesis
     (id.hashCode) +
     (title.hashCode) +
-    (description.hashCode) +
+    (description == null ? 0 : description!.hashCode) +
     (category.hashCode) +
     (status.hashCode) +
     (expiryDate.hashCode) +
-    (value.hashCode) +
-    (originalPrice.hashCode) +
+    (value == null ? 0 : value!.hashCode) +
+    (originalPrice == null ? 0 : originalPrice!.hashCode) +
     (redemptionRate.hashCode) +
     (revenueGenerated.hashCode) +
-    (profitMargin.hashCode) +
+    (profitMargin == null ? 0 : profitMargin!.hashCode) +
     (totalViews.hashCode) +
     (totalSaves.hashCode) +
     (totalRedemptions.hashCode);
@@ -113,15 +113,31 @@ class CouponPerformance {
     final json = <String, dynamic>{};
       json[r'id'] = this.id;
       json[r'title'] = this.title;
+    if (this.description != null) {
       json[r'description'] = this.description;
+    } else {
+      json[r'description'] = null;
+    }
       json[r'category'] = this.category;
       json[r'status'] = this.status;
       json[r'expiry_date'] = this.expiryDate.toUtc().toIso8601String();
+    if (this.value != null) {
       json[r'value'] = this.value;
+    } else {
+      json[r'value'] = null;
+    }
+    if (this.originalPrice != null) {
       json[r'original_price'] = this.originalPrice;
+    } else {
+      json[r'original_price'] = null;
+    }
       json[r'redemption_rate'] = this.redemptionRate;
       json[r'revenue_generated'] = this.revenueGenerated;
+    if (this.profitMargin != null) {
       json[r'profit_margin'] = this.profitMargin;
+    } else {
+      json[r'profit_margin'] = null;
+    }
       json[r'total_views'] = this.totalViews;
       json[r'total_saves'] = this.totalSaves;
       json[r'total_redemptions'] = this.totalRedemptions;
@@ -149,15 +165,21 @@ class CouponPerformance {
       return CouponPerformance(
         id: mapValueOfType<String>(json, r'id')!,
         title: mapValueOfType<String>(json, r'title')!,
-        description: mapValueOfType<String>(json, r'description')!,
+        description: mapValueOfType<String>(json, r'description'),
         category: mapValueOfType<String>(json, r'category')!,
         status: mapValueOfType<String>(json, r'status')!,
         expiryDate: mapDateTime(json, r'expiry_date', r'')!,
-        value: num.parse('${json[r'value']}'),
-        originalPrice: num.parse('${json[r'original_price']}'),
+        value: json[r'value'] == null
+            ? null
+            : num.parse('${json[r'value']}'),
+        originalPrice: json[r'original_price'] == null
+            ? null
+            : num.parse('${json[r'original_price']}'),
         redemptionRate: num.parse('${json[r'redemption_rate']}'),
         revenueGenerated: num.parse('${json[r'revenue_generated']}'),
-        profitMargin: num.parse('${json[r'profit_margin']}'),
+        profitMargin: json[r'profit_margin'] == null
+            ? null
+            : num.parse('${json[r'profit_margin']}'),
         totalViews: mapValueOfType<int>(json, r'total_views')!,
         totalSaves: mapValueOfType<int>(json, r'total_saves')!,
         totalRedemptions: mapValueOfType<int>(json, r'total_redemptions')!,
@@ -210,15 +232,11 @@ class CouponPerformance {
   static const requiredKeys = <String>{
     'id',
     'title',
-    'description',
     'category',
     'status',
     'expiry_date',
-    'value',
-    'original_price',
     'redemption_rate',
     'revenue_generated',
-    'profit_margin',
     'total_views',
     'total_saves',
     'total_redemptions',

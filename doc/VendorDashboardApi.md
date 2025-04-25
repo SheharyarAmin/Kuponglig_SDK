@@ -9,9 +9,49 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**debugGetAllStoreStatsApiV1VendorDashboardDebugStoreStatsGet**](VendorDashboardApi.md#debuggetallstorestatsapiv1vendordashboarddebugstorestatsget) | **GET** /api/v1/vendor_dashboard/debug/store-stats | Debug Get All Store Stats
 [**getDashboardStatsApiV1VendorDashboardStatsPost**](VendorDashboardApi.md#getdashboardstatsapiv1vendordashboardstatspost) | **POST** /api/v1/vendor_dashboard/stats | Get Dashboard Stats
 [**getVendorStoresApiV1VendorDashboardStoresGet**](VendorDashboardApi.md#getvendorstoresapiv1vendordashboardstoresget) | **GET** /api/v1/vendor_dashboard/stores | Get Vendor Stores
 
+
+# **debugGetAllStoreStatsApiV1VendorDashboardDebugStoreStatsGet**
+> Object debugGetAllStoreStatsApiV1VendorDashboardDebugStoreStatsGet()
+
+Debug Get All Store Stats
+
+Debug endpoint to fetch all store stats
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = VendorDashboardApi();
+
+try {
+    final result = api_instance.debugGetAllStoreStatsApiV1VendorDashboardDebugStoreStatsGet();
+    print(result);
+} catch (e) {
+    print('Exception when calling VendorDashboardApi->debugGetAllStoreStatsApiV1VendorDashboardDebugStoreStatsGet: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDashboardStatsApiV1VendorDashboardStatsPost**
 > DashboardResponse getDashboardStatsApiV1VendorDashboardStatsPost(dashboardRequest)

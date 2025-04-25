@@ -19,6 +19,7 @@ class WonCouponModel {
     required this.couponName,
     required this.validTill,
     required this.wonAt,
+    this.status = AppSchemasWonCouponCouponStatus.active,
   });
 
   String id;
@@ -33,6 +34,8 @@ class WonCouponModel {
 
   DateTime wonAt;
 
+  AppSchemasWonCouponCouponStatus status;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is WonCouponModel &&
     other.id == id &&
@@ -40,7 +43,8 @@ class WonCouponModel {
     other.couponId == couponId &&
     other.couponName == couponName &&
     other.validTill == validTill &&
-    other.wonAt == wonAt;
+    other.wonAt == wonAt &&
+    other.status == status;
 
   @override
   int get hashCode =>
@@ -50,10 +54,11 @@ class WonCouponModel {
     (couponId.hashCode) +
     (couponName.hashCode) +
     (validTill.hashCode) +
-    (wonAt.hashCode);
+    (wonAt.hashCode) +
+    (status.hashCode);
 
   @override
-  String toString() => 'WonCouponModel[id=$id, userId=$userId, couponId=$couponId, couponName=$couponName, validTill=$validTill, wonAt=$wonAt]';
+  String toString() => 'WonCouponModel[id=$id, userId=$userId, couponId=$couponId, couponName=$couponName, validTill=$validTill, wonAt=$wonAt, status=$status]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -63,6 +68,7 @@ class WonCouponModel {
       json[r'coupon_name'] = this.couponName;
       json[r'valid_till'] = this.validTill.toUtc().toIso8601String();
       json[r'won_at'] = this.wonAt.toUtc().toIso8601String();
+      json[r'status'] = this.status;
     return json;
   }
 
@@ -91,6 +97,7 @@ class WonCouponModel {
         couponName: mapValueOfType<String>(json, r'coupon_name')!,
         validTill: mapDateTime(json, r'valid_till', r'')!,
         wonAt: mapDateTime(json, r'won_at', r'')!,
+        status: AppSchemasWonCouponCouponStatus.fromJson(json[r'status']) ?? AppSchemasWonCouponCouponStatus.active,
       );
     }
     return null;

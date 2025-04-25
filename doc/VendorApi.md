@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**cancelVendorDeletionApiV1VendorVendorsVendorIdCancelDeletionPost**](VendorApi.md#cancelvendordeletionapiv1vendorvendorsvendoridcanceldeletionpost) | **POST** /api/v1/vendor/vendors/{vendor_id}/cancel-deletion | Cancel Vendor Deletion
 [**deleteVendorApiV1VendorVendorsVendorIdDelete**](VendorApi.md#deletevendorapiv1vendorvendorsvendoriddelete) | **DELETE** /api/v1/vendor/vendors/{vendor_id} | Delete Vendor
 [**getVendorApiV1VendorVendorsVendorIdGet**](VendorApi.md#getvendorapiv1vendorvendorsvendoridget) | **GET** /api/v1/vendor/vendors/{vendor_id} | Get Vendor
 [**saveVendorApiV1VendorVendorsPost**](VendorApi.md#savevendorapiv1vendorvendorspost) | **POST** /api/v1/vendor/vendors | Save Vendor
@@ -16,12 +17,55 @@ Method | HTTP request | Description
 [**uploadVendorIdCardApiV1VendorVendorsVendorIdUploadIdCardPost**](VendorApi.md#uploadvendoridcardapiv1vendorvendorsvendoriduploadidcardpost) | **POST** /api/v1/vendor/vendors/{vendor_id}/upload-id-card | Upload Vendor Id Card
 
 
+# **cancelVendorDeletionApiV1VendorVendorsVendorIdCancelDeletionPost**
+> Object cancelVendorDeletionApiV1VendorVendorsVendorIdCancelDeletionPost(vendorId)
+
+Cancel Vendor Deletion
+
+Endpoint to cancel a scheduled vendor deletion.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = VendorApi();
+final vendorId = vendorId_example; // String | 
+
+try {
+    final result = api_instance.cancelVendorDeletionApiV1VendorVendorsVendorIdCancelDeletionPost(vendorId);
+    print(result);
+} catch (e) {
+    print('Exception when calling VendorApi->cancelVendorDeletionApiV1VendorVendorsVendorIdCancelDeletionPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **vendorId** | **String**|  | 
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteVendorApiV1VendorVendorsVendorIdDelete**
 > Object deleteVendorApiV1VendorVendorsVendorIdDelete(vendorId)
 
 Delete Vendor
 
-Endpoint to delete vendor data from Firestore. Calls the `delete_vendor_data` function from CRUD operations.
+Endpoint to schedule vendor deletion after 15 days. Creates a deletion request that will be processed by the cleanup scheduler.
 
 ### Example
 ```dart
@@ -60,11 +104,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getVendorApiV1VendorVendorsVendorIdGet**
-> VendorModel getVendorApiV1VendorVendorsVendorIdGet(vendorId)
+> VendorModel getVendorApiV1VendorVendorsVendorIdGet(vendorId, checkDeletionStatus, login)
 
 Get Vendor
 
-Endpoint to retrieve vendor data from Firestore by vendor_id. Calls the `get_vendor_data` function from CRUD operations.
+Endpoint to retrieve vendor data from Firestore by vendor_id. When check_deletion_status=True, it will also check if there's a pending deletion request. When login=True, any pending deletion requests will be automatically canceled.
 
 ### Example
 ```dart
@@ -72,9 +116,11 @@ import 'package:openapi/api.dart';
 
 final api_instance = VendorApi();
 final vendorId = vendorId_example; // String | 
+final checkDeletionStatus = true; // bool | 
+final login = true; // bool | 
 
 try {
-    final result = api_instance.getVendorApiV1VendorVendorsVendorIdGet(vendorId);
+    final result = api_instance.getVendorApiV1VendorVendorsVendorIdGet(vendorId, checkDeletionStatus, login);
     print(result);
 } catch (e) {
     print('Exception when calling VendorApi->getVendorApiV1VendorVendorsVendorIdGet: $e\n');
@@ -86,6 +132,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vendorId** | **String**|  | 
+ **checkDeletionStatus** | **bool**|  | [optional] [default to false]
+ **login** | **bool**|  | [optional] [default to false]
 
 ### Return type
 

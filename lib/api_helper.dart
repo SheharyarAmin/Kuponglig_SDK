@@ -58,11 +58,23 @@ String parameterToString(dynamic value) {
   if (value is AnalyticsEventType) {
     return AnalyticsEventTypeTypeTransformer().encode(value).toString();
   }
+  if (value is AppSchemasWonCouponCouponStatus) {
+    return AppSchemasWonCouponCouponStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is AppUtilsEnumsCouponStatus) {
+    return AppUtilsEnumsCouponStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is ContactFormStatus) {
+    return ContactFormStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is ContactFormType) {
+    return ContactFormTypeTypeTransformer().encode(value).toString();
+  }
   if (value is CouponRedemptionStatus) {
     return CouponRedemptionStatusTypeTransformer().encode(value).toString();
   }
-  if (value is CouponStatus) {
-    return CouponStatusTypeTransformer().encode(value).toString();
+  if (value is CouponStatusInput) {
+    return CouponStatusInputTypeTransformer().encode(value).toString();
   }
   if (value is CouponTargetType) {
     return CouponTargetTypeTypeTransformer().encode(value).toString();

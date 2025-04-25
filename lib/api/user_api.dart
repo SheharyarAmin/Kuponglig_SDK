@@ -16,6 +16,63 @@ class UserApi {
 
   final ApiClient apiClient;
 
+  /// Cancel User Deletion
+  ///
+  /// Cancel a scheduled user deletion.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] userId (required):
+  Future<Response> cancelUserDeletionApiV1UserUserIdCancelDeletionPostWithHttpInfo(String userId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/user/{user_id}/cancel-deletion'
+      .replaceAll('{user_id}', userId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Cancel User Deletion
+  ///
+  /// Cancel a scheduled user deletion.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] userId (required):
+  Future<Object?> cancelUserDeletionApiV1UserUserIdCancelDeletionPost(String userId,) async {
+    final response = await cancelUserDeletionApiV1UserUserIdCancelDeletionPostWithHttpInfo(userId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+    
+    }
+    return null;
+  }
+
   /// Create User
   ///
   /// Endpoint to create a new user.
@@ -74,7 +131,7 @@ class UserApi {
 
   /// Delete User Endpoint
   ///
-  /// Endpoint to delete a user.
+  /// Endpoint to schedule user deletion after 15 days.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -109,7 +166,7 @@ class UserApi {
 
   /// Delete User Endpoint
   ///
-  /// Endpoint to delete a user.
+  /// Endpoint to schedule user deletion after 15 days.
   ///
   /// Parameters:
   ///
@@ -182,14 +239,18 @@ class UserApi {
 
   /// Get User
   ///
-  /// Endpoint to fetch a user by ID.
+  /// Endpoint to fetch a user by ID. When check_deletion_status=True, it will also check if there's a pending deletion request. When login=True, any pending deletion requests will be automatically canceled.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] userId (required):
-  Future<Response> getUserApiV1UserUserIdGetWithHttpInfo(String userId,) async {
+  ///
+  /// * [bool] checkDeletionStatus:
+  ///
+  /// * [bool] login:
+  Future<Response> getUserApiV1UserUserIdGetWithHttpInfo(String userId, { bool? checkDeletionStatus, bool? login, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/user/{user_id}'
       .replaceAll('{user_id}', userId);
@@ -200,6 +261,13 @@ class UserApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (checkDeletionStatus != null) {
+      queryParams.addAll(_queryParams('', 'check_deletion_status', checkDeletionStatus));
+    }
+    if (login != null) {
+      queryParams.addAll(_queryParams('', 'login', login));
+    }
 
     const contentTypes = <String>[];
 
@@ -217,13 +285,17 @@ class UserApi {
 
   /// Get User
   ///
-  /// Endpoint to fetch a user by ID.
+  /// Endpoint to fetch a user by ID. When check_deletion_status=True, it will also check if there's a pending deletion request. When login=True, any pending deletion requests will be automatically canceled.
   ///
   /// Parameters:
   ///
   /// * [String] userId (required):
-  Future<UserModel?> getUserApiV1UserUserIdGet(String userId,) async {
-    final response = await getUserApiV1UserUserIdGetWithHttpInfo(userId,);
+  ///
+  /// * [bool] checkDeletionStatus:
+  ///
+  /// * [bool] login:
+  Future<UserModel?> getUserApiV1UserUserIdGet(String userId, { bool? checkDeletionStatus, bool? login, }) async {
+    final response = await getUserApiV1UserUserIdGetWithHttpInfo(userId,  checkDeletionStatus: checkDeletionStatus, login: login, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -232,6 +304,71 @@ class UserApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserModel',) as UserModel;
+    
+    }
+    return null;
+  }
+
+  /// Get User Redeemed Coupons
+  ///
+  /// Get the last N redeemed coupons for a user.  Args:     user_id: The ID of the user     limit: Maximum number of coupons to return (default 10)      Returns:     A list of the user's redeemed coupons with coupon and store details
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] userId (required):
+  ///
+  /// * [int] limit:
+  Future<Response> getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGetWithHttpInfo(String userId, { int? limit, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/redeemed_coupons/user-history';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+      queryParams.addAll(_queryParams('', 'user_id', userId));
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get User Redeemed Coupons
+  ///
+  /// Get the last N redeemed coupons for a user.  Args:     user_id: The ID of the user     limit: Maximum number of coupons to return (default 10)      Returns:     A list of the user's redeemed coupons with coupon and store details
+  ///
+  /// Parameters:
+  ///
+  /// * [String] userId (required):
+  ///
+  /// * [int] limit:
+  Future<UserRedeemedCouponsListResponse?> getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGet(String userId, { int? limit, }) async {
+    final response = await getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGetWithHttpInfo(userId,  limit: limit, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserRedeemedCouponsListResponse',) as UserRedeemedCouponsListResponse;
     
     }
     return null;

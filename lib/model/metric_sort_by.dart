@@ -26,12 +26,14 @@ class MetricSortBy {
   static const redemptionRate = MetricSortBy._(r'redemption_rate');
   static const revenue = MetricSortBy._(r'revenue');
   static const views = MetricSortBy._(r'views');
+  static const lessThanClassQuoteAppPeriodSchemasPeriodVendorDashboardStatsPeriodMetricSortByPeriodConfigQuoteGreaterThan = MetricSortBy._(r'<class \'app.schemas.vendor_dashboard_stats.MetricSortBy.Config\'>');
 
   /// List of all possible values in this [enum][MetricSortBy].
   static const values = <MetricSortBy>[
     redemptionRate,
     revenue,
     views,
+    lessThanClassQuoteAppPeriodSchemasPeriodVendorDashboardStatsPeriodMetricSortByPeriodConfigQuoteGreaterThan,
   ];
 
   static MetricSortBy? fromJson(dynamic value) => MetricSortByTypeTransformer().decode(value);
@@ -73,6 +75,7 @@ class MetricSortByTypeTransformer {
         case r'redemption_rate': return MetricSortBy.redemptionRate;
         case r'revenue': return MetricSortBy.revenue;
         case r'views': return MetricSortBy.views;
+        case r'<class \'app.schemas.vendor_dashboard_stats.MetricSortBy.Config\'>': return MetricSortBy.lessThanClassQuoteAppPeriodSchemasPeriodVendorDashboardStatsPeriodMetricSortByPeriodConfigQuoteGreaterThan;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

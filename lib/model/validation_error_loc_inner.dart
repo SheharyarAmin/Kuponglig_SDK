@@ -12,8 +12,18 @@ part of openapi.api;
 
 class ValidationErrorLocInner {
   /// Returns a new [ValidationErrorLocInner] instance.
-  ValidationErrorLocInner();
+  ValidationErrorLocInner({
+  });
 
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is ValidationErrorLocInner &&
+
+  @override
+  int get hashCode =>
+    // ignore: unnecessary_parenthesis
+
+  @override
+  String toString() => 'ValidationErrorLocInner[]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};

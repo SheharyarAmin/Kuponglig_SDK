@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSavedCouponsApiV1SavedCouponsUserIdGet**
-> List<CouponModel> getSavedCouponsApiV1SavedCouponsUserIdGet(userId)
+> List<CouponModelOutput> getSavedCouponsApiV1SavedCouponsUserIdGet(userId)
 
 Get Saved Coupons
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<CouponModel>**](CouponModel.md)
+[**List<CouponModelOutput>**](CouponModelOutput.md)
 
 ### Authorization
 

@@ -26,12 +26,14 @@ class TimeFrame {
   static const today = TimeFrame._(r'today');
   static const week = TimeFrame._(r'week');
   static const month = TimeFrame._(r'month');
+  static const lessThanClassQuoteAppPeriodSchemasPeriodVendorDashboardStatsPeriodTimeFramePeriodConfigQuoteGreaterThan = TimeFrame._(r'<class \'app.schemas.vendor_dashboard_stats.TimeFrame.Config\'>');
 
   /// List of all possible values in this [enum][TimeFrame].
   static const values = <TimeFrame>[
     today,
     week,
     month,
+    lessThanClassQuoteAppPeriodSchemasPeriodVendorDashboardStatsPeriodTimeFramePeriodConfigQuoteGreaterThan,
   ];
 
   static TimeFrame? fromJson(dynamic value) => TimeFrameTypeTransformer().decode(value);
@@ -73,6 +75,7 @@ class TimeFrameTypeTransformer {
         case r'today': return TimeFrame.today;
         case r'week': return TimeFrame.week;
         case r'month': return TimeFrame.month;
+        case r'<class \'app.schemas.vendor_dashboard_stats.TimeFrame.Config\'>': return TimeFrame.lessThanClassQuoteAppPeriodSchemasPeriodVendorDashboardStatsPeriodTimeFramePeriodConfigQuoteGreaterThan;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

@@ -9,10 +9,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**cancelUserDeletionApiV1UserUserIdCancelDeletionPost**](UserApi.md#canceluserdeletionapiv1useruseridcanceldeletionpost) | **POST** /api/v1/user/{user_id}/cancel-deletion | Cancel User Deletion
 [**createUserApiV1UserPost**](UserApi.md#createuserapiv1userpost) | **POST** /api/v1/user/ | Create User
 [**deleteUserEndpointApiV1UserUserIdDelete**](UserApi.md#deleteuserendpointapiv1useruseriddelete) | **DELETE** /api/v1/user/{user_id} | Delete User Endpoint
 [**getAllUsersApiV1UserGet**](UserApi.md#getallusersapiv1userget) | **GET** /api/v1/user/ | Get All Users
 [**getUserApiV1UserUserIdGet**](UserApi.md#getuserapiv1useruseridget) | **GET** /api/v1/user/{user_id} | Get User
+[**getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGet**](UserApi.md#getuserredeemedcouponsapiv1redeemedcouponsuserhistoryget) | **GET** /api/v1/redeemed_coupons/user-history | Get User Redeemed Coupons
 [**getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet**](UserApi.md#getuserunlockedcouponlistapiv1unlockcouponsuseruseridunlockedget) | **GET** /api/v1/unlock-coupons/user/{user_id}/unlocked | Get User Unlocked Coupon List
 [**redeemCouponByCodeApiV1RedeemedCouponsRedeemPost**](UserApi.md#redeemcouponbycodeapiv1redeemedcouponsredeempost) | **POST** /api/v1/redeemed_coupons/redeem | Redeem Coupon By Code
 [**redeemCouponByCodeApiV1UserRedeemCouponPost**](UserApi.md#redeemcouponbycodeapiv1userredeemcouponpost) | **POST** /api/v1/user/redeem-coupon | Redeem Coupon By Code
@@ -20,6 +22,49 @@ Method | HTTP request | Description
 [**unlockPremiumCouponApiV1UnlockCouponsUnlockUserIdCouponIdPost**](UserApi.md#unlockpremiumcouponapiv1unlockcouponsunlockuseridcouponidpost) | **POST** /api/v1/unlock-coupons/unlock/{user_id}/{coupon_id} | Unlock Premium Coupon
 [**updateUserApiV1UserUserIdPut**](UserApi.md#updateuserapiv1useruseridput) | **PUT** /api/v1/user/{user_id} | Update User
 
+
+# **cancelUserDeletionApiV1UserUserIdCancelDeletionPost**
+> Object cancelUserDeletionApiV1UserUserIdCancelDeletionPost(userId)
+
+Cancel User Deletion
+
+Cancel a scheduled user deletion.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = UserApi();
+final userId = userId_example; // String | 
+
+try {
+    final result = api_instance.cancelUserDeletionApiV1UserUserIdCancelDeletionPost(userId);
+    print(result);
+} catch (e) {
+    print('Exception when calling UserApi->cancelUserDeletionApiV1UserUserIdCancelDeletionPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**|  | 
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createUserApiV1UserPost**
 > UserModelFromClient createUserApiV1UserPost(userModelFromClient)
@@ -69,7 +114,7 @@ No authorization required
 
 Delete User Endpoint
 
-Endpoint to delete a user.
+Endpoint to schedule user deletion after 15 days.
 
 ### Example
 ```dart
@@ -147,11 +192,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserApiV1UserUserIdGet**
-> UserModel getUserApiV1UserUserIdGet(userId)
+> UserModel getUserApiV1UserUserIdGet(userId, checkDeletionStatus, login)
 
 Get User
 
-Endpoint to fetch a user by ID.
+Endpoint to fetch a user by ID. When check_deletion_status=True, it will also check if there's a pending deletion request. When login=True, any pending deletion requests will be automatically canceled.
 
 ### Example
 ```dart
@@ -159,9 +204,11 @@ import 'package:openapi/api.dart';
 
 final api_instance = UserApi();
 final userId = userId_example; // String | 
+final checkDeletionStatus = true; // bool | 
+final login = true; // bool | 
 
 try {
-    final result = api_instance.getUserApiV1UserUserIdGet(userId);
+    final result = api_instance.getUserApiV1UserUserIdGet(userId, checkDeletionStatus, login);
     print(result);
 } catch (e) {
     print('Exception when calling UserApi->getUserApiV1UserUserIdGet: $e\n');
@@ -173,10 +220,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**|  | 
+ **checkDeletionStatus** | **bool**|  | [optional] [default to false]
+ **login** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
 [**UserModel**](UserModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGet**
+> UserRedeemedCouponsListResponse getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGet(userId, limit)
+
+Get User Redeemed Coupons
+
+Get the last N redeemed coupons for a user.  Args:     user_id: The ID of the user     limit: Maximum number of coupons to return (default 10)      Returns:     A list of the user's redeemed coupons with coupon and store details
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = UserApi();
+final userId = userId_example; // String | 
+final limit = 56; // int | 
+
+try {
+    final result = api_instance.getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGet(userId, limit);
+    print(result);
+} catch (e) {
+    print('Exception when calling UserApi->getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**|  | 
+ **limit** | **int**|  | [optional] [default to 10]
+
+### Return type
+
+[**UserRedeemedCouponsListResponse**](UserRedeemedCouponsListResponse.md)
 
 ### Authorization
 

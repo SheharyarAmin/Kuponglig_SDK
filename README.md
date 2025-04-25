@@ -63,6 +63,11 @@ Class | Method | HTTP request | Description
 *AccountDeletionApi* | [**requestUserDeletionApiV1DeletionRequestUserDeletionUserIdPost**](doc//AccountDeletionApi.md#requestuserdeletionapiv1deletionrequestuserdeletionuseridpost) | **POST** /api/v1/deletion/request-user-deletion/{user_id} | Request User Deletion
 *AccountDeletionApi* | [**requestVendorDeletionApiV1DeletionRequestVendorDeletionVendorIdPost**](doc//AccountDeletionApi.md#requestvendordeletionapiv1deletionrequestvendordeletionvendoridpost) | **POST** /api/v1/deletion/request-vendor-deletion/{vendor_id} | Request Vendor Deletion
 *AnalyticsApi* | [**processAnalyticsBatchApiV1AnalyticsBatchPost**](doc//AnalyticsApi.md#processanalyticsbatchapiv1analyticsbatchpost) | **POST** /api/v1/analytics/batch | Process Analytics Batch
+*ContactFormApi* | [**deleteFormApiV1ContactFormIdDelete**](doc//ContactFormApi.md#deleteformapiv1contactformiddelete) | **DELETE** /api/v1/contact/{form_id} | Delete Form
+*ContactFormApi* | [**getContactFormApiV1ContactFormIdGet**](doc//ContactFormApi.md#getcontactformapiv1contactformidget) | **GET** /api/v1/contact/{form_id} | Get Contact Form
+*ContactFormApi* | [**listContactFormsApiV1ContactListGet**](doc//ContactFormApi.md#listcontactformsapiv1contactlistget) | **GET** /api/v1/contact/list | List Contact Forms
+*ContactFormApi* | [**submitContactFormApiV1ContactSubmitPost**](doc//ContactFormApi.md#submitcontactformapiv1contactsubmitpost) | **POST** /api/v1/contact/submit | Submit Contact Form
+*ContactFormApi* | [**updateFormStatusApiV1ContactFormIdStatusPut**](doc//ContactFormApi.md#updateformstatusapiv1contactformidstatusput) | **PUT** /api/v1/contact/{form_id}/status | Update Form Status
 *CouponApi* | [**addOrUpdateCouponEndpointApiV1CouponPost**](doc//CouponApi.md#addorupdatecouponendpointapiv1couponpost) | **POST** /api/v1/coupon/ | Add Or Update Coupon Endpoint
 *CouponApi* | [**getCouponApiV1CouponCouponIdGet**](doc//CouponApi.md#getcouponapiv1couponcouponidget) | **GET** /api/v1/coupon/{coupon_id} | Get Coupon
 *CouponApi* | [**getCouponsByStoreApiV1CouponStoreStoreIdGet**](doc//CouponApi.md#getcouponsbystoreapiv1couponstorestoreidget) | **GET** /api/v1/coupon/store/{store_id} | Get Coupons By Store
@@ -71,6 +76,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**loginForAccessTokenAuthTokenPost**](doc//DefaultApi.md#loginforaccesstokenauthtokenpost) | **POST** /auth/token | Login For Access Token
 *DefaultApi* | [**pingAuthPingGet**](doc//DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
 *DefaultApi* | [**refreshAccessTokenAuthRefreshPost**](doc//DefaultApi.md#refreshaccesstokenauthrefreshpost) | **POST** /auth/refresh | Refresh Access Token
+*RedeemedCouponsApi* | [**getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGet**](doc//RedeemedCouponsApi.md#getuserredeemedcouponsapiv1redeemedcouponsuserhistoryget) | **GET** /api/v1/redeemed_coupons/user-history | Get User Redeemed Coupons
 *RedeemedCouponsApi* | [**redeemCouponByCodeApiV1RedeemedCouponsRedeemPost**](doc//RedeemedCouponsApi.md#redeemcouponbycodeapiv1redeemedcouponsredeempost) | **POST** /api/v1/redeemed_coupons/redeem | Redeem Coupon By Code
 *SavedCouponsApi* | [**deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDelete**](doc//SavedCouponsApi.md#deletesavedcouponapiv1savedcouponsuseridcouponiddelete) | **DELETE** /api/v1/saved_coupons/{user_id}/{coupon_id} | Delete Saved Coupon
 *SavedCouponsApi* | [**getSavedCouponsApiV1SavedCouponsUserIdGet**](doc//SavedCouponsApi.md#getsavedcouponsapiv1savedcouponsuseridget) | **GET** /api/v1/saved_coupons/{user_id} | Get Saved Coupons
@@ -88,10 +94,12 @@ Class | Method | HTTP request | Description
 *StripeWebhookApi* | [**stripeWebhookApiV1StripeWebhookPost**](doc//StripeWebhookApi.md#stripewebhookapiv1stripewebhookpost) | **POST** /api/v1/stripe/webhook | Stripe Webhook
 *UnlockedCouponsApi* | [**getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet**](doc//UnlockedCouponsApi.md#getuserunlockedcouponlistapiv1unlockcouponsuseruseridunlockedget) | **GET** /api/v1/unlock-coupons/user/{user_id}/unlocked | Get User Unlocked Coupon List
 *UnlockedCouponsApi* | [**unlockPremiumCouponApiV1UnlockCouponsUnlockUserIdCouponIdPost**](doc//UnlockedCouponsApi.md#unlockpremiumcouponapiv1unlockcouponsunlockuseridcouponidpost) | **POST** /api/v1/unlock-coupons/unlock/{user_id}/{coupon_id} | Unlock Premium Coupon
+*UserApi* | [**cancelUserDeletionApiV1UserUserIdCancelDeletionPost**](doc//UserApi.md#canceluserdeletionapiv1useruseridcanceldeletionpost) | **POST** /api/v1/user/{user_id}/cancel-deletion | Cancel User Deletion
 *UserApi* | [**createUserApiV1UserPost**](doc//UserApi.md#createuserapiv1userpost) | **POST** /api/v1/user/ | Create User
 *UserApi* | [**deleteUserEndpointApiV1UserUserIdDelete**](doc//UserApi.md#deleteuserendpointapiv1useruseriddelete) | **DELETE** /api/v1/user/{user_id} | Delete User Endpoint
 *UserApi* | [**getAllUsersApiV1UserGet**](doc//UserApi.md#getallusersapiv1userget) | **GET** /api/v1/user/ | Get All Users
 *UserApi* | [**getUserApiV1UserUserIdGet**](doc//UserApi.md#getuserapiv1useruseridget) | **GET** /api/v1/user/{user_id} | Get User
+*UserApi* | [**getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGet**](doc//UserApi.md#getuserredeemedcouponsapiv1redeemedcouponsuserhistoryget) | **GET** /api/v1/redeemed_coupons/user-history | Get User Redeemed Coupons
 *UserApi* | [**getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet**](doc//UserApi.md#getuserunlockedcouponlistapiv1unlockcouponsuseruseridunlockedget) | **GET** /api/v1/unlock-coupons/user/{user_id}/unlocked | Get User Unlocked Coupon List
 *UserApi* | [**redeemCouponByCodeApiV1RedeemedCouponsRedeemPost**](doc//UserApi.md#redeemcouponbycodeapiv1redeemedcouponsredeempost) | **POST** /api/v1/redeemed_coupons/redeem | Redeem Coupon By Code
 *UserApi* | [**redeemCouponByCodeApiV1UserRedeemCouponPost**](doc//UserApi.md#redeemcouponbycodeapiv1userredeemcouponpost) | **POST** /api/v1/user/redeem-coupon | Redeem Coupon By Code
@@ -104,11 +112,13 @@ Class | Method | HTTP request | Description
 *UserPointsApi* | [**getPointsTransactionsApiV1UserPointsTransactionsUserIdGet**](doc//UserPointsApi.md#getpointstransactionsapiv1userpointstransactionsuseridget) | **GET** /api/v1/user_points/transactions/{user_id} | Get Points Transactions
 *UserSubscriptionApi* | [**createUserCheckoutSessionApiV1UserSubscriptionCreateCheckoutSessionPost**](doc//UserSubscriptionApi.md#createusercheckoutsessionapiv1usersubscriptioncreatecheckoutsessionpost) | **POST** /api/v1/user/subscription/create-checkout-session | Create User Checkout Session
 *UserSubscriptionApi* | [**getUserSubscriptionStatusApiV1UserSubscriptionStatusUserIdGet**](doc//UserSubscriptionApi.md#getusersubscriptionstatusapiv1usersubscriptionstatususeridget) | **GET** /api/v1/user/subscription/status/{user_id} | Get User Subscription Status
+*VendorApi* | [**cancelVendorDeletionApiV1VendorVendorsVendorIdCancelDeletionPost**](doc//VendorApi.md#cancelvendordeletionapiv1vendorvendorsvendoridcanceldeletionpost) | **POST** /api/v1/vendor/vendors/{vendor_id}/cancel-deletion | Cancel Vendor Deletion
 *VendorApi* | [**deleteVendorApiV1VendorVendorsVendorIdDelete**](doc//VendorApi.md#deletevendorapiv1vendorvendorsvendoriddelete) | **DELETE** /api/v1/vendor/vendors/{vendor_id} | Delete Vendor
 *VendorApi* | [**getVendorApiV1VendorVendorsVendorIdGet**](doc//VendorApi.md#getvendorapiv1vendorvendorsvendoridget) | **GET** /api/v1/vendor/vendors/{vendor_id} | Get Vendor
 *VendorApi* | [**saveVendorApiV1VendorVendorsPost**](doc//VendorApi.md#savevendorapiv1vendorvendorspost) | **POST** /api/v1/vendor/vendors | Save Vendor
 *VendorApi* | [**updateVendorApiV1VendorVendorsVendorIdPut**](doc//VendorApi.md#updatevendorapiv1vendorvendorsvendoridput) | **PUT** /api/v1/vendor/vendors/{vendor_id} | Update Vendor
 *VendorApi* | [**uploadVendorIdCardApiV1VendorVendorsVendorIdUploadIdCardPost**](doc//VendorApi.md#uploadvendoridcardapiv1vendorvendorsvendoriduploadidcardpost) | **POST** /api/v1/vendor/vendors/{vendor_id}/upload-id-card | Upload Vendor Id Card
+*VendorDashboardApi* | [**debugGetAllStoreStatsApiV1VendorDashboardDebugStoreStatsGet**](doc//VendorDashboardApi.md#debuggetallstorestatsapiv1vendordashboarddebugstorestatsget) | **GET** /api/v1/vendor_dashboard/debug/store-stats | Debug Get All Store Stats
 *VendorDashboardApi* | [**getDashboardStatsApiV1VendorDashboardStatsPost**](doc//VendorDashboardApi.md#getdashboardstatsapiv1vendordashboardstatspost) | **POST** /api/v1/vendor_dashboard/stats | Get Dashboard Stats
 *VendorDashboardApi* | [**getVendorStoresApiV1VendorDashboardStoresGet**](doc//VendorDashboardApi.md#getvendorstoresapiv1vendordashboardstoresget) | **GET** /api/v1/vendor_dashboard/stores | Get Vendor Stores
 *WonCouponsApi* | [**deleteWonCouponApiV1WonCouponsUserIdCouponIdDelete**](doc//WonCouponsApi.md#deletewoncouponapiv1woncouponsuseridcouponiddelete) | **DELETE** /api/v1/won_coupons/{user_id}/{coupon_id} | Delete Won Coupon
@@ -121,13 +131,24 @@ Class | Method | HTTP request | Description
  - [AnalyticsEvent](doc//AnalyticsEvent.md)
  - [AnalyticsEventBatch](doc//AnalyticsEventBatch.md)
  - [AnalyticsEventType](doc//AnalyticsEventType.md)
+ - [AppSchemasWonCouponCouponStatus](doc//AppSchemasWonCouponCouponStatus.md)
+ - [AppUtilsEnumsCouponStatus](doc//AppUtilsEnumsCouponStatus.md)
  - [AuthenticationToken](doc//AuthenticationToken.md)
+ - [ContactFormDetail](doc//ContactFormDetail.md)
+ - [ContactFormList](doc//ContactFormList.md)
+ - [ContactFormListItem](doc//ContactFormListItem.md)
+ - [ContactFormResponse](doc//ContactFormResponse.md)
+ - [ContactFormStatus](doc//ContactFormStatus.md)
+ - [ContactFormSubmission](doc//ContactFormSubmission.md)
+ - [ContactFormType](doc//ContactFormType.md)
  - [CoreStats](doc//CoreStats.md)
- - [CouponModel](doc//CouponModel.md)
+ - [CouponDetails](doc//CouponDetails.md)
+ - [CouponModelInput](doc//CouponModelInput.md)
+ - [CouponModelOutput](doc//CouponModelOutput.md)
  - [CouponPerformance](doc//CouponPerformance.md)
  - [CouponRedemptionResponse](doc//CouponRedemptionResponse.md)
  - [CouponRedemptionStatus](doc//CouponRedemptionStatus.md)
- - [CouponStatus](doc//CouponStatus.md)
+ - [CouponStatusInput](doc//CouponStatusInput.md)
  - [CouponTargetType](doc//CouponTargetType.md)
  - [CreateUserSubscriptionSession](doc//CreateUserSubscriptionSession.md)
  - [DashboardRequest](doc//DashboardRequest.md)
@@ -150,6 +171,7 @@ Class | Method | HTTP request | Description
  - [SessionResponse](doc//SessionResponse.md)
  - [SpinWheelResponse](doc//SpinWheelResponse.md)
  - [SpinningWheelReward](doc//SpinningWheelReward.md)
+ - [StoreDetails](doc//StoreDetails.md)
  - [StoreModel](doc//StoreModel.md)
  - [StoreModelBase](doc//StoreModelBase.md)
  - [StoreStatus](doc//StoreStatus.md)
@@ -163,6 +185,8 @@ Class | Method | HTTP request | Description
  - [UserModel](doc//UserModel.md)
  - [UserModelFromClient](doc//UserModelFromClient.md)
  - [UserPointsTransactionModel](doc//UserPointsTransactionModel.md)
+ - [UserRedeemedCouponResponse](doc//UserRedeemedCouponResponse.md)
+ - [UserRedeemedCouponsListResponse](doc//UserRedeemedCouponsListResponse.md)
  - [UserStatus](doc//UserStatus.md)
  - [UserSubscriptionModel](doc//UserSubscriptionModel.md)
  - [ValidationError](doc//ValidationError.md)

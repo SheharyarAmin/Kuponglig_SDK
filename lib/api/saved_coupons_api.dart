@@ -120,7 +120,7 @@ class SavedCouponsApi {
   /// Parameters:
   ///
   /// * [String] userId (required):
-  Future<List<CouponModel>?> getSavedCouponsApiV1SavedCouponsUserIdGet(String userId,) async {
+  Future<List<CouponModelOutput>?> getSavedCouponsApiV1SavedCouponsUserIdGet(String userId,) async {
     final response = await getSavedCouponsApiV1SavedCouponsUserIdGetWithHttpInfo(userId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -130,8 +130,8 @@ class SavedCouponsApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModel>') as List)
-        .cast<CouponModel>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModelOutput>') as List)
+        .cast<CouponModelOutput>()
         .toList(growable: false);
 
     }

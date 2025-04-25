@@ -190,20 +190,42 @@ class ApiClient {
           return AnalyticsEventBatch.fromJson(value);
         case 'AnalyticsEventType':
           return AnalyticsEventTypeTypeTransformer().decode(value);
+        case 'AppSchemasWonCouponCouponStatus':
+          return AppSchemasWonCouponCouponStatusTypeTransformer().decode(value);
+        case 'AppUtilsEnumsCouponStatus':
+          return AppUtilsEnumsCouponStatusTypeTransformer().decode(value);
         case 'AuthenticationToken':
           return AuthenticationToken.fromJson(value);
+        case 'ContactFormDetail':
+          return ContactFormDetail.fromJson(value);
+        case 'ContactFormList':
+          return ContactFormList.fromJson(value);
+        case 'ContactFormListItem':
+          return ContactFormListItem.fromJson(value);
+        case 'ContactFormResponse':
+          return ContactFormResponse.fromJson(value);
+        case 'ContactFormStatus':
+          return ContactFormStatusTypeTransformer().decode(value);
+        case 'ContactFormSubmission':
+          return ContactFormSubmission.fromJson(value);
+        case 'ContactFormType':
+          return ContactFormTypeTypeTransformer().decode(value);
         case 'CoreStats':
           return CoreStats.fromJson(value);
-        case 'CouponModel':
-          return CouponModel.fromJson(value);
+        case 'CouponDetails':
+          return CouponDetails.fromJson(value);
+        case 'CouponModelInput':
+          return CouponModelInput.fromJson(value);
+        case 'CouponModelOutput':
+          return CouponModelOutput.fromJson(value);
         case 'CouponPerformance':
           return CouponPerformance.fromJson(value);
         case 'CouponRedemptionResponse':
           return CouponRedemptionResponse.fromJson(value);
         case 'CouponRedemptionStatus':
           return CouponRedemptionStatusTypeTransformer().decode(value);
-        case 'CouponStatus':
-          return CouponStatusTypeTransformer().decode(value);
+        case 'CouponStatusInput':
+          return CouponStatusInputTypeTransformer().decode(value);
         case 'CouponTargetType':
           return CouponTargetTypeTypeTransformer().decode(value);
         case 'CreateUserSubscriptionSession':
@@ -248,6 +270,8 @@ class ApiClient {
           return SpinWheelResponse.fromJson(value);
         case 'SpinningWheelReward':
           return SpinningWheelReward.fromJson(value);
+        case 'StoreDetails':
+          return StoreDetails.fromJson(value);
         case 'StoreModel':
           return StoreModel.fromJson(value);
         case 'StoreModelBase':
@@ -274,6 +298,10 @@ class ApiClient {
           return UserModelFromClient.fromJson(value);
         case 'UserPointsTransactionModel':
           return UserPointsTransactionModel.fromJson(value);
+        case 'UserRedeemedCouponResponse':
+          return UserRedeemedCouponResponse.fromJson(value);
+        case 'UserRedeemedCouponsListResponse':
+          return UserRedeemedCouponsListResponse.fromJson(value);
         case 'UserStatus':
           return UserStatusTypeTransformer().decode(value);
         case 'UserSubscriptionModel':
