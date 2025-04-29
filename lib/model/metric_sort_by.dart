@@ -10,7 +10,6 @@
 
 part of openapi.api;
 
-
 class MetricSortBy {
   /// Instantiate a new enum with the provided [value].
   const MetricSortBy._(this.value);
@@ -26,19 +25,21 @@ class MetricSortBy {
   static const redemptionRate = MetricSortBy._(r'redemption_rate');
   static const revenue = MetricSortBy._(r'revenue');
   static const views = MetricSortBy._(r'views');
-  static const lessThanClassQuoteAppPeriodSchemasPeriodVendorDashboardStatsPeriodMetricSortByPeriodConfigQuoteGreaterThan = MetricSortBy._(r'<class \'app.schemas.vendor_dashboard_stats.MetricSortBy.Config\'>');
 
   /// List of all possible values in this [enum][MetricSortBy].
   static const values = <MetricSortBy>[
     redemptionRate,
     revenue,
     views,
-    lessThanClassQuoteAppPeriodSchemasPeriodVendorDashboardStatsPeriodMetricSortByPeriodConfigQuoteGreaterThan,
   ];
 
-  static MetricSortBy? fromJson(dynamic value) => MetricSortByTypeTransformer().decode(value);
+  static MetricSortBy? fromJson(dynamic value) =>
+      MetricSortByTypeTransformer().decode(value);
 
-  static List<MetricSortBy> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MetricSortBy> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MetricSortBy>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -55,7 +56,8 @@ class MetricSortBy {
 /// Transformation class that can [encode] an instance of [MetricSortBy] to String,
 /// and [decode] dynamic data back to [MetricSortBy].
 class MetricSortByTypeTransformer {
-  factory MetricSortByTypeTransformer() => _instance ??= const MetricSortByTypeTransformer._();
+  factory MetricSortByTypeTransformer() =>
+      _instance ??= const MetricSortByTypeTransformer._();
 
   const MetricSortByTypeTransformer._();
 
@@ -72,10 +74,12 @@ class MetricSortByTypeTransformer {
   MetricSortBy? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'redemption_rate': return MetricSortBy.redemptionRate;
-        case r'revenue': return MetricSortBy.revenue;
-        case r'views': return MetricSortBy.views;
-        case r'<class \'app.schemas.vendor_dashboard_stats.MetricSortBy.Config\'>': return MetricSortBy.lessThanClassQuoteAppPeriodSchemasPeriodVendorDashboardStatsPeriodMetricSortByPeriodConfigQuoteGreaterThan;
+        case r'redemption_rate':
+          return MetricSortBy.redemptionRate;
+        case r'revenue':
+          return MetricSortBy.revenue;
+        case r'views':
+          return MetricSortBy.views;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -88,4 +92,3 @@ class MetricSortByTypeTransformer {
   /// Singleton [MetricSortByTypeTransformer] instance.
   static MetricSortByTypeTransformer? _instance;
 }
-

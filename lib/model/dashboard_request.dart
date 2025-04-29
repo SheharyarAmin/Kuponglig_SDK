@@ -36,37 +36,40 @@ class DashboardRequest {
   Map<String, DateTime>? dateRange;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DashboardRequest &&
-    other.vendorId == vendorId &&
-    other.storeId == storeId &&
-    other.timeFrame == timeFrame &&
-    other.includeExtendedMetrics == includeExtendedMetrics &&
-    other.metricSort == metricSort &&
-    _deepEquality.equals(other.dateRange, dateRange);
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DashboardRequest &&
+          other.vendorId == vendorId &&
+          other.storeId == storeId &&
+          other.timeFrame == timeFrame &&
+          other.includeExtendedMetrics == includeExtendedMetrics &&
+          other.metricSort == metricSort &&
+          _deepEquality.equals(other.dateRange, dateRange);
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (vendorId.hashCode) +
-    (storeId == null ? 0 : storeId!.hashCode) +
-    (timeFrame.hashCode) +
-    (includeExtendedMetrics.hashCode) +
-    (metricSort == null ? 0 : metricSort!.hashCode) +
-    (dateRange == null ? 0 : dateRange!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (vendorId.hashCode) +
+      (storeId == null ? 0 : storeId!.hashCode) +
+      (timeFrame.hashCode) +
+      (includeExtendedMetrics.hashCode) +
+      (metricSort == null ? 0 : metricSort!.hashCode) +
+      (dateRange == null ? 0 : dateRange!.hashCode);
 
   @override
-  String toString() => 'DashboardRequest[vendorId=$vendorId, storeId=$storeId, timeFrame=$timeFrame, includeExtendedMetrics=$includeExtendedMetrics, metricSort=$metricSort, dateRange=$dateRange]';
+  String toString() =>
+      'DashboardRequest[vendorId=$vendorId, storeId=$storeId, timeFrame=$timeFrame, includeExtendedMetrics=$includeExtendedMetrics, metricSort=$metricSort, dateRange=$dateRange]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'vendor_id'] = this.vendorId;
+    json[r'vendor_id'] = this.vendorId;
     if (this.storeId != null) {
       json[r'store_id'] = this.storeId;
     } else {
       json[r'store_id'] = null;
     }
-      json[r'time_frame'] = this.timeFrame;
-      json[r'include_extended_metrics'] = this.includeExtendedMetrics;
+    json[r'time_frame'] = this.timeFrame;
+    json[r'include_extended_metrics'] = this.includeExtendedMetrics;
     if (this.metricSort != null) {
       json[r'metric_sort'] = this.metricSort;
     } else {
@@ -92,8 +95,10 @@ class DashboardRequest {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "DashboardRequest[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "DashboardRequest[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "DashboardRequest[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "DashboardRequest[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -102,15 +107,19 @@ class DashboardRequest {
         vendorId: mapValueOfType<String>(json, r'vendor_id')!,
         storeId: mapValueOfType<String>(json, r'store_id'),
         timeFrame: TimeFrame.fromJson(json[r'time_frame'])!,
-        includeExtendedMetrics: mapValueOfType<bool>(json, r'include_extended_metrics') ?? false,
+        includeExtendedMetrics:
+            mapValueOfType<bool>(json, r'include_extended_metrics') ?? false,
         metricSort: MetricSortBy.fromJson(json[r'metric_sort']),
-        dateRange: DateTime.mapFromJson(json[r'date_range']),
+        dateRange: mapValueOfType<Map<String, DateTime>>(json, r'date_range'),
       );
     }
     return null;
   }
 
-  static List<DashboardRequest> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DashboardRequest> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DashboardRequest>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -138,13 +147,19 @@ class DashboardRequest {
   }
 
   // maps a json object with a list of DashboardRequest-objects as value to a dart map
-  static Map<String, List<DashboardRequest>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DashboardRequest>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DashboardRequest>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DashboardRequest.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = DashboardRequest.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -156,4 +171,3 @@ class DashboardRequest {
     'time_frame',
   };
 }
-
