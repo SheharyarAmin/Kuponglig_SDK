@@ -18,7 +18,7 @@ class RedeemedCouponsApi {
 
   /// Get User Redeemed Coupons
   ///
-  /// Get the last N redeemed coupons for a user.  Args:     user_id: The ID of the user     limit: Maximum number of coupons to return (default 10)      Returns:     A list of the user's redeemed coupons with coupon and store details
+  /// Get the last N redeemed coupons for a user.  Args:     user_id: The ID of the user     limit: Maximum number of coupons to return (default 10)  Returns:     A list of the user's redeemed coupons with coupon and store details
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -59,7 +59,7 @@ class RedeemedCouponsApi {
 
   /// Get User Redeemed Coupons
   ///
-  /// Get the last N redeemed coupons for a user.  Args:     user_id: The ID of the user     limit: Maximum number of coupons to return (default 10)      Returns:     A list of the user's redeemed coupons with coupon and store details
+  /// Get the last N redeemed coupons for a user.  Args:     user_id: The ID of the user     limit: Maximum number of coupons to return (default 10)  Returns:     A list of the user's redeemed coupons with coupon and store details
   ///
   /// Parameters:
   ///

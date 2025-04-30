@@ -16,6 +16,10 @@ class StoreDetails {
     required this.id,
     required this.name,
     this.address,
+    this.city,
+    this.state,
+    this.postalCode,
+    this.country,
     this.logoUrl,
   });
 
@@ -25,6 +29,14 @@ class StoreDetails {
 
   String? address;
 
+  String? city;
+
+  String? state;
+
+  String? postalCode;
+
+  String? country;
+
   String? logoUrl;
 
   @override
@@ -32,6 +44,10 @@ class StoreDetails {
     other.id == id &&
     other.name == name &&
     other.address == address &&
+    other.city == city &&
+    other.state == state &&
+    other.postalCode == postalCode &&
+    other.country == country &&
     other.logoUrl == logoUrl;
 
   @override
@@ -40,10 +56,14 @@ class StoreDetails {
     (id.hashCode) +
     (name.hashCode) +
     (address == null ? 0 : address!.hashCode) +
+    (city == null ? 0 : city!.hashCode) +
+    (state == null ? 0 : state!.hashCode) +
+    (postalCode == null ? 0 : postalCode!.hashCode) +
+    (country == null ? 0 : country!.hashCode) +
     (logoUrl == null ? 0 : logoUrl!.hashCode);
 
   @override
-  String toString() => 'StoreDetails[id=$id, name=$name, address=$address, logoUrl=$logoUrl]';
+  String toString() => 'StoreDetails[id=$id, name=$name, address=$address, city=$city, state=$state, postalCode=$postalCode, country=$country, logoUrl=$logoUrl]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -53,6 +73,26 @@ class StoreDetails {
       json[r'address'] = this.address;
     } else {
       json[r'address'] = null;
+    }
+    if (this.city != null) {
+      json[r'city'] = this.city;
+    } else {
+      json[r'city'] = null;
+    }
+    if (this.state != null) {
+      json[r'state'] = this.state;
+    } else {
+      json[r'state'] = null;
+    }
+    if (this.postalCode != null) {
+      json[r'postal_code'] = this.postalCode;
+    } else {
+      json[r'postal_code'] = null;
+    }
+    if (this.country != null) {
+      json[r'country'] = this.country;
+    } else {
+      json[r'country'] = null;
     }
     if (this.logoUrl != null) {
       json[r'logo_url'] = this.logoUrl;
@@ -84,6 +124,10 @@ class StoreDetails {
         id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         address: mapValueOfType<String>(json, r'address'),
+        city: mapValueOfType<String>(json, r'city'),
+        state: mapValueOfType<String>(json, r'state'),
+        postalCode: mapValueOfType<String>(json, r'postal_code'),
+        country: mapValueOfType<String>(json, r'country'),
         logoUrl: mapValueOfType<String>(json, r'logo_url'),
       );
     }

@@ -30,6 +30,7 @@ doc/CouponRedemptionStatus.md
 doc/CouponStatusInput.md
 doc/CouponTargetType.md
 doc/CreateUserSubscriptionSession.md
+doc/CreateVendorSubscriptionSession.md
 doc/DashboardRequest.md
 doc/DashboardResponse.md
 doc/DefaultApi.md
@@ -84,6 +85,9 @@ doc/VendorApi.md
 doc/VendorDashboardApi.md
 doc/VendorModel.md
 doc/VendorStatus.md
+doc/VendorStripeWebhookApi.md
+doc/VendorSubscriptionApi.md
+doc/VendorSubscriptionModel.md
 doc/WonCouponModel.md
 doc/WonCouponsApi.md
 git_push.sh
@@ -104,6 +108,8 @@ lib/api/user_points_api.dart
 lib/api/user_subscription_api.dart
 lib/api/vendor_api.dart
 lib/api/vendor_dashboard_api.dart
+lib/api/vendor_stripe_webhook_api.dart
+lib/api/vendor_subscription_api.dart
 lib/api/won_coupons_api.dart
 lib/api_client.dart
 lib/api_exception.dart
@@ -137,6 +143,7 @@ lib/model/coupon_redemption_status.dart
 lib/model/coupon_status_input.dart
 lib/model/coupon_target_type.dart
 lib/model/create_user_subscription_session.dart
+lib/model/create_vendor_subscription_session.dart
 lib/model/dashboard_request.dart
 lib/model/dashboard_response.dart
 lib/model/deletion_request_model.dart
@@ -179,10 +186,10 @@ lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 lib/model/vendor_model.dart
 lib/model/vendor_status.dart
+lib/model/vendor_subscription_model.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
-test/app_schemas_won_coupon_coupon_status_test.dart
-test/app_utils_enums_coupon_status_test.dart
-test/coupon_model_input_test.dart
-test/coupon_model_output_test.dart
-test/coupon_status_input_test.dart
+test/create_vendor_subscription_session_test.dart
+test/vendor_stripe_webhook_api_test.dart
+test/vendor_subscription_api_test.dart
+test/vendor_subscription_model_test.dart

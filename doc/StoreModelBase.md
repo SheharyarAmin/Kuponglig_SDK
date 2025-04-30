@@ -11,6 +11,10 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **name** | **String** |  | 
 **address** | **String** |  | 
+**city** | **String** |  | [optional] [default to '']
+**state** | **String** |  | [optional] [default to '']
+**postalCode** | **String** |  | [optional] [default to '']
+**country** | **String** |  | [optional] [default to '']
 **phone** | **String** |  | 
 **email** | **String** |  | 
 **type** | [**StoreTypes**](StoreTypes.md) |  | 

@@ -44,6 +44,8 @@ part 'api/user_points_api.dart';
 part 'api/user_subscription_api.dart';
 part 'api/vendor_api.dart';
 part 'api/vendor_dashboard_api.dart';
+part 'api/vendor_stripe_webhook_api.dart';
+part 'api/vendor_subscription_api.dart';
 part 'api/won_coupons_api.dart';
 
 part 'model/activity_metrics.dart';
@@ -74,6 +76,7 @@ part 'model/coupon_status.dart';
 part 'model/coupon_status_input.dart';
 part 'model/coupon_target_type.dart';
 part 'model/create_user_subscription_session.dart';
+part 'model/create_vendor_subscription_session.dart';
 part 'model/dashboard_request.dart';
 part 'model/dashboard_response.dart';
 part 'model/daily_stats.dart';
@@ -123,6 +126,7 @@ part 'model/validation_error_loc_inner.dart';
 part 'model/vendor_model.dart';
 part 'model/vendor_dashboard_stats.dart';
 part 'model/vendor_status.dart';
+part 'model/vendor_subscription_model.dart';
 part 'model/won_coupon_model.dart';
 
 

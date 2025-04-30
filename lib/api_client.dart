@@ -230,6 +230,8 @@ class ApiClient {
           return CouponTargetTypeTypeTransformer().decode(value);
         case 'CreateUserSubscriptionSession':
           return CreateUserSubscriptionSession.fromJson(value);
+        case 'CreateVendorSubscriptionSession':
+          return CreateVendorSubscriptionSession.fromJson(value);
         case 'DashboardRequest':
           return DashboardRequest.fromJson(value);
         case 'DashboardResponse':
@@ -314,6 +316,8 @@ class ApiClient {
           return VendorModel.fromJson(value);
         case 'VendorStatus':
           return VendorStatusTypeTransformer().decode(value);
+        case 'VendorSubscriptionModel':
+          return VendorSubscriptionModel.fromJson(value);
         case 'WonCouponModel':
           return WonCouponModel.fromJson(value);
         default:

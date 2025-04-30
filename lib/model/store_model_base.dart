@@ -16,6 +16,10 @@ class StoreModelBase {
     required this.id,
     required this.name,
     required this.address,
+    this.city = '',
+    this.state = '',
+    this.postalCode = '',
+    this.country = '',
     required this.phone,
     required this.email,
     required this.type,
@@ -39,6 +43,14 @@ class StoreModelBase {
   String name;
 
   String address;
+
+  String city;
+
+  String state;
+
+  String postalCode;
+
+  String country;
 
   String phone;
 
@@ -77,6 +89,10 @@ class StoreModelBase {
     other.id == id &&
     other.name == name &&
     other.address == address &&
+    other.city == city &&
+    other.state == state &&
+    other.postalCode == postalCode &&
+    other.country == country &&
     other.phone == phone &&
     other.email == email &&
     other.type == type &&
@@ -100,6 +116,10 @@ class StoreModelBase {
     (id.hashCode) +
     (name.hashCode) +
     (address.hashCode) +
+    (city.hashCode) +
+    (state.hashCode) +
+    (postalCode.hashCode) +
+    (country.hashCode) +
     (phone.hashCode) +
     (email.hashCode) +
     (type.hashCode) +
@@ -118,13 +138,17 @@ class StoreModelBase {
     (coordinates.hashCode);
 
   @override
-  String toString() => 'StoreModelBase[id=$id, name=$name, address=$address, phone=$phone, email=$email, type=$type, status=$status, vendorId=$vendorId, logoUrl=$logoUrl, organizationNumber=$organizationNumber, organizationBranchNumber=$organizationBranchNumber, bannerUrl=$bannerUrl, description=$description, website=$website, facebook=$facebook, instagram=$instagram, youtube=$youtube, imagesURLs=$imagesURLs, coordinates=$coordinates]';
+  String toString() => 'StoreModelBase[id=$id, name=$name, address=$address, city=$city, state=$state, postalCode=$postalCode, country=$country, phone=$phone, email=$email, type=$type, status=$status, vendorId=$vendorId, logoUrl=$logoUrl, organizationNumber=$organizationNumber, organizationBranchNumber=$organizationBranchNumber, bannerUrl=$bannerUrl, description=$description, website=$website, facebook=$facebook, instagram=$instagram, youtube=$youtube, imagesURLs=$imagesURLs, coordinates=$coordinates]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'id'] = this.id;
       json[r'name'] = this.name;
       json[r'address'] = this.address;
+      json[r'city'] = this.city;
+      json[r'state'] = this.state;
+      json[r'postal_code'] = this.postalCode;
+      json[r'country'] = this.country;
       json[r'phone'] = this.phone;
       json[r'email'] = this.email;
       json[r'type'] = this.type;
@@ -186,6 +210,10 @@ class StoreModelBase {
         id: mapValueOfType<String>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         address: mapValueOfType<String>(json, r'address')!,
+        city: mapValueOfType<String>(json, r'city') ?? '',
+        state: mapValueOfType<String>(json, r'state') ?? '',
+        postalCode: mapValueOfType<String>(json, r'postal_code') ?? '',
+        country: mapValueOfType<String>(json, r'country') ?? '',
         phone: mapValueOfType<String>(json, r'phone')!,
         email: mapValueOfType<String>(json, r'email')!,
         type: StoreTypes.fromJson(json[r'type'])!,

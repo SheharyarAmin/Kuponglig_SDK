@@ -16,16 +16,16 @@ class CouponApi {
 
   final ApiClient apiClient;
 
-  /// Add Or Update Coupon Endpoint
+  /// Create Coupon
   ///
-  /// Endpoint to add or update a coupon. - Takes CouponModel as input. - Creates or updates the coupon in the Firestore database.
+  /// Endpoint to create a new coupon. Requires an active vendor subscription.  Args:     coupon: The coupon model.     token: The JWT token.  Returns:     CouponModel: The created coupon.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [CouponModelInput] couponModelInput (required):
-  Future<Response> addOrUpdateCouponEndpointApiV1CouponPostWithHttpInfo(CouponModelInput couponModelInput,) async {
+  Future<Response> createCouponApiV1CouponPostWithHttpInfo(CouponModelInput couponModelInput,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/coupon/';
 
@@ -50,15 +50,15 @@ class CouponApi {
     );
   }
 
-  /// Add Or Update Coupon Endpoint
+  /// Create Coupon
   ///
-  /// Endpoint to add or update a coupon. - Takes CouponModel as input. - Creates or updates the coupon in the Firestore database.
+  /// Endpoint to create a new coupon. Requires an active vendor subscription.  Args:     coupon: The coupon model.     token: The JWT token.  Returns:     CouponModel: The created coupon.
   ///
   /// Parameters:
   ///
   /// * [CouponModelInput] couponModelInput (required):
-  Future<CouponModelOutput?> addOrUpdateCouponEndpointApiV1CouponPost(CouponModelInput couponModelInput,) async {
-    final response = await addOrUpdateCouponEndpointApiV1CouponPostWithHttpInfo(couponModelInput,);
+  Future<CouponModelOutput?> createCouponApiV1CouponPost(CouponModelInput couponModelInput,) async {
+    final response = await createCouponApiV1CouponPostWithHttpInfo(couponModelInput,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -74,7 +74,7 @@ class CouponApi {
 
   /// Get Coupon
   ///
-  /// Endpoint to fetch a coupon by its ID. - Takes coupon_id as a URL parameter. - Returns a CouponModel object for the given ID. - Records a view for statistics tracking.
+  /// Endpoint to retrieve a coupon by ID. Public access (no subscription required).  Args:     coupon_id: The ID of the coupon.  Returns:     CouponModel: The coupon.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -109,7 +109,7 @@ class CouponApi {
 
   /// Get Coupon
   ///
-  /// Endpoint to fetch a coupon by its ID. - Takes coupon_id as a URL parameter. - Returns a CouponModel object for the given ID. - Records a view for statistics tracking.
+  /// Endpoint to retrieve a coupon by ID. Public access (no subscription required).  Args:     coupon_id: The ID of the coupon.  Returns:     CouponModel: The coupon.
   ///
   /// Parameters:
   ///
@@ -129,16 +129,16 @@ class CouponApi {
     return null;
   }
 
-  /// Get Coupons By Store
+  /// Get Coupons For Store
   ///
-  /// Endpoint to fetch coupons for a specific store. - Takes store_id as a URL parameter. - Returns a list of CouponModel objects for the given store.
+  /// Endpoint to retrieve all coupons for a store. Public access (no subscription required).  Args:     store_id: The ID of the store.  Returns:     List[CouponModel]: The list of coupons.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] storeId (required):
-  Future<Response> getCouponsByStoreApiV1CouponStoreStoreIdGetWithHttpInfo(String storeId,) async {
+  Future<Response> getCouponsForStoreApiV1CouponStoreStoreIdGetWithHttpInfo(String storeId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/coupon/store/{store_id}'
       .replaceAll('{store_id}', storeId);
@@ -164,15 +164,75 @@ class CouponApi {
     );
   }
 
-  /// Get Coupons By Store
+  /// Get Coupons For Store
   ///
-  /// Endpoint to fetch coupons for a specific store. - Takes store_id as a URL parameter. - Returns a list of CouponModel objects for the given store.
+  /// Endpoint to retrieve all coupons for a store. Public access (no subscription required).  Args:     store_id: The ID of the store.  Returns:     List[CouponModel]: The list of coupons.
   ///
   /// Parameters:
   ///
   /// * [String] storeId (required):
-  Future<List<CouponModelOutput>?> getCouponsByStoreApiV1CouponStoreStoreIdGet(String storeId,) async {
-    final response = await getCouponsByStoreApiV1CouponStoreStoreIdGetWithHttpInfo(storeId,);
+  Future<List<CouponModelOutput>?> getCouponsForStoreApiV1CouponStoreStoreIdGet(String storeId,) async {
+    final response = await getCouponsForStoreApiV1CouponStoreStoreIdGetWithHttpInfo(storeId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModelOutput>') as List)
+        .cast<CouponModelOutput>()
+        .toList(growable: false);
+
+    }
+    return null;
+  }
+
+  /// Get Coupons For Vendor
+  ///
+  /// Endpoint to retrieve all coupons for a vendor. Public access (no subscription required).  Args:     vendor_id: The ID of the vendor.  Returns:     List[CouponModel]: The list of coupons.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] vendorId (required):
+  Future<Response> getCouponsForVendorApiV1CouponVendorVendorIdGetWithHttpInfo(String vendorId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/coupon/vendor/{vendor_id}'
+      .replaceAll('{vendor_id}', vendorId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Coupons For Vendor
+  ///
+  /// Endpoint to retrieve all coupons for a vendor. Public access (no subscription required).  Args:     vendor_id: The ID of the vendor.  Returns:     List[CouponModel]: The list of coupons.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] vendorId (required):
+  Future<List<CouponModelOutput>?> getCouponsForVendorApiV1CouponVendorVendorIdGet(String vendorId,) async {
+    final response = await getCouponsForVendorApiV1CouponVendorVendorIdGetWithHttpInfo(vendorId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -251,7 +311,7 @@ class CouponApi {
 
   /// Mark Coupon Expired
   ///
-  /// Endpoint to mark a coupon as expired. - Takes coupon_id as a URL parameter. - Marks the coupon as expired in the Firestore database.
+  /// Endpoint to mark a coupon as expired. Requires an active vendor subscription.  Args:     coupon_id: The ID of the coupon.     token: The JWT token.  Returns:     dict: Success message.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -286,7 +346,7 @@ class CouponApi {
 
   /// Mark Coupon Expired
   ///
-  /// Endpoint to mark a coupon as expired. - Takes coupon_id as a URL parameter. - Marks the coupon as expired in the Firestore database.
+  /// Endpoint to mark a coupon as expired. Requires an active vendor subscription.  Args:     coupon_id: The ID of the coupon.     token: The JWT token.  Returns:     dict: Success message.
   ///
   /// Parameters:
   ///
@@ -301,6 +361,124 @@ class CouponApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+    
+    }
+    return null;
+  }
+
+  /// Remove Coupon
+  ///
+  /// Endpoint to delete a coupon. Requires an active vendor subscription.  Args:     coupon_id: The ID of the coupon.     token: The JWT token.  Returns:     dict: Success message.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] couponId (required):
+  Future<Response> removeCouponApiV1CouponCouponIdDeleteWithHttpInfo(String couponId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/coupon/{coupon_id}'
+      .replaceAll('{coupon_id}', couponId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'DELETE',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Remove Coupon
+  ///
+  /// Endpoint to delete a coupon. Requires an active vendor subscription.  Args:     coupon_id: The ID of the coupon.     token: The JWT token.  Returns:     dict: Success message.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] couponId (required):
+  Future<Object?> removeCouponApiV1CouponCouponIdDelete(String couponId,) async {
+    final response = await removeCouponApiV1CouponCouponIdDeleteWithHttpInfo(couponId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+    
+    }
+    return null;
+  }
+
+  /// Update Coupon
+  ///
+  /// Endpoint to update a coupon. Requires an active vendor subscription.  Args:     coupon_id: The ID of the coupon.     coupon: The updated coupon model.     token: The JWT token.  Returns:     CouponModel: The updated coupon.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] couponId (required):
+  ///
+  /// * [CouponModelInput] couponModelInput (required):
+  Future<Response> updateCouponApiV1CouponCouponIdPutWithHttpInfo(String couponId, CouponModelInput couponModelInput,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/coupon/{coupon_id}'
+      .replaceAll('{coupon_id}', couponId);
+
+    // ignore: prefer_final_locals
+    Object? postBody = couponModelInput;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Update Coupon
+  ///
+  /// Endpoint to update a coupon. Requires an active vendor subscription.  Args:     coupon_id: The ID of the coupon.     coupon: The updated coupon model.     token: The JWT token.  Returns:     CouponModel: The updated coupon.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] couponId (required):
+  ///
+  /// * [CouponModelInput] couponModelInput (required):
+  Future<CouponModelOutput?> updateCouponApiV1CouponCouponIdPut(String couponId, CouponModelInput couponModelInput,) async {
+    final response = await updateCouponApiV1CouponCouponIdPutWithHttpInfo(couponId, couponModelInput,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CouponModelOutput',) as CouponModelOutput;
     
     }
     return null;
