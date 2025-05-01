@@ -94,6 +94,13 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**getStoreApiV1StoreStoreIdGet**](doc//StoreApi.md#getstoreapiv1storestoreidget) | **GET** /api/v1/store/{store_id} | Get Store
 *StoreApi* | [**getStoresByVendorApiV1StoreVendorVendorIdGet**](doc//StoreApi.md#getstoresbyvendorapiv1storevendorvendoridget) | **GET** /api/v1/store/vendor/{vendor_id} | Get Stores By Vendor
 *StoreApi* | [**updateStoreApiV1StoreStoreIdPut**](doc//StoreApi.md#updatestoreapiv1storestoreidput) | **PUT** /api/v1/store/{store_id} | Update Store
+*StoreReviewsApi* | [**addReviewApiV1StoreReviewsPost**](doc//StoreReviewsApi.md#addreviewapiv1storereviewspost) | **POST** /api/v1/store-reviews/ | Add Review
+*StoreReviewsApi* | [**deleteReviewApiV1StoreReviewsReviewIdDelete**](doc//StoreReviewsApi.md#deletereviewapiv1storereviewsreviewiddelete) | **DELETE** /api/v1/store-reviews/{review_id} | Delete Review
+*StoreReviewsApi* | [**getReviewStatsForStoreApiV1StoreReviewsStoreStoreIdStatsGet**](doc//StoreReviewsApi.md#getreviewstatsforstoreapiv1storereviewsstorestoreidstatsget) | **GET** /api/v1/store-reviews/store/{store_id}/stats | Get Review Stats For Store
+*StoreReviewsApi* | [**getReviewsByUserApiV1StoreReviewsUserUserIdGet**](doc//StoreReviewsApi.md#getreviewsbyuserapiv1storereviewsuseruseridget) | **GET** /api/v1/store-reviews/user/{user_id} | Get Reviews By User
+*StoreReviewsApi* | [**getReviewsForStoreApiV1StoreReviewsStoreStoreIdGet**](doc//StoreReviewsApi.md#getreviewsforstoreapiv1storereviewsstorestoreidget) | **GET** /api/v1/store-reviews/store/{store_id} | Get Reviews For Store
+*StoreReviewsApi* | [**getUserReviewApiV1StoreReviewsUserStoreIdUserIdGet**](doc//StoreReviewsApi.md#getuserreviewapiv1storereviewsuserstoreiduseridget) | **GET** /api/v1/store-reviews/user/{store_id}/{user_id} | Get User Review
+*StoreReviewsApi* | [**getVendorStoreReviewsApiV1StoreReviewsVendorStoresVendorIdGet**](doc//StoreReviewsApi.md#getvendorstorereviewsapiv1storereviewsvendorstoresvendoridget) | **GET** /api/v1/store-reviews/vendor/stores/{vendor_id} | Get Vendor Store Reviews
 *StripeWebhookApi* | [**stripeWebhookApiV1StripeWebhookPost**](doc//StripeWebhookApi.md#stripewebhookapiv1stripewebhookpost) | **POST** /api/v1/stripe/webhook | Stripe Webhook
 *UnlockedCouponsApi* | [**getUserUnlockedCouponListApiV1UnlockCouponsUserUserIdUnlockedGet**](doc//UnlockedCouponsApi.md#getuserunlockedcouponlistapiv1unlockcouponsuseruseridunlockedget) | **GET** /api/v1/unlock-coupons/user/{user_id}/unlocked | Get User Unlocked Coupon List
 *UnlockedCouponsApi* | [**unlockPremiumCouponApiV1UnlockCouponsUnlockUserIdCouponIdPost**](doc//UnlockedCouponsApi.md#unlockpremiumcouponapiv1unlockcouponsunlockuseridcouponidpost) | **POST** /api/v1/unlock-coupons/unlock/{user_id}/{coupon_id} | Unlock Premium Coupon
@@ -174,6 +181,7 @@ Class | Method | HTTP request | Description
  - [MetricSortBy](doc//MetricSortBy.md)
  - [PerformanceDetails](doc//PerformanceDetails.md)
  - [Platform](doc//Platform.md)
+ - [RatingValue](doc//RatingValue.md)
  - [RewardType](doc//RewardType.md)
  - [SaveCouponRequest](doc//SaveCouponRequest.md)
  - [SessionResponse](doc//SessionResponse.md)
@@ -182,6 +190,10 @@ Class | Method | HTTP request | Description
  - [StoreDetails](doc//StoreDetails.md)
  - [StoreModel](doc//StoreModel.md)
  - [StoreModelBase](doc//StoreModelBase.md)
+ - [StoreReviewCreate](doc//StoreReviewCreate.md)
+ - [StoreReviewModel](doc//StoreReviewModel.md)
+ - [StoreReviewResponse](doc//StoreReviewResponse.md)
+ - [StoreReviewStats](doc//StoreReviewStats.md)
  - [StoreStatus](doc//StoreStatus.md)
  - [StoreTypes](doc//StoreTypes.md)
  - [SubscriptionStatus](doc//SubscriptionStatus.md)

@@ -262,6 +262,8 @@ class ApiClient {
           return PerformanceDetails.fromJson(value);
         case 'Platform':
           return PlatformTypeTransformer().decode(value);
+        case 'RatingValue':
+          return RatingValueTypeTransformer().decode(value);
         case 'RewardType':
           return RewardTypeTypeTransformer().decode(value);
         case 'SaveCouponRequest':
@@ -278,6 +280,14 @@ class ApiClient {
           return StoreModel.fromJson(value);
         case 'StoreModelBase':
           return StoreModelBase.fromJson(value);
+        case 'StoreReviewCreate':
+          return StoreReviewCreate.fromJson(value);
+        case 'StoreReviewModel':
+          return StoreReviewModel.fromJson(value);
+        case 'StoreReviewResponse':
+          return StoreReviewResponse.fromJson(value);
+        case 'StoreReviewStats':
+          return StoreReviewStats.fromJson(value);
         case 'StoreStatus':
           return StoreStatusTypeTransformer().decode(value);
         case 'StoreTypes':

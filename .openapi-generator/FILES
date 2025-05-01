@@ -47,6 +47,7 @@ doc/Interests.md
 doc/MetricSortBy.md
 doc/PerformanceDetails.md
 doc/Platform.md
+doc/RatingValue.md
 doc/RedeemedCouponsApi.md
 doc/RewardType.md
 doc/SaveCouponRequest.md
@@ -59,6 +60,11 @@ doc/StoreApi.md
 doc/StoreDetails.md
 doc/StoreModel.md
 doc/StoreModelBase.md
+doc/StoreReviewCreate.md
+doc/StoreReviewModel.md
+doc/StoreReviewResponse.md
+doc/StoreReviewStats.md
+doc/StoreReviewsApi.md
 doc/StoreStatus.md
 doc/StoreTypes.md
 doc/StripeWebhookApi.md
@@ -101,6 +107,7 @@ lib/api/redeemed_coupons_api.dart
 lib/api/saved_coupons_api.dart
 lib/api/spin_wheel_api.dart
 lib/api/store_api.dart
+lib/api/store_reviews_api.dart
 lib/api/stripe_webhook_api.dart
 lib/api/unlocked_coupons_api.dart
 lib/api/user_api.dart
@@ -159,6 +166,7 @@ lib/model/interests.dart
 lib/model/metric_sort_by.dart
 lib/model/performance_details.dart
 lib/model/platform.dart
+lib/model/rating_value.dart
 lib/model/reward_type.dart
 lib/model/save_coupon_request.dart
 lib/model/session_response.dart
@@ -167,6 +175,10 @@ lib/model/spinning_wheel_reward.dart
 lib/model/store_details.dart
 lib/model/store_model.dart
 lib/model/store_model_base.dart
+lib/model/store_review_create.dart
+lib/model/store_review_model.dart
+lib/model/store_review_response.dart
+lib/model/store_review_stats.dart
 lib/model/store_status.dart
 lib/model/store_types.dart
 lib/model/subscription_status.dart
@@ -189,7 +201,9 @@ lib/model/vendor_status.dart
 lib/model/vendor_subscription_model.dart
 lib/model/won_coupon_model.dart
 pubspec.yaml
-test/create_vendor_subscription_session_test.dart
-test/vendor_stripe_webhook_api_test.dart
-test/vendor_subscription_api_test.dart
-test/vendor_subscription_model_test.dart
+test/rating_value_test.dart
+test/store_review_create_test.dart
+test/store_review_model_test.dart
+test/store_review_response_test.dart
+test/store_review_stats_test.dart
+test/store_reviews_api_test.dart

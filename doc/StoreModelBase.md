@@ -31,6 +31,8 @@ Name | Type | Description | Notes
 **youtube** | **String** |  | [optional] 
 **imagesURLs** | **List<String>** |  | [optional] [default to const []]
 **coordinates** | [**GeoPoint**](GeoPoint.md) |  | 
+**avgRating** | **num** |  | [optional] 
+**totalReviews** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

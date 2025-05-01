@@ -31,6 +31,8 @@ Name | Type | Description | Notes
 **youtube** | **String** |  | [optional] 
 **imagesURLs** | **List<String>** |  | [optional] [default to const []]
 **coordinates** | [**GeoPoint**](GeoPoint.md) |  | 
+**avgRating** | **num** |  | [optional] 
+**totalReviews** | **int** |  | [optional] 
 **qrId** | **String** |  | 
 **geohash** | **String** |  | 
 **createdAt** | **String** |  | 

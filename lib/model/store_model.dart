@@ -36,6 +36,8 @@ class StoreModel {
     this.youtube,
     this.imagesURLs = const [],
     required this.coordinates,
+    this.avgRating,
+    this.totalReviews,
     required this.qrId,
     required this.geohash,
     required this.createdAt,
@@ -88,6 +90,10 @@ class StoreModel {
 
   GeoPoint coordinates;
 
+  num? avgRating;
+
+  int? totalReviews;
+
   String qrId;
 
   String geohash;
@@ -121,6 +127,8 @@ class StoreModel {
     other.youtube == youtube &&
     _deepEquality.equals(other.imagesURLs, imagesURLs) &&
     other.coordinates == coordinates &&
+    other.avgRating == avgRating &&
+    other.totalReviews == totalReviews &&
     other.qrId == qrId &&
     other.geohash == geohash &&
     other.createdAt == createdAt &&
@@ -152,13 +160,15 @@ class StoreModel {
     (youtube == null ? 0 : youtube!.hashCode) +
     (imagesURLs.hashCode) +
     (coordinates.hashCode) +
+    (avgRating == null ? 0 : avgRating!.hashCode) +
+    (totalReviews == null ? 0 : totalReviews!.hashCode) +
     (qrId.hashCode) +
     (geohash.hashCode) +
     (createdAt.hashCode) +
     (updatedAt.hashCode);
 
   @override
-  String toString() => 'StoreModel[id=$id, name=$name, address=$address, city=$city, state=$state, postalCode=$postalCode, country=$country, phone=$phone, email=$email, type=$type, status=$status, vendorId=$vendorId, logoUrl=$logoUrl, organizationNumber=$organizationNumber, organizationBranchNumber=$organizationBranchNumber, bannerUrl=$bannerUrl, description=$description, website=$website, facebook=$facebook, instagram=$instagram, youtube=$youtube, imagesURLs=$imagesURLs, coordinates=$coordinates, qrId=$qrId, geohash=$geohash, createdAt=$createdAt, updatedAt=$updatedAt]';
+  String toString() => 'StoreModel[id=$id, name=$name, address=$address, city=$city, state=$state, postalCode=$postalCode, country=$country, phone=$phone, email=$email, type=$type, status=$status, vendorId=$vendorId, logoUrl=$logoUrl, organizationNumber=$organizationNumber, organizationBranchNumber=$organizationBranchNumber, bannerUrl=$bannerUrl, description=$description, website=$website, facebook=$facebook, instagram=$instagram, youtube=$youtube, imagesURLs=$imagesURLs, coordinates=$coordinates, avgRating=$avgRating, totalReviews=$totalReviews, qrId=$qrId, geohash=$geohash, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -205,6 +215,16 @@ class StoreModel {
     }
       json[r'imagesURLs'] = this.imagesURLs;
       json[r'coordinates'] = this.coordinates;
+    if (this.avgRating != null) {
+      json[r'avg_rating'] = this.avgRating;
+    } else {
+      json[r'avg_rating'] = null;
+    }
+    if (this.totalReviews != null) {
+      json[r'total_reviews'] = this.totalReviews;
+    } else {
+      json[r'total_reviews'] = null;
+    }
       json[r'qrId'] = this.qrId;
       json[r'geohash'] = this.geohash;
       json[r'createdAt'] = this.createdAt;
@@ -256,6 +276,10 @@ class StoreModel {
             ? (json[r'imagesURLs'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         coordinates: GeoPoint.fromJson(json[r'coordinates'])!,
+        avgRating: json[r'avg_rating'] == null
+            ? null
+            : num.parse('${json[r'avg_rating']}'),
+        totalReviews: mapValueOfType<int>(json, r'total_reviews'),
         qrId: mapValueOfType<String>(json, r'qrId')!,
         geohash: mapValueOfType<String>(json, r'geohash')!,
         createdAt: mapValueOfType<String>(json, r'createdAt')!,

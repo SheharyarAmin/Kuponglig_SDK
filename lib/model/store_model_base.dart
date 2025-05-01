@@ -36,6 +36,8 @@ class StoreModelBase {
     this.youtube,
     this.imagesURLs = const [],
     required this.coordinates,
+    this.avgRating,
+    this.totalReviews,
   });
 
   String id;
@@ -84,6 +86,10 @@ class StoreModelBase {
 
   GeoPoint coordinates;
 
+  num? avgRating;
+
+  int? totalReviews;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is StoreModelBase &&
     other.id == id &&
@@ -108,7 +114,9 @@ class StoreModelBase {
     other.instagram == instagram &&
     other.youtube == youtube &&
     _deepEquality.equals(other.imagesURLs, imagesURLs) &&
-    other.coordinates == coordinates;
+    other.coordinates == coordinates &&
+    other.avgRating == avgRating &&
+    other.totalReviews == totalReviews;
 
   @override
   int get hashCode =>
@@ -135,10 +143,12 @@ class StoreModelBase {
     (instagram == null ? 0 : instagram!.hashCode) +
     (youtube == null ? 0 : youtube!.hashCode) +
     (imagesURLs.hashCode) +
-    (coordinates.hashCode);
+    (coordinates.hashCode) +
+    (avgRating == null ? 0 : avgRating!.hashCode) +
+    (totalReviews == null ? 0 : totalReviews!.hashCode);
 
   @override
-  String toString() => 'StoreModelBase[id=$id, name=$name, address=$address, city=$city, state=$state, postalCode=$postalCode, country=$country, phone=$phone, email=$email, type=$type, status=$status, vendorId=$vendorId, logoUrl=$logoUrl, organizationNumber=$organizationNumber, organizationBranchNumber=$organizationBranchNumber, bannerUrl=$bannerUrl, description=$description, website=$website, facebook=$facebook, instagram=$instagram, youtube=$youtube, imagesURLs=$imagesURLs, coordinates=$coordinates]';
+  String toString() => 'StoreModelBase[id=$id, name=$name, address=$address, city=$city, state=$state, postalCode=$postalCode, country=$country, phone=$phone, email=$email, type=$type, status=$status, vendorId=$vendorId, logoUrl=$logoUrl, organizationNumber=$organizationNumber, organizationBranchNumber=$organizationBranchNumber, bannerUrl=$bannerUrl, description=$description, website=$website, facebook=$facebook, instagram=$instagram, youtube=$youtube, imagesURLs=$imagesURLs, coordinates=$coordinates, avgRating=$avgRating, totalReviews=$totalReviews]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -185,6 +195,16 @@ class StoreModelBase {
     }
       json[r'imagesURLs'] = this.imagesURLs;
       json[r'coordinates'] = this.coordinates;
+    if (this.avgRating != null) {
+      json[r'avg_rating'] = this.avgRating;
+    } else {
+      json[r'avg_rating'] = null;
+    }
+    if (this.totalReviews != null) {
+      json[r'total_reviews'] = this.totalReviews;
+    } else {
+      json[r'total_reviews'] = null;
+    }
     return json;
   }
 
@@ -232,6 +252,10 @@ class StoreModelBase {
             ? (json[r'imagesURLs'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         coordinates: GeoPoint.fromJson(json[r'coordinates'])!,
+        avgRating: json[r'avg_rating'] == null
+            ? null
+            : num.parse('${json[r'avg_rating']}'),
+        totalReviews: mapValueOfType<int>(json, r'total_reviews'),
       );
     }
     return null;

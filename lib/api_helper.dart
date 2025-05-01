@@ -97,6 +97,9 @@ String parameterToString(dynamic value) {
   if (value is Platform) {
     return PlatformTypeTransformer().encode(value).toString();
   }
+  if (value is RatingValue) {
+    return RatingValueTypeTransformer().encode(value).toString();
+  }
   if (value is RewardType) {
     return RewardTypeTypeTransformer().encode(value).toString();
   }
