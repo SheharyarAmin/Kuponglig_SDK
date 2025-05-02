@@ -19,7 +19,7 @@ class WonCouponModel {
     required this.couponName,
     required this.validTill,
     required this.wonAt,
-    this.status = AppSchemasWonCouponCouponStatus.active,
+    this.status = WonCouponStatus.active,
   });
 
   String id;
@@ -34,7 +34,7 @@ class WonCouponModel {
 
   DateTime wonAt;
 
-  AppSchemasWonCouponCouponStatus status;
+  WonCouponStatus status;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is WonCouponModel &&
@@ -97,7 +97,7 @@ class WonCouponModel {
         couponName: mapValueOfType<String>(json, r'coupon_name')!,
         validTill: mapDateTime(json, r'valid_till', r'')!,
         wonAt: mapDateTime(json, r'won_at', r'')!,
-        status: AppSchemasWonCouponCouponStatus.fromJson(json[r'status']) ?? AppSchemasWonCouponCouponStatus.active,
+        status: WonCouponStatus.fromJson(json[r'status']) ?? WonCouponStatus.active,
       );
     }
     return null;

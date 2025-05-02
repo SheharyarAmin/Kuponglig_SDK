@@ -190,10 +190,6 @@ class ApiClient {
           return AnalyticsEventBatch.fromJson(value);
         case 'AnalyticsEventType':
           return AnalyticsEventTypeTypeTransformer().decode(value);
-        case 'AppSchemasWonCouponCouponStatus':
-          return AppSchemasWonCouponCouponStatusTypeTransformer().decode(value);
-        case 'AppUtilsEnumsCouponStatus':
-          return AppUtilsEnumsCouponStatusTypeTransformer().decode(value);
         case 'AuthenticationToken':
           return AuthenticationToken.fromJson(value);
         case 'ContactFormDetail':
@@ -214,18 +210,16 @@ class ApiClient {
           return CoreStats.fromJson(value);
         case 'CouponDetails':
           return CouponDetails.fromJson(value);
-        case 'CouponModelInput':
-          return CouponModelInput.fromJson(value);
-        case 'CouponModelOutput':
-          return CouponModelOutput.fromJson(value);
+        case 'CouponModel':
+          return CouponModel.fromJson(value);
         case 'CouponPerformance':
           return CouponPerformance.fromJson(value);
         case 'CouponRedemptionResponse':
           return CouponRedemptionResponse.fromJson(value);
         case 'CouponRedemptionStatus':
           return CouponRedemptionStatusTypeTransformer().decode(value);
-        case 'CouponStatusInput':
-          return CouponStatusInputTypeTransformer().decode(value);
+        case 'CouponStatus':
+          return CouponStatusTypeTransformer().decode(value);
         case 'CouponTargetType':
           return CouponTargetTypeTypeTransformer().decode(value);
         case 'CreateUserSubscriptionSession':
@@ -358,6 +352,8 @@ class ApiClient {
           return VendorSubscriptionModel.fromJson(value);
         case 'WonCouponModel':
           return WonCouponModel.fromJson(value);
+        case 'WonCouponStatus':
+          return WonCouponStatusTypeTransformer().decode(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

@@ -23,19 +23,15 @@ class AppSchemasWonCouponCouponStatus {
 
   String toJson() => value;
 
-  static const active = AppSchemasWonCouponCouponStatus._(r'active');
-  static const expired = AppSchemasWonCouponCouponStatus._(r'expired');
-  static const redeemed = AppSchemasWonCouponCouponStatus._(r'redeemed');
-  static const deleted = AppSchemasWonCouponCouponStatus._(r'deleted');
-  static const notAvailable = AppSchemasWonCouponCouponStatus._(r'not_available');
+  static const PENDING = AppSchemasWonCouponCouponStatus._(r'PENDING');
+  static const REDEEMED = AppSchemasWonCouponCouponStatus._(r'REDEEMED');
+  static const EXPIRED = AppSchemasWonCouponCouponStatus._(r'EXPIRED');
 
   /// List of all possible values in this [enum][AppSchemasWonCouponCouponStatus].
   static const values = <AppSchemasWonCouponCouponStatus>[
-    active,
-    expired,
-    redeemed,
-    deleted,
-    notAvailable,
+    PENDING,
+    REDEEMED,
+    EXPIRED,
   ];
 
   static AppSchemasWonCouponCouponStatus? fromJson(dynamic value) => AppSchemasWonCouponCouponStatusTypeTransformer().decode(value);
@@ -74,11 +70,9 @@ class AppSchemasWonCouponCouponStatusTypeTransformer {
   AppSchemasWonCouponCouponStatus? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'active': return AppSchemasWonCouponCouponStatus.active;
-        case r'expired': return AppSchemasWonCouponCouponStatus.expired;
-        case r'redeemed': return AppSchemasWonCouponCouponStatus.redeemed;
-        case r'deleted': return AppSchemasWonCouponCouponStatus.deleted;
-        case r'not_available': return AppSchemasWonCouponCouponStatus.notAvailable;
+        case r'PENDING': return AppSchemasWonCouponCouponStatus.PENDING;
+        case r'REDEEMED': return AppSchemasWonCouponCouponStatus.REDEEMED;
+        case r'EXPIRED': return AppSchemasWonCouponCouponStatus.EXPIRED;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **createCouponApiV1CouponPost**
-> CouponModelOutput createCouponApiV1CouponPost(couponModelInput)
+> CouponModel createCouponApiV1CouponPost(couponModel)
 
 Create Coupon
 
@@ -31,10 +31,10 @@ Endpoint to create a new coupon. Requires an active vendor subscription.  Args: 
 import 'package:openapi/api.dart';
 
 final api_instance = CouponApi();
-final couponModelInput = CouponModelInput(); // CouponModelInput | 
+final couponModel = CouponModel(); // CouponModel | 
 
 try {
-    final result = api_instance.createCouponApiV1CouponPost(couponModelInput);
+    final result = api_instance.createCouponApiV1CouponPost(couponModel);
     print(result);
 } catch (e) {
     print('Exception when calling CouponApi->createCouponApiV1CouponPost: $e\n');
@@ -45,11 +45,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **couponModelInput** | [**CouponModelInput**](CouponModelInput.md)|  | 
+ **couponModel** | [**CouponModel**](CouponModel.md)|  | 
 
 ### Return type
 
-[**CouponModelOutput**](CouponModelOutput.md)
+[**CouponModel**](CouponModel.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCouponApiV1CouponCouponIdGet**
-> CouponModelOutput getCouponApiV1CouponCouponIdGet(couponId)
+> CouponModel getCouponApiV1CouponCouponIdGet(couponId)
 
 Get Coupon
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CouponModelOutput**](CouponModelOutput.md)
+[**CouponModel**](CouponModel.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCouponsForStoreApiV1CouponStoreStoreIdGet**
-> List<CouponModelOutput> getCouponsForStoreApiV1CouponStoreStoreIdGet(storeId)
+> List<CouponModel> getCouponsForStoreApiV1CouponStoreStoreIdGet(storeId)
 
 Get Coupons For Store
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<CouponModelOutput>**](CouponModelOutput.md)
+[**List<CouponModel>**](CouponModel.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCouponsForVendorApiV1CouponVendorVendorIdGet**
-> List<CouponModelOutput> getCouponsForVendorApiV1CouponVendorVendorIdGet(vendorId)
+> List<CouponModel> getCouponsForVendorApiV1CouponVendorVendorIdGet(vendorId)
 
 Get Coupons For Vendor
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<CouponModelOutput>**](CouponModelOutput.md)
+[**List<CouponModel>**](CouponModel.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTopCouponsApiV1CouponTopCouponsStoreIdGet**
-> List<CouponModelOutput> getTopCouponsApiV1CouponTopCouponsStoreIdGet(storeId)
+> List<CouponModel> getTopCouponsApiV1CouponTopCouponsStoreIdGet(storeId)
 
 Get Top Coupons
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<CouponModelOutput>**](CouponModelOutput.md)
+[**List<CouponModel>**](CouponModel.md)
 
 ### Authorization
 
@@ -321,7 +321,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateCouponApiV1CouponCouponIdPut**
-> CouponModelOutput updateCouponApiV1CouponCouponIdPut(couponId, couponModelInput)
+> CouponModel updateCouponApiV1CouponCouponIdPut(couponId, couponModel)
 
 Update Coupon
 
@@ -333,10 +333,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = CouponApi();
 final couponId = couponId_example; // String | 
-final couponModelInput = CouponModelInput(); // CouponModelInput | 
+final couponModel = CouponModel(); // CouponModel | 
 
 try {
-    final result = api_instance.updateCouponApiV1CouponCouponIdPut(couponId, couponModelInput);
+    final result = api_instance.updateCouponApiV1CouponCouponIdPut(couponId, couponModel);
     print(result);
 } catch (e) {
     print('Exception when calling CouponApi->updateCouponApiV1CouponCouponIdPut: $e\n');
@@ -348,11 +348,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **couponId** | **String**|  | 
- **couponModelInput** | [**CouponModelInput**](CouponModelInput.md)|  | 
+ **couponModel** | [**CouponModel**](CouponModel.md)|  | 
 
 ### Return type
 
-[**CouponModelOutput**](CouponModelOutput.md)
+[**CouponModel**](CouponModel.md)
 
 ### Authorization
 

@@ -157,8 +157,6 @@ Class | Method | HTTP request | Description
  - [AnalyticsEvent](doc//AnalyticsEvent.md)
  - [AnalyticsEventBatch](doc//AnalyticsEventBatch.md)
  - [AnalyticsEventType](doc//AnalyticsEventType.md)
- - [AppSchemasWonCouponCouponStatus](doc//AppSchemasWonCouponCouponStatus.md)
- - [AppUtilsEnumsCouponStatus](doc//AppUtilsEnumsCouponStatus.md)
  - [AuthenticationToken](doc//AuthenticationToken.md)
  - [ContactFormDetail](doc//ContactFormDetail.md)
  - [ContactFormList](doc//ContactFormList.md)
@@ -169,12 +167,11 @@ Class | Method | HTTP request | Description
  - [ContactFormType](doc//ContactFormType.md)
  - [CoreStats](doc//CoreStats.md)
  - [CouponDetails](doc//CouponDetails.md)
- - [CouponModelInput](doc//CouponModelInput.md)
- - [CouponModelOutput](doc//CouponModelOutput.md)
+ - [CouponModel](doc//CouponModel.md)
  - [CouponPerformance](doc//CouponPerformance.md)
  - [CouponRedemptionResponse](doc//CouponRedemptionResponse.md)
  - [CouponRedemptionStatus](doc//CouponRedemptionStatus.md)
- - [CouponStatusInput](doc//CouponStatusInput.md)
+ - [CouponStatus](doc//CouponStatus.md)
  - [CouponTargetType](doc//CouponTargetType.md)
  - [CreateUserSubscriptionSession](doc//CreateUserSubscriptionSession.md)
  - [CreateVendorSubscriptionSession](doc//CreateVendorSubscriptionSession.md)
@@ -241,6 +238,7 @@ Class | Method | HTTP request | Description
  - [VendorStatus](doc//VendorStatus.md)
  - [VendorSubscriptionModel](doc//VendorSubscriptionModel.md)
  - [WonCouponModel](doc//WonCouponModel.md)
+ - [WonCouponStatus](doc//WonCouponStatus.md)
 
 
 ## Documentation For Authorization

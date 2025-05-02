@@ -24,13 +24,13 @@ class CouponApi {
   ///
   /// Parameters:
   ///
-  /// * [CouponModelInput] couponModelInput (required):
-  Future<Response> createCouponApiV1CouponPostWithHttpInfo(CouponModelInput couponModelInput,) async {
+  /// * [CouponModel] couponModel (required):
+  Future<Response> createCouponApiV1CouponPostWithHttpInfo(CouponModel couponModel,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/coupon/';
 
     // ignore: prefer_final_locals
-    Object? postBody = couponModelInput;
+    Object? postBody = couponModel;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -56,9 +56,9 @@ class CouponApi {
   ///
   /// Parameters:
   ///
-  /// * [CouponModelInput] couponModelInput (required):
-  Future<CouponModelOutput?> createCouponApiV1CouponPost(CouponModelInput couponModelInput,) async {
-    final response = await createCouponApiV1CouponPostWithHttpInfo(couponModelInput,);
+  /// * [CouponModel] couponModel (required):
+  Future<CouponModel?> createCouponApiV1CouponPost(CouponModel couponModel,) async {
+    final response = await createCouponApiV1CouponPostWithHttpInfo(couponModel,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -66,7 +66,7 @@ class CouponApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CouponModelOutput',) as CouponModelOutput;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CouponModel',) as CouponModel;
     
     }
     return null;
@@ -114,7 +114,7 @@ class CouponApi {
   /// Parameters:
   ///
   /// * [String] couponId (required):
-  Future<CouponModelOutput?> getCouponApiV1CouponCouponIdGet(String couponId,) async {
+  Future<CouponModel?> getCouponApiV1CouponCouponIdGet(String couponId,) async {
     final response = await getCouponApiV1CouponCouponIdGetWithHttpInfo(couponId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -123,7 +123,7 @@ class CouponApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CouponModelOutput',) as CouponModelOutput;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CouponModel',) as CouponModel;
     
     }
     return null;
@@ -171,7 +171,7 @@ class CouponApi {
   /// Parameters:
   ///
   /// * [String] storeId (required):
-  Future<List<CouponModelOutput>?> getCouponsForStoreApiV1CouponStoreStoreIdGet(String storeId,) async {
+  Future<List<CouponModel>?> getCouponsForStoreApiV1CouponStoreStoreIdGet(String storeId,) async {
     final response = await getCouponsForStoreApiV1CouponStoreStoreIdGetWithHttpInfo(storeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -181,8 +181,8 @@ class CouponApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModelOutput>') as List)
-        .cast<CouponModelOutput>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModel>') as List)
+        .cast<CouponModel>()
         .toList(growable: false);
 
     }
@@ -231,7 +231,7 @@ class CouponApi {
   /// Parameters:
   ///
   /// * [String] vendorId (required):
-  Future<List<CouponModelOutput>?> getCouponsForVendorApiV1CouponVendorVendorIdGet(String vendorId,) async {
+  Future<List<CouponModel>?> getCouponsForVendorApiV1CouponVendorVendorIdGet(String vendorId,) async {
     final response = await getCouponsForVendorApiV1CouponVendorVendorIdGetWithHttpInfo(vendorId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -241,8 +241,8 @@ class CouponApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModelOutput>') as List)
-        .cast<CouponModelOutput>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModel>') as List)
+        .cast<CouponModel>()
         .toList(growable: false);
 
     }
@@ -291,7 +291,7 @@ class CouponApi {
   /// Parameters:
   ///
   /// * [String] storeId (required):
-  Future<List<CouponModelOutput>?> getTopCouponsApiV1CouponTopCouponsStoreIdGet(String storeId,) async {
+  Future<List<CouponModel>?> getTopCouponsApiV1CouponTopCouponsStoreIdGet(String storeId,) async {
     final response = await getTopCouponsApiV1CouponTopCouponsStoreIdGetWithHttpInfo(storeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -301,8 +301,8 @@ class CouponApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModelOutput>') as List)
-        .cast<CouponModelOutput>()
+      return (await apiClient.deserializeAsync(responseBody, 'List<CouponModel>') as List)
+        .cast<CouponModel>()
         .toList(growable: false);
 
     }
@@ -433,14 +433,14 @@ class CouponApi {
   ///
   /// * [String] couponId (required):
   ///
-  /// * [CouponModelInput] couponModelInput (required):
-  Future<Response> updateCouponApiV1CouponCouponIdPutWithHttpInfo(String couponId, CouponModelInput couponModelInput,) async {
+  /// * [CouponModel] couponModel (required):
+  Future<Response> updateCouponApiV1CouponCouponIdPutWithHttpInfo(String couponId, CouponModel couponModel,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/coupon/{coupon_id}'
       .replaceAll('{coupon_id}', couponId);
 
     // ignore: prefer_final_locals
-    Object? postBody = couponModelInput;
+    Object? postBody = couponModel;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -468,9 +468,9 @@ class CouponApi {
   ///
   /// * [String] couponId (required):
   ///
-  /// * [CouponModelInput] couponModelInput (required):
-  Future<CouponModelOutput?> updateCouponApiV1CouponCouponIdPut(String couponId, CouponModelInput couponModelInput,) async {
-    final response = await updateCouponApiV1CouponCouponIdPutWithHttpInfo(couponId, couponModelInput,);
+  /// * [CouponModel] couponModel (required):
+  Future<CouponModel?> updateCouponApiV1CouponCouponIdPut(String couponId, CouponModel couponModel,) async {
+    final response = await updateCouponApiV1CouponCouponIdPutWithHttpInfo(couponId, couponModel,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -478,7 +478,7 @@ class CouponApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CouponModelOutput',) as CouponModelOutput;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CouponModel',) as CouponModel;
     
     }
     return null;

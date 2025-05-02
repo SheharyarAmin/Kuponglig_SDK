@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **couponName** | **String** |  | 
 **validTill** | [**DateTime**](DateTime.md) |  | 
 **wonAt** | [**DateTime**](DateTime.md) |  | 
-**status** | [**AppSchemasWonCouponCouponStatus**](AppSchemasWonCouponCouponStatus.md) |  | [optional] [default to AppSchemasWonCouponCouponStatus.active]
+**status** | [**WonCouponStatus**](WonCouponStatus.md) |  | [optional] [default to WonCouponStatus.active]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -54,8 +54,6 @@ part 'model/activity_metrics.dart';
 part 'model/analytics_event.dart';
 part 'model/analytics_event_batch.dart';
 part 'model/analytics_event_type.dart';
-part 'model/app_schemas_won_coupon_coupon_status.dart';
-part 'model/app_utils_enums_coupon_status.dart';
 part 'model/authentication_token.dart';
 part 'model/contact_form_detail.dart';
 part 'model/contact_form_list.dart';
@@ -66,12 +64,11 @@ part 'model/contact_form_submission.dart';
 part 'model/contact_form_type.dart';
 part 'model/core_stats.dart';
 part 'model/coupon_details.dart';
-part 'model/coupon_model_input.dart';
-part 'model/coupon_model_output.dart';
+part 'model/coupon_model.dart';
 part 'model/coupon_performance.dart';
 part 'model/coupon_redemption_response.dart';
 part 'model/coupon_redemption_status.dart';
-part 'model/coupon_status_input.dart';
+part 'model/coupon_status.dart';
 part 'model/coupon_target_type.dart';
 part 'model/create_user_subscription_session.dart';
 part 'model/create_vendor_subscription_session.dart';
@@ -138,6 +135,7 @@ part 'model/vendor_model.dart';
 part 'model/vendor_status.dart';
 part 'model/vendor_subscription_model.dart';
 part 'model/won_coupon_model.dart';
+part 'model/won_coupon_status.dart';
 
 
 /// An [ApiClient] instance that uses the default values obtained from
