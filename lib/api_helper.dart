@@ -85,6 +85,9 @@ String parameterToString(dynamic value) {
   if (value is DeletionRequestType) {
     return DeletionRequestTypeTypeTransformer().encode(value).toString();
   }
+  if (value is DeviceType) {
+    return DeviceTypeTypeTransformer().encode(value).toString();
+  }
   if (value is Gender) {
     return GenderTypeTransformer().encode(value).toString();
   }
@@ -93,6 +96,15 @@ String parameterToString(dynamic value) {
   }
   if (value is MetricSortBy) {
     return MetricSortByTypeTransformer().encode(value).toString();
+  }
+  if (value is NotificationCategory) {
+    return NotificationCategoryTypeTransformer().encode(value).toString();
+  }
+  if (value is NotificationStatus) {
+    return NotificationStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is NotificationTarget) {
+    return NotificationTargetTypeTransformer().encode(value).toString();
   }
   if (value is Platform) {
     return PlatformTypeTransformer().encode(value).toString();
@@ -120,6 +132,9 @@ String parameterToString(dynamic value) {
   }
   if (value is UserStatus) {
     return UserStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is UserType) {
+    return UserTypeTypeTransformer().encode(value).toString();
   }
   if (value is VendorStatus) {
     return VendorStatusTypeTransformer().encode(value).toString();

@@ -79,6 +79,17 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**loginForAccessTokenAuthTokenPost**](doc//DefaultApi.md#loginforaccesstokenauthtokenpost) | **POST** /auth/token | Login For Access Token
 *DefaultApi* | [**pingAuthPingGet**](doc//DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
 *DefaultApi* | [**refreshAccessTokenAuthRefreshPost**](doc//DefaultApi.md#refreshaccesstokenauthrefreshpost) | **POST** /auth/refresh | Refresh Access Token
+*NotificationsApi* | [**deleteNotificationEndpointApiV1NotificationsAdminNotificationsNotificationIdDelete**](doc//NotificationsApi.md#deletenotificationendpointapiv1notificationsadminnotificationsnotificationiddelete) | **DELETE** /api/v1/notifications/admin/notifications/{notification_id} | Delete Notification Endpoint
+*NotificationsApi* | [**deleteUserFcmTokenApiV1NotificationsUserFcmTokenTokenUserIdDelete**](doc//NotificationsApi.md#deleteuserfcmtokenapiv1notificationsuserfcmtokentokenuseriddelete) | **DELETE** /api/v1/notifications/user/fcm-token/{token}/{user_id} | Delete User Fcm Token
+*NotificationsApi* | [**deleteVendorFcmTokenApiV1NotificationsVendorFcmTokenTokenVendorIdDelete**](doc//NotificationsApi.md#deletevendorfcmtokenapiv1notificationsvendorfcmtokentokenvendoriddelete) | **DELETE** /api/v1/notifications/vendor/fcm-token/{token}/{vendor_id} | Delete Vendor Fcm Token
+*NotificationsApi* | [**getNotificationDetailsApiV1NotificationsAdminNotificationsNotificationIdGet**](doc//NotificationsApi.md#getnotificationdetailsapiv1notificationsadminnotificationsnotificationidget) | **GET** /api/v1/notifications/admin/notifications/{notification_id} | Get Notification Details
+*NotificationsApi* | [**getUserNotificationListApiV1NotificationsUserNotificationsUserIdGet**](doc//NotificationsApi.md#getusernotificationlistapiv1notificationsusernotificationsuseridget) | **GET** /api/v1/notifications/user/notifications/{user_id} | Get User Notification List
+*NotificationsApi* | [**getVendorNotificationListApiV1NotificationsVendorNotificationsVendorIdGet**](doc//NotificationsApi.md#getvendornotificationlistapiv1notificationsvendornotificationsvendoridget) | **GET** /api/v1/notifications/vendor/notifications/{vendor_id} | Get Vendor Notification List
+*NotificationsApi* | [**markUserNotificationReadApiV1NotificationsUserNotificationsNotificationIdReadUserIdPut**](doc//NotificationsApi.md#markusernotificationreadapiv1notificationsusernotificationsnotificationidreaduseridput) | **PUT** /api/v1/notifications/user/notifications/{notification_id}/read/{user_id} | Mark User Notification Read
+*NotificationsApi* | [**markVendorNotificationReadApiV1NotificationsVendorNotificationsNotificationIdReadVendorIdPut**](doc//NotificationsApi.md#markvendornotificationreadapiv1notificationsvendornotificationsnotificationidreadvendoridput) | **PUT** /api/v1/notifications/vendor/notifications/{notification_id}/read/{vendor_id} | Mark Vendor Notification Read
+*NotificationsApi* | [**registerUserFcmTokenApiV1NotificationsUserFcmTokenPost**](doc//NotificationsApi.md#registeruserfcmtokenapiv1notificationsuserfcmtokenpost) | **POST** /api/v1/notifications/user/fcm-token | Register User Fcm Token
+*NotificationsApi* | [**registerVendorFcmTokenApiV1NotificationsVendorFcmTokenPost**](doc//NotificationsApi.md#registervendorfcmtokenapiv1notificationsvendorfcmtokenpost) | **POST** /api/v1/notifications/vendor/fcm-token | Register Vendor Fcm Token
+*NotificationsApi* | [**sendNotificationApiV1NotificationsAdminNotificationsPost**](doc//NotificationsApi.md#sendnotificationapiv1notificationsadminnotificationspost) | **POST** /api/v1/notifications/admin/notifications | Send Notification
 *RedeemedCouponsApi* | [**getUserRedeemedCouponsApiV1RedeemedCouponsUserHistoryGet**](doc//RedeemedCouponsApi.md#getuserredeemedcouponsapiv1redeemedcouponsuserhistoryget) | **GET** /api/v1/redeemed_coupons/user-history | Get User Redeemed Coupons
 *RedeemedCouponsApi* | [**redeemCouponByCodeApiV1RedeemedCouponsRedeemPost**](doc//RedeemedCouponsApi.md#redeemcouponbycodeapiv1redeemedcouponsredeempost) | **POST** /api/v1/redeemed_coupons/redeem | Redeem Coupon By Code
 *SavedCouponsApi* | [**deleteSavedCouponApiV1SavedCouponsUserIdCouponIdDelete**](doc//SavedCouponsApi.md#deletesavedcouponapiv1savedcouponsuseridcouponiddelete) | **DELETE** /api/v1/saved_coupons/{user_id}/{coupon_id} | Delete Saved Coupon
@@ -133,6 +144,7 @@ Class | Method | HTTP request | Description
 *VendorDashboardApi* | [**getVendorStoresApiV1VendorDashboardStoresGet**](doc//VendorDashboardApi.md#getvendorstoresapiv1vendordashboardstoresget) | **GET** /api/v1/vendor_dashboard/stores | Get Vendor Stores
 *VendorStripeWebhookApi* | [**vendorStripeWebhookApiV1VendorStripeWebhookPost**](doc//VendorStripeWebhookApi.md#vendorstripewebhookapiv1vendorstripewebhookpost) | **POST** /api/v1/vendor/stripe/webhook | Vendor Stripe Webhook
 *VendorSubscriptionApi* | [**checkSubscriptionStatusApiV1VendorSubscriptionVendorIdStatusGet**](doc//VendorSubscriptionApi.md#checksubscriptionstatusapiv1vendorsubscriptionvendoridstatusget) | **GET** /api/v1/vendor/subscription/{vendor_id}/status | Check Subscription Status
+*VendorSubscriptionApi* | [**createSubscriptionPortalApiV1VendorSubscriptionVendorIdPortalGet**](doc//VendorSubscriptionApi.md#createsubscriptionportalapiv1vendorsubscriptionvendoridportalget) | **GET** /api/v1/vendor/subscription/{vendor_id}/portal | Create Subscription Portal
 *VendorSubscriptionApi* | [**createVendorCheckoutSessionApiV1VendorSubscriptionCreateCheckoutSessionPost**](doc//VendorSubscriptionApi.md#createvendorcheckoutsessionapiv1vendorsubscriptioncreatecheckoutsessionpost) | **POST** /api/v1/vendor/subscription/create-checkout-session | Create Vendor Checkout Session
 *VendorSubscriptionApi* | [**getVendorSubscriptionApiV1VendorSubscriptionVendorIdGet**](doc//VendorSubscriptionApi.md#getvendorsubscriptionapiv1vendorsubscriptionvendoridget) | **GET** /api/v1/vendor/subscription/{vendor_id} | Get Vendor Subscription
 *WonCouponsApi* | [**deleteWonCouponApiV1WonCouponsUserIdCouponIdDelete**](doc//WonCouponsApi.md#deletewoncouponapiv1woncouponsuseridcouponiddelete) | **DELETE** /api/v1/won_coupons/{user_id}/{coupon_id} | Delete Won Coupon
@@ -166,11 +178,14 @@ Class | Method | HTTP request | Description
  - [CouponTargetType](doc//CouponTargetType.md)
  - [CreateUserSubscriptionSession](doc//CreateUserSubscriptionSession.md)
  - [CreateVendorSubscriptionSession](doc//CreateVendorSubscriptionSession.md)
+ - [CustomerPortalResponse](doc//CustomerPortalResponse.md)
  - [DashboardRequest](doc//DashboardRequest.md)
  - [DashboardResponse](doc//DashboardResponse.md)
  - [DeletionRequestModel](doc//DeletionRequestModel.md)
  - [DeletionRequestStatus](doc//DeletionRequestStatus.md)
  - [DeletionRequestType](doc//DeletionRequestType.md)
+ - [DeviceType](doc//DeviceType.md)
+ - [FCMTokenCreate](doc//FCMTokenCreate.md)
  - [Gender](doc//Gender.md)
  - [GeoPoint](doc//GeoPoint.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
@@ -179,6 +194,13 @@ Class | Method | HTTP request | Description
  - [IDResponse](doc//IDResponse.md)
  - [Interests](doc//Interests.md)
  - [MetricSortBy](doc//MetricSortBy.md)
+ - [NotificationBase](doc//NotificationBase.md)
+ - [NotificationCategory](doc//NotificationCategory.md)
+ - [NotificationCreate](doc//NotificationCreate.md)
+ - [NotificationDB](doc//NotificationDB.md)
+ - [NotificationSendResponse](doc//NotificationSendResponse.md)
+ - [NotificationStatus](doc//NotificationStatus.md)
+ - [NotificationTarget](doc//NotificationTarget.md)
  - [PerformanceDetails](doc//PerformanceDetails.md)
  - [Platform](doc//Platform.md)
  - [RatingValue](doc//RatingValue.md)
@@ -197,18 +219,22 @@ Class | Method | HTTP request | Description
  - [StoreStatus](doc//StoreStatus.md)
  - [StoreTypes](doc//StoreTypes.md)
  - [SubscriptionStatus](doc//SubscriptionStatus.md)
+ - [SuccessResponse](doc//SuccessResponse.md)
  - [TimeFrame](doc//TimeFrame.md)
  - [Token](doc//Token.md)
+ - [TokenRegistrationResponse](doc//TokenRegistrationResponse.md)
  - [UnlockStatus](doc//UnlockStatus.md)
  - [UnlockedCouponModel](doc//UnlockedCouponModel.md)
  - [UnlockedCouponResponse](doc//UnlockedCouponResponse.md)
  - [UserModel](doc//UserModel.md)
  - [UserModelFromClient](doc//UserModelFromClient.md)
+ - [UserNotification](doc//UserNotification.md)
  - [UserPointsTransactionModel](doc//UserPointsTransactionModel.md)
  - [UserRedeemedCouponResponse](doc//UserRedeemedCouponResponse.md)
  - [UserRedeemedCouponsListResponse](doc//UserRedeemedCouponsListResponse.md)
  - [UserStatus](doc//UserStatus.md)
  - [UserSubscriptionModel](doc//UserSubscriptionModel.md)
+ - [UserType](doc//UserType.md)
  - [ValidationError](doc//ValidationError.md)
  - [ValidationErrorLocInner](doc//ValidationErrorLocInner.md)
  - [VendorModel](doc//VendorModel.md)

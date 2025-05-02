@@ -232,6 +232,8 @@ class ApiClient {
           return CreateUserSubscriptionSession.fromJson(value);
         case 'CreateVendorSubscriptionSession':
           return CreateVendorSubscriptionSession.fromJson(value);
+        case 'CustomerPortalResponse':
+          return CustomerPortalResponse.fromJson(value);
         case 'DashboardRequest':
           return DashboardRequest.fromJson(value);
         case 'DashboardResponse':
@@ -242,6 +244,10 @@ class ApiClient {
           return DeletionRequestStatusTypeTransformer().decode(value);
         case 'DeletionRequestType':
           return DeletionRequestTypeTypeTransformer().decode(value);
+        case 'DeviceType':
+          return DeviceTypeTypeTransformer().decode(value);
+        case 'FCMTokenCreate':
+          return FCMTokenCreate.fromJson(value);
         case 'Gender':
           return GenderTypeTransformer().decode(value);
         case 'GeoPoint':
@@ -258,6 +264,20 @@ class ApiClient {
           return InterestsTypeTransformer().decode(value);
         case 'MetricSortBy':
           return MetricSortByTypeTransformer().decode(value);
+        case 'NotificationBase':
+          return NotificationBase.fromJson(value);
+        case 'NotificationCategory':
+          return NotificationCategoryTypeTransformer().decode(value);
+        case 'NotificationCreate':
+          return NotificationCreate.fromJson(value);
+        case 'NotificationDB':
+          return NotificationDB.fromJson(value);
+        case 'NotificationSendResponse':
+          return NotificationSendResponse.fromJson(value);
+        case 'NotificationStatus':
+          return NotificationStatusTypeTransformer().decode(value);
+        case 'NotificationTarget':
+          return NotificationTargetTypeTransformer().decode(value);
         case 'PerformanceDetails':
           return PerformanceDetails.fromJson(value);
         case 'Platform':
@@ -294,10 +314,14 @@ class ApiClient {
           return StoreTypesTypeTransformer().decode(value);
         case 'SubscriptionStatus':
           return SubscriptionStatusTypeTransformer().decode(value);
+        case 'SuccessResponse':
+          return SuccessResponse.fromJson(value);
         case 'TimeFrame':
           return TimeFrameTypeTransformer().decode(value);
         case 'Token':
           return Token.fromJson(value);
+        case 'TokenRegistrationResponse':
+          return TokenRegistrationResponse.fromJson(value);
         case 'UnlockStatus':
           return UnlockStatusTypeTransformer().decode(value);
         case 'UnlockedCouponModel':
@@ -308,6 +332,8 @@ class ApiClient {
           return UserModel.fromJson(value);
         case 'UserModelFromClient':
           return UserModelFromClient.fromJson(value);
+        case 'UserNotification':
+          return UserNotification.fromJson(value);
         case 'UserPointsTransactionModel':
           return UserPointsTransactionModel.fromJson(value);
         case 'UserRedeemedCouponResponse':
@@ -318,6 +344,8 @@ class ApiClient {
           return UserStatusTypeTransformer().decode(value);
         case 'UserSubscriptionModel':
           return UserSubscriptionModel.fromJson(value);
+        case 'UserType':
+          return UserTypeTypeTransformer().decode(value);
         case 'ValidationError':
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':

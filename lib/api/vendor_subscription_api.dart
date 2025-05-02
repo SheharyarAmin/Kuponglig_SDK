@@ -18,7 +18,7 @@ class VendorSubscriptionApi {
 
   /// Check Subscription Status
   ///
-  /// Checks if a vendor has an active subscription.  Args:     vendor_id: The ID of the vendor.  Returns:     dict: Object containing the subscription status.
+  /// Checks if a vendor has an active subscription.  Args:     vendor_id: The ID of the vendor.  Returns:     dict: Object containing the subscription status.      Raises:     HTTPException: If there's an error processing the request.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -53,7 +53,7 @@ class VendorSubscriptionApi {
 
   /// Check Subscription Status
   ///
-  /// Checks if a vendor has an active subscription.  Args:     vendor_id: The ID of the vendor.  Returns:     dict: Object containing the subscription status.
+  /// Checks if a vendor has an active subscription.  Args:     vendor_id: The ID of the vendor.  Returns:     dict: Object containing the subscription status.      Raises:     HTTPException: If there's an error processing the request.
   ///
   /// Parameters:
   ///
@@ -73,9 +73,74 @@ class VendorSubscriptionApi {
     return null;
   }
 
+  /// Create Subscription Portal
+  ///
+  /// Creates a Stripe Customer Portal session for subscription management.  Args:     vendor_id: The ID of the vendor.     return_url: The URL to redirect to after the portal session.      Returns:     CustomerPortalResponse: Object containing the portal URL.      Raises:     HTTPException: If the vendor has no subscription or there's an error creating the portal session.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] vendorId (required):
+  ///
+  /// * [String] returnUrl (required):
+  ///   URL to redirect to after the portal session
+  Future<Response> createSubscriptionPortalApiV1VendorSubscriptionVendorIdPortalGetWithHttpInfo(String vendorId, String returnUrl,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/vendor/subscription/{vendor_id}/portal'
+      .replaceAll('{vendor_id}', vendorId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+      queryParams.addAll(_queryParams('', 'return_url', returnUrl));
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Create Subscription Portal
+  ///
+  /// Creates a Stripe Customer Portal session for subscription management.  Args:     vendor_id: The ID of the vendor.     return_url: The URL to redirect to after the portal session.      Returns:     CustomerPortalResponse: Object containing the portal URL.      Raises:     HTTPException: If the vendor has no subscription or there's an error creating the portal session.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] vendorId (required):
+  ///
+  /// * [String] returnUrl (required):
+  ///   URL to redirect to after the portal session
+  Future<CustomerPortalResponse?> createSubscriptionPortalApiV1VendorSubscriptionVendorIdPortalGet(String vendorId, String returnUrl,) async {
+    final response = await createSubscriptionPortalApiV1VendorSubscriptionVendorIdPortalGetWithHttpInfo(vendorId, returnUrl,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CustomerPortalResponse',) as CustomerPortalResponse;
+    
+    }
+    return null;
+  }
+
   /// Create Vendor Checkout Session
   ///
-  /// Creates a checkout session for a vendor subscription.  Args:     payload: The session creation payload containing vendor ID, email, name, price ID, and optional setup intent ID.  Returns:     SessionResponse: Object containing payment information.
+  /// Creates a checkout session for a vendor subscription.  Args:     payload: The session creation payload containing vendor ID, email, name, price ID, and optional setup intent ID.  Returns:     SessionResponse: Object containing payment information.      Raises:     HTTPException: If there's an error processing the request.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -109,7 +174,7 @@ class VendorSubscriptionApi {
 
   /// Create Vendor Checkout Session
   ///
-  /// Creates a checkout session for a vendor subscription.  Args:     payload: The session creation payload containing vendor ID, email, name, price ID, and optional setup intent ID.  Returns:     SessionResponse: Object containing payment information.
+  /// Creates a checkout session for a vendor subscription.  Args:     payload: The session creation payload containing vendor ID, email, name, price ID, and optional setup intent ID.  Returns:     SessionResponse: Object containing payment information.      Raises:     HTTPException: If there's an error processing the request.
   ///
   /// Parameters:
   ///
