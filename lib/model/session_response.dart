@@ -15,7 +15,7 @@ class SessionResponse {
   SessionResponse({
     required this.customerid,
     required this.ephemeralKey,
-    required this.clientSecret,
+    this.clientSecret = '',
     this.setupIntent = false,
     this.trial = false,
   });
@@ -81,7 +81,7 @@ class SessionResponse {
       return SessionResponse(
         customerid: mapValueOfType<String>(json, r'customerid')!,
         ephemeralKey: mapValueOfType<String>(json, r'ephemeral_key')!,
-        clientSecret: mapValueOfType<String>(json, r'client_secret')!,
+        clientSecret: mapValueOfType<String>(json, r'client_secret') ?? '',
         setupIntent: mapValueOfType<bool>(json, r'setup_intent') ?? false,
         trial: mapValueOfType<bool>(json, r'trial') ?? false,
       );
@@ -133,7 +133,6 @@ class SessionResponse {
   static const requiredKeys = <String>{
     'customerid',
     'ephemeral_key',
-    'client_secret',
   };
 }
 

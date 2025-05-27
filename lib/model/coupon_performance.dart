@@ -41,25 +41,25 @@ class CouponPerformance {
 
   DateTime expiryDate;
 
-  /// Minimum value: 0
+  /// Minimum value: 0.0
   num? value;
 
-  /// Minimum value: 0
+  /// Minimum value: 0.0
   num? originalPrice;
 
   /// With 1 decimal place
   ///
-  /// Minimum value: 0
-  /// Maximum value: 100
+  /// Minimum value: 0.0
+  /// Maximum value: 100.0
   num redemptionRate;
 
   /// With currency symbol
   ///
-  /// Minimum value: 0
+  /// Minimum value: 0.0
   num revenueGenerated;
 
-  /// Minimum value: 0
-  /// Maximum value: 100
+  /// Minimum value: 0.0
+  /// Maximum value: 100.0
   num? profitMargin;
 
   /// Minimum value: 0

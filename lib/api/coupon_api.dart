@@ -18,7 +18,7 @@ class CouponApi {
 
   /// Create Coupon
   ///
-  /// Endpoint to create a new coupon. Requires an active vendor subscription.  Args:     coupon: The coupon model.     token: The JWT token.  Returns:     CouponModel: The created coupon.
+  /// Endpoint to create a new coupon. Requires an active vendor subscription.  Args:     coupon: The coupon model.     current_vendor: The authenticated vendor (dependency injects subscription check).  Returns:     CouponModel: The created coupon with subscription status information.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -52,7 +52,7 @@ class CouponApi {
 
   /// Create Coupon
   ///
-  /// Endpoint to create a new coupon. Requires an active vendor subscription.  Args:     coupon: The coupon model.     token: The JWT token.  Returns:     CouponModel: The created coupon.
+  /// Endpoint to create a new coupon. Requires an active vendor subscription.  Args:     coupon: The coupon model.     current_vendor: The authenticated vendor (dependency injects subscription check).  Returns:     CouponModel: The created coupon with subscription status information.
   ///
   /// Parameters:
   ///
@@ -131,7 +131,7 @@ class CouponApi {
 
   /// Get Coupons For Store
   ///
-  /// Endpoint to retrieve all coupons for a store. Public access (no subscription required).  Args:     store_id: The ID of the store.  Returns:     List[CouponModel]: The list of coupons.
+  /// Endpoint to retrieve coupons for a store. Entity-aware: Vendors get all coupons, Users get only visible ones.  Args:     store_id: The ID of the store.     current_entity: Optional authenticated user/vendor  Returns:     List[CouponModel]: The list of coupons based on entity access level.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -166,7 +166,7 @@ class CouponApi {
 
   /// Get Coupons For Store
   ///
-  /// Endpoint to retrieve all coupons for a store. Public access (no subscription required).  Args:     store_id: The ID of the store.  Returns:     List[CouponModel]: The list of coupons.
+  /// Endpoint to retrieve coupons for a store. Entity-aware: Vendors get all coupons, Users get only visible ones.  Args:     store_id: The ID of the store.     current_entity: Optional authenticated user/vendor  Returns:     List[CouponModel]: The list of coupons based on entity access level.
   ///
   /// Parameters:
   ///

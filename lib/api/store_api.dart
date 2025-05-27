@@ -18,7 +18,7 @@ class StoreApi {
 
   /// Create Store
   ///
-  /// Endpoint to create a new store. - Takes StoreModel as input. - Creates and returns the new store in the Firestore.
+  /// Endpoint to create a new store. Requires an active vendor subscription.  Args:     store: The store model to create.     current_vendor: The authenticated vendor (dependency injects subscription check).  Returns:     StoreModel: The created store with subscription status information.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -52,7 +52,7 @@ class StoreApi {
 
   /// Create Store
   ///
-  /// Endpoint to create a new store. - Takes StoreModel as input. - Creates and returns the new store in the Firestore.
+  /// Endpoint to create a new store. Requires an active vendor subscription.  Args:     store: The store model to create.     current_vendor: The authenticated vendor (dependency injects subscription check).  Returns:     StoreModel: The created store with subscription status information.
   ///
   /// Parameters:
   ///
@@ -364,7 +364,7 @@ class StoreApi {
 
   /// Get Stores By Vendor
   ///
-  /// Endpoint to fetch all stores for a vendor. - Returns a list of stores for the given vendor ID.
+  /// Endpoint to fetch all stores for a vendor. Includes subscription status information for vendor dashboard.  Args:     vendor_id: The vendor ID to fetch stores for.  Returns:     List of stores with subscription warning information.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -399,7 +399,7 @@ class StoreApi {
 
   /// Get Stores By Vendor
   ///
-  /// Endpoint to fetch all stores for a vendor. - Returns a list of stores for the given vendor ID.
+  /// Endpoint to fetch all stores for a vendor. Includes subscription status information for vendor dashboard.  Args:     vendor_id: The vendor ID to fetch stores for.  Returns:     List of stores with subscription warning information.
   ///
   /// Parameters:
   ///
@@ -424,7 +424,7 @@ class StoreApi {
 
   /// Update Store
   ///
-  /// Endpoint to update an existing store. - Takes StoreModel as input. - Updates the store data in the Firestore.
+  /// Endpoint to update an existing store. - Takes StoreModel as input. - Updates the store data in the Firestore. - Includes subscription status information in response.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -461,7 +461,7 @@ class StoreApi {
 
   /// Update Store
   ///
-  /// Endpoint to update an existing store. - Takes StoreModel as input. - Updates the store data in the Firestore.
+  /// Endpoint to update an existing store. - Takes StoreModel as input. - Updates the store data in the Firestore. - Includes subscription status information in response.
   ///
   /// Parameters:
   ///

@@ -11,10 +11,12 @@ Name | Type | Description | Notes
 **userId** | **String** |  | 
 **stripeCustomerId** | **String** |  | 
 **subscriptionId** | **String** |  | [optional] 
-**subscriptionStatus** | [**SubscriptionStatus**](SubscriptionStatus.md) |  | [optional] [default to SubscriptionStatus.unpaid]
+**subscriptionStatus** | [**SubscriptionStatus**](SubscriptionStatus.md) |  | [optional] [default to SubscriptionStatus.INCOMPLETE]
 **currentPeriodStart** | [**DateTime**](DateTime.md) |  | [optional] 
 **currentPeriodEnd** | [**DateTime**](DateTime.md) |  | [optional] 
 **entitlements** | **List<String>** |  | [optional] [default to const []]
+**cancelAtPeriodEnd** | **bool** |  | [optional] [default to false]
+**buttonText** | **String** |  | [optional] 
 **lastPayment** | [**DateTime**](DateTime.md) |  | [optional] 
 **trialEnd** | [**DateTime**](DateTime.md) |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] 

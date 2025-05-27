@@ -25,11 +25,11 @@ class ActivityMetrics {
   /// Minimum value: 0
   int redemptions;
 
-  /// Minimum value: 0
+  /// Minimum value: 0.0
   num revenue;
 
-  /// Minimum value: 0
-  /// Maximum value: 100
+  /// Minimum value: 0.0
+  /// Maximum value: 100.0
   num conversionRate;
 
   @override

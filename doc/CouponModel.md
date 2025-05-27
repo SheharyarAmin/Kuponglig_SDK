@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **totalCoupons** | **int** |  | [optional] 
 **redeemedCoupons** | **int** |  | 
 **status** | [**CouponStatus**](CouponStatus.md) |  | 
+**subscriptionStatus** | [**CouponSubscriptionStatus**](CouponSubscriptionStatus.md) |  | [optional] [default to CouponSubscriptionStatus.ACTIVE]
+**inactiveReason** | [**InactiveReason**](InactiveReason.md) |  | [optional] 
 **targetType** | [**CouponTargetType**](CouponTargetType.md) |  | 
 **termsAndConditions** | **String** |  | 
 **minPurchaseAmount** | **num** |  | 

@@ -24,11 +24,13 @@ Method | HTTP request | Description
 
 Create Store
 
-Endpoint to create a new store. - Takes StoreModel as input. - Creates and returns the new store in the Firestore.
+Endpoint to create a new store. Requires an active vendor subscription.  Args:     store: The store model to create.     current_vendor: The authenticated vendor (dependency injects subscription check).  Returns:     StoreModel: The created store with subscription status information.
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = StoreApi();
 final storeModelBase = StoreModelBase(); // StoreModelBase | 
@@ -53,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -282,7 +284,7 @@ No authorization required
 
 Get Stores By Vendor
 
-Endpoint to fetch all stores for a vendor. - Returns a list of stores for the given vendor ID.
+Endpoint to fetch all stores for a vendor. Includes subscription status information for vendor dashboard.  Args:     vendor_id: The vendor ID to fetch stores for.  Returns:     List of stores with subscription warning information.
 
 ### Example
 ```dart
@@ -325,7 +327,7 @@ No authorization required
 
 Update Store
 
-Endpoint to update an existing store. - Takes StoreModel as input. - Updates the store data in the Firestore.
+Endpoint to update an existing store. - Takes StoreModel as input. - Updates the store data in the Firestore. - Includes subscription status information in response.
 
 ### Example
 ```dart

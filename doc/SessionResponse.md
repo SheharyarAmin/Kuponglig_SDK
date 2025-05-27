@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **customerid** | **String** |  | 
 **ephemeralKey** | **String** |  | 
-**clientSecret** | **String** |  | 
+**clientSecret** | **String** |  | [optional] [default to '']
 **setupIntent** | **bool** |  | [optional] [default to false]
 **trial** | **bool** |  | [optional] [default to false]
 

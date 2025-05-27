@@ -12,7 +12,7 @@ part of openapi.api;
 
 class ApiClient {
   ApiClient({this.basePath = 'http://localhost', this.authentication,});
-
+  String? _accessToken;
   final String basePath;
   final Authentication? authentication;
 
@@ -35,6 +35,14 @@ class ApiClient {
      _defaultHeaderMap[key] = value;
   }
 
+  void setAccessToken(String accessToken) {
+    _accessToken = accessToken;
+
+    if (_accessToken != null) {
+      _defaultHeaderMap['Authorization'] = 'Bearer $_accessToken';
+    }
+  }
+
   // We don't use a Map<String, String> for queryParams.
   // If collectionFormat is 'multi', a key might appear multiple times.
   Future<Response> invokeAPI(
@@ -46,12 +54,18 @@ class ApiClient {
     Map<String, String> formParams,
     String? contentType,
   ) async {
-    await authentication?.applyToParams(queryParams, headerParams);
+    if (_accessToken != null) {
+      headerParams['Authorization'] = 'Bearer $_accessToken';
+    }
 
+    // Add default headers
     headerParams.addAll(_defaultHeaderMap);
     if (contentType != null) {
       headerParams['Content-Type'] = contentType;
     }
+
+    await authentication?.applyToParams(queryParams, headerParams);
+
 
     final urlEncodedQueryParams = queryParams.map((param) => '$param');
     final queryString = urlEncodedQueryParams.isNotEmpty ? '?${urlEncodedQueryParams.join('&')}' : '';
@@ -192,6 +206,8 @@ class ApiClient {
           return AnalyticsEventTypeTypeTransformer().decode(value);
         case 'AuthenticationToken':
           return AuthenticationToken.fromJson(value);
+        case 'BroadcastNotificationResponse':
+          return BroadcastNotificationResponse.fromJson(value);
         case 'ContactFormDetail':
           return ContactFormDetail.fromJson(value);
         case 'ContactFormList':
@@ -220,14 +236,12 @@ class ApiClient {
           return CouponRedemptionStatusTypeTransformer().decode(value);
         case 'CouponStatus':
           return CouponStatusTypeTransformer().decode(value);
+        case 'CouponSubscriptionStatus':
+          return CouponSubscriptionStatusTypeTransformer().decode(value);
         case 'CouponTargetType':
           return CouponTargetTypeTypeTransformer().decode(value);
         case 'CreateUserSubscriptionSession':
           return CreateUserSubscriptionSession.fromJson(value);
-        case 'CreateVendorSubscriptionSession':
-          return CreateVendorSubscriptionSession.fromJson(value);
-        case 'CustomerPortalResponse':
-          return CustomerPortalResponse.fromJson(value);
         case 'DashboardRequest':
           return DashboardRequest.fromJson(value);
         case 'DashboardResponse':
@@ -240,6 +254,12 @@ class ApiClient {
           return DeletionRequestTypeTypeTransformer().decode(value);
         case 'DeviceType':
           return DeviceTypeTypeTransformer().decode(value);
+        case 'DynamicSubscriptionRequest':
+          return DynamicSubscriptionRequest.fromJson(value);
+        case 'DynamicSubscriptionResponse':
+          return DynamicSubscriptionResponse.fromJson(value);
+        case 'EntityType':
+          return EntityTypeTypeTransformer().decode(value);
         case 'FCMTokenCreate':
           return FCMTokenCreate.fromJson(value);
         case 'Gender':
@@ -254,10 +274,14 @@ class ApiClient {
           return HourlyMetricData.fromJson(value);
         case 'IDResponse':
           return IDResponse.fromJson(value);
+        case 'InactiveReason':
+          return InactiveReasonTypeTransformer().decode(value);
         case 'Interests':
           return InterestsTypeTransformer().decode(value);
         case 'MetricSortBy':
           return MetricSortByTypeTransformer().decode(value);
+        case 'NotificationActionResponse':
+          return NotificationActionResponse.fromJson(value);
         case 'NotificationBase':
           return NotificationBase.fromJson(value);
         case 'NotificationCategory':
@@ -266,12 +290,20 @@ class ApiClient {
           return NotificationCreate.fromJson(value);
         case 'NotificationDB':
           return NotificationDB.fromJson(value);
+        case 'NotificationRefreshResponse':
+          return NotificationRefreshResponse.fromJson(value);
+        case 'NotificationRequest':
+          return NotificationRequest.fromJson(value);
         case 'NotificationSendResponse':
           return NotificationSendResponse.fromJson(value);
+        case 'NotificationSeverity':
+          return NotificationSeverityTypeTransformer().decode(value);
         case 'NotificationStatus':
           return NotificationStatusTypeTransformer().decode(value);
         case 'NotificationTarget':
           return NotificationTargetTypeTransformer().decode(value);
+        case 'NotificationType':
+          return NotificationTypeTypeTransformer().decode(value);
         case 'PerformanceDetails':
           return PerformanceDetails.fromJson(value);
         case 'Platform':
@@ -282,6 +314,10 @@ class ApiClient {
           return RewardTypeTypeTransformer().decode(value);
         case 'SaveCouponRequest':
           return SaveCouponRequest.fromJson(value);
+        case 'ScreenNotificationItem':
+          return ScreenNotificationItem.fromJson(value);
+        case 'ScreenNotificationsResponse':
+          return ScreenNotificationsResponse.fromJson(value);
         case 'SessionResponse':
           return SessionResponse.fromJson(value);
         case 'SpinWheelResponse':
@@ -308,6 +344,8 @@ class ApiClient {
           return StoreTypesTypeTransformer().decode(value);
         case 'SubscriptionStatus':
           return SubscriptionStatusTypeTransformer().decode(value);
+        case 'SubscriptionStatusResponse':
+          return SubscriptionStatusResponse.fromJson(value);
         case 'SuccessResponse':
           return SuccessResponse.fromJson(value);
         case 'TimeFrame':
@@ -322,6 +360,8 @@ class ApiClient {
           return UnlockedCouponModel.fromJson(value);
         case 'UnlockedCouponResponse':
           return UnlockedCouponResponse.fromJson(value);
+        case 'UserBroadcastNotificationRequest':
+          return UserBroadcastNotificationRequest.fromJson(value);
         case 'UserModel':
           return UserModel.fromJson(value);
         case 'UserModelFromClient':
@@ -334,6 +374,8 @@ class ApiClient {
           return UserRedeemedCouponResponse.fromJson(value);
         case 'UserRedeemedCouponsListResponse':
           return UserRedeemedCouponsListResponse.fromJson(value);
+        case 'UserScreen':
+          return UserScreenTypeTransformer().decode(value);
         case 'UserStatus':
           return UserStatusTypeTransformer().decode(value);
         case 'UserSubscriptionModel':
@@ -344,12 +386,14 @@ class ApiClient {
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':
           return ValidationErrorLocInner.fromJson(value);
+        case 'VendorBroadcastNotificationRequest':
+          return VendorBroadcastNotificationRequest.fromJson(value);
         case 'VendorModel':
           return VendorModel.fromJson(value);
+        case 'VendorScreen':
+          return VendorScreenTypeTransformer().decode(value);
         case 'VendorStatus':
           return VendorStatusTypeTransformer().decode(value);
-        case 'VendorSubscriptionModel':
-          return VendorSubscriptionModel.fromJson(value);
         case 'WonCouponModel':
           return WonCouponModel.fromJson(value);
         case 'WonCouponStatus':

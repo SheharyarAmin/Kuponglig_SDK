@@ -21,7 +21,7 @@ class PerformanceDetails {
 
   /// Total savings in currency
   ///
-  /// Minimum value: 0
+  /// Minimum value: 0.0
   num totalRevenue;
 
   /// Minimum value: 0
@@ -32,8 +32,8 @@ class PerformanceDetails {
 
   /// With 1 decimal place
   ///
-  /// Minimum value: 0
-  /// Maximum value: 100
+  /// Minimum value: 0.0
+  /// Maximum value: 100.0
   num conversionRate;
 
   @override

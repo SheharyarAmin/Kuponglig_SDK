@@ -27,6 +27,8 @@ class CouponModel {
     this.totalCoupons,
     required this.redeemedCoupons,
     required this.status,
+    this.subscriptionStatus = CouponSubscriptionStatus.ACTIVE,
+    this.inactiveReason,
     required this.targetType,
     required this.termsAndConditions,
     required this.minPurchaseAmount,
@@ -65,6 +67,10 @@ class CouponModel {
 
   CouponStatus status;
 
+  CouponSubscriptionStatus subscriptionStatus;
+
+  InactiveReason? inactiveReason;
+
   CouponTargetType targetType;
 
   String termsAndConditions;
@@ -97,6 +103,8 @@ class CouponModel {
     other.totalCoupons == totalCoupons &&
     other.redeemedCoupons == redeemedCoupons &&
     other.status == status &&
+    other.subscriptionStatus == subscriptionStatus &&
+    other.inactiveReason == inactiveReason &&
     other.targetType == targetType &&
     other.termsAndConditions == termsAndConditions &&
     other.minPurchaseAmount == minPurchaseAmount &&
@@ -123,6 +131,8 @@ class CouponModel {
     (totalCoupons == null ? 0 : totalCoupons!.hashCode) +
     (redeemedCoupons.hashCode) +
     (status.hashCode) +
+    (subscriptionStatus.hashCode) +
+    (inactiveReason == null ? 0 : inactiveReason!.hashCode) +
     (targetType.hashCode) +
     (termsAndConditions.hashCode) +
     (minPurchaseAmount.hashCode) +
@@ -133,7 +143,7 @@ class CouponModel {
     (updatedAt.hashCode);
 
   @override
-  String toString() => 'CouponModel[id=$id, vendorId=$vendorId, storeId=$storeId, title=$title, description=$description, actualValue=$actualValue, discountValue=$discountValue, saleValue=$saleValue, totalSaleValueLimit=$totalSaleValueLimit, startDate=$startDate, expirationDate=$expirationDate, totalCoupons=$totalCoupons, redeemedCoupons=$redeemedCoupons, status=$status, targetType=$targetType, termsAndConditions=$termsAndConditions, minPurchaseAmount=$minPurchaseAmount, isPremium=$isPremium, unlockPoints=$unlockPoints, isUnlocked=$isUnlocked, createdAt=$createdAt, updatedAt=$updatedAt]';
+  String toString() => 'CouponModel[id=$id, vendorId=$vendorId, storeId=$storeId, title=$title, description=$description, actualValue=$actualValue, discountValue=$discountValue, saleValue=$saleValue, totalSaleValueLimit=$totalSaleValueLimit, startDate=$startDate, expirationDate=$expirationDate, totalCoupons=$totalCoupons, redeemedCoupons=$redeemedCoupons, status=$status, subscriptionStatus=$subscriptionStatus, inactiveReason=$inactiveReason, targetType=$targetType, termsAndConditions=$termsAndConditions, minPurchaseAmount=$minPurchaseAmount, isPremium=$isPremium, unlockPoints=$unlockPoints, isUnlocked=$isUnlocked, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -167,6 +177,12 @@ class CouponModel {
     }
       json[r'redeemedCoupons'] = this.redeemedCoupons;
       json[r'status'] = this.status;
+      json[r'subscriptionStatus'] = this.subscriptionStatus;
+    if (this.inactiveReason != null) {
+      json[r'inactiveReason'] = this.inactiveReason;
+    } else {
+      json[r'inactiveReason'] = null;
+    }
       json[r'targetType'] = this.targetType;
       json[r'termsAndConditions'] = this.termsAndConditions;
       json[r'minPurchaseAmount'] = this.minPurchaseAmount;
@@ -217,6 +233,8 @@ class CouponModel {
         totalCoupons: mapValueOfType<int>(json, r'totalCoupons'),
         redeemedCoupons: mapValueOfType<int>(json, r'redeemedCoupons')!,
         status: CouponStatus.fromJson(json[r'status'])!,
+        subscriptionStatus: CouponSubscriptionStatus.fromJson(json[r'subscriptionStatus']) ?? CouponSubscriptionStatus.ACTIVE,
+        inactiveReason: InactiveReason.fromJson(json[r'inactiveReason']),
         targetType: CouponTargetType.fromJson(json[r'targetType'])!,
         termsAndConditions: mapValueOfType<String>(json, r'termsAndConditions')!,
         minPurchaseAmount: num.parse('${json[r'minPurchaseAmount']}'),

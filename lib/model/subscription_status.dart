@@ -23,25 +23,27 @@ class SubscriptionStatus {
 
   String toJson() => value;
 
-  static const active = SubscriptionStatus._(r'active');
-  static const canceled = SubscriptionStatus._(r'canceled');
-  static const incomplete = SubscriptionStatus._(r'incomplete');
-  static const incompleteExpired = SubscriptionStatus._(r'incomplete_expired');
-  static const pastDue = SubscriptionStatus._(r'past_due');
-  static const paused = SubscriptionStatus._(r'paused');
-  static const trialing = SubscriptionStatus._(r'trialing');
-  static const unpaid = SubscriptionStatus._(r'unpaid');
+  static const ACTIVE = SubscriptionStatus._(r'ACTIVE');
+  static const PAST_DUE = SubscriptionStatus._(r'PAST_DUE');
+  static const CANCELED = SubscriptionStatus._(r'CANCELED');
+  static const INCOMPLETE = SubscriptionStatus._(r'INCOMPLETE');
+  static const INCOMPLETE_EXPIRED = SubscriptionStatus._(r'INCOMPLETE_EXPIRED');
+  static const TRIALING = SubscriptionStatus._(r'TRIALING');
+  static const PAUSED = SubscriptionStatus._(r'PAUSED');
+  static const UNPAID = SubscriptionStatus._(r'UNPAID');
+  static const PENDING_CANCELLATION = SubscriptionStatus._(r'PENDING_CANCELLATION');
 
   /// List of all possible values in this [enum][SubscriptionStatus].
   static const values = <SubscriptionStatus>[
-    active,
-    canceled,
-    incomplete,
-    incompleteExpired,
-    pastDue,
-    paused,
-    trialing,
-    unpaid,
+    ACTIVE,
+    PAST_DUE,
+    CANCELED,
+    INCOMPLETE,
+    INCOMPLETE_EXPIRED,
+    TRIALING,
+    PAUSED,
+    UNPAID,
+    PENDING_CANCELLATION,
   ];
 
   static SubscriptionStatus? fromJson(dynamic value) => SubscriptionStatusTypeTransformer().decode(value);
@@ -80,14 +82,15 @@ class SubscriptionStatusTypeTransformer {
   SubscriptionStatus? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'active': return SubscriptionStatus.active;
-        case r'canceled': return SubscriptionStatus.canceled;
-        case r'incomplete': return SubscriptionStatus.incomplete;
-        case r'incomplete_expired': return SubscriptionStatus.incompleteExpired;
-        case r'past_due': return SubscriptionStatus.pastDue;
-        case r'paused': return SubscriptionStatus.paused;
-        case r'trialing': return SubscriptionStatus.trialing;
-        case r'unpaid': return SubscriptionStatus.unpaid;
+        case r'ACTIVE': return SubscriptionStatus.ACTIVE;
+        case r'PAST_DUE': return SubscriptionStatus.PAST_DUE;
+        case r'CANCELED': return SubscriptionStatus.CANCELED;
+        case r'INCOMPLETE': return SubscriptionStatus.INCOMPLETE;
+        case r'INCOMPLETE_EXPIRED': return SubscriptionStatus.INCOMPLETE_EXPIRED;
+        case r'TRIALING': return SubscriptionStatus.TRIALING;
+        case r'PAUSED': return SubscriptionStatus.PAUSED;
+        case r'UNPAID': return SubscriptionStatus.UNPAID;
+        case r'PENDING_CANCELLATION': return SubscriptionStatus.PENDING_CANCELLATION;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

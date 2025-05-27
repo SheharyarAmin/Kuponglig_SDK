@@ -70,6 +70,9 @@ String parameterToString(dynamic value) {
   if (value is CouponStatus) {
     return CouponStatusTypeTransformer().encode(value).toString();
   }
+  if (value is CouponSubscriptionStatus) {
+    return CouponSubscriptionStatusTypeTransformer().encode(value).toString();
+  }
   if (value is CouponTargetType) {
     return CouponTargetTypeTypeTransformer().encode(value).toString();
   }
@@ -82,8 +85,14 @@ String parameterToString(dynamic value) {
   if (value is DeviceType) {
     return DeviceTypeTypeTransformer().encode(value).toString();
   }
+  if (value is EntityType) {
+    return EntityTypeTypeTransformer().encode(value).toString();
+  }
   if (value is Gender) {
     return GenderTypeTransformer().encode(value).toString();
+  }
+  if (value is InactiveReason) {
+    return InactiveReasonTypeTransformer().encode(value).toString();
   }
   if (value is Interests) {
     return InterestsTypeTransformer().encode(value).toString();
@@ -94,11 +103,17 @@ String parameterToString(dynamic value) {
   if (value is NotificationCategory) {
     return NotificationCategoryTypeTransformer().encode(value).toString();
   }
+  if (value is NotificationSeverity) {
+    return NotificationSeverityTypeTransformer().encode(value).toString();
+  }
   if (value is NotificationStatus) {
     return NotificationStatusTypeTransformer().encode(value).toString();
   }
   if (value is NotificationTarget) {
     return NotificationTargetTypeTransformer().encode(value).toString();
+  }
+  if (value is NotificationType) {
+    return NotificationTypeTypeTransformer().encode(value).toString();
   }
   if (value is Platform) {
     return PlatformTypeTransformer().encode(value).toString();
@@ -124,11 +139,17 @@ String parameterToString(dynamic value) {
   if (value is UnlockStatus) {
     return UnlockStatusTypeTransformer().encode(value).toString();
   }
+  if (value is UserScreen) {
+    return UserScreenTypeTransformer().encode(value).toString();
+  }
   if (value is UserStatus) {
     return UserStatusTypeTransformer().encode(value).toString();
   }
   if (value is UserType) {
     return UserTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is VendorScreen) {
+    return VendorScreenTypeTransformer().encode(value).toString();
   }
   if (value is VendorStatus) {
     return VendorStatusTypeTransformer().encode(value).toString();

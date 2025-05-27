@@ -16,10 +16,12 @@ class UserSubscriptionModel {
     required this.userId,
     required this.stripeCustomerId,
     this.subscriptionId,
-    this.subscriptionStatus = SubscriptionStatus.unpaid,
+    this.subscriptionStatus = SubscriptionStatus.INCOMPLETE,
     this.currentPeriodStart,
     this.currentPeriodEnd,
     this.entitlements = const [],
+    this.cancelAtPeriodEnd = false,
+    this.buttonText,
     this.lastPayment,
     this.trialEnd,
     this.createdAt,
@@ -39,6 +41,10 @@ class UserSubscriptionModel {
   DateTime? currentPeriodEnd;
 
   List<String>? entitlements;
+
+  bool cancelAtPeriodEnd;
+
+  String? buttonText;
 
   DateTime? lastPayment;
 
@@ -69,6 +75,8 @@ class UserSubscriptionModel {
     other.currentPeriodStart == currentPeriodStart &&
     other.currentPeriodEnd == currentPeriodEnd &&
     _deepEquality.equals(other.entitlements, entitlements) &&
+    other.cancelAtPeriodEnd == cancelAtPeriodEnd &&
+    other.buttonText == buttonText &&
     other.lastPayment == lastPayment &&
     other.trialEnd == trialEnd &&
     other.createdAt == createdAt &&
@@ -84,13 +92,15 @@ class UserSubscriptionModel {
     (currentPeriodStart == null ? 0 : currentPeriodStart!.hashCode) +
     (currentPeriodEnd == null ? 0 : currentPeriodEnd!.hashCode) +
     (entitlements == null ? 0 : entitlements!.hashCode) +
+    (cancelAtPeriodEnd.hashCode) +
+    (buttonText == null ? 0 : buttonText!.hashCode) +
     (lastPayment == null ? 0 : lastPayment!.hashCode) +
     (trialEnd == null ? 0 : trialEnd!.hashCode) +
     (createdAt == null ? 0 : createdAt!.hashCode) +
     (updatedAt == null ? 0 : updatedAt!.hashCode);
 
   @override
-  String toString() => 'UserSubscriptionModel[userId=$userId, stripeCustomerId=$stripeCustomerId, subscriptionId=$subscriptionId, subscriptionStatus=$subscriptionStatus, currentPeriodStart=$currentPeriodStart, currentPeriodEnd=$currentPeriodEnd, entitlements=$entitlements, lastPayment=$lastPayment, trialEnd=$trialEnd, createdAt=$createdAt, updatedAt=$updatedAt]';
+  String toString() => 'UserSubscriptionModel[userId=$userId, stripeCustomerId=$stripeCustomerId, subscriptionId=$subscriptionId, subscriptionStatus=$subscriptionStatus, currentPeriodStart=$currentPeriodStart, currentPeriodEnd=$currentPeriodEnd, entitlements=$entitlements, cancelAtPeriodEnd=$cancelAtPeriodEnd, buttonText=$buttonText, lastPayment=$lastPayment, trialEnd=$trialEnd, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -116,6 +126,12 @@ class UserSubscriptionModel {
       json[r'entitlements'] = this.entitlements;
     } else {
       json[r'entitlements'] = null;
+    }
+      json[r'cancel_at_period_end'] = this.cancelAtPeriodEnd;
+    if (this.buttonText != null) {
+      json[r'button_text'] = this.buttonText;
+    } else {
+      json[r'button_text'] = null;
     }
     if (this.lastPayment != null) {
       json[r'last_payment'] = this.lastPayment!.toUtc().toIso8601String();
@@ -162,12 +178,14 @@ class UserSubscriptionModel {
         userId: mapValueOfType<String>(json, r'user_id')!,
         stripeCustomerId: mapValueOfType<String>(json, r'stripe_customer_id')!,
         subscriptionId: mapValueOfType<String>(json, r'subscription_id'),
-        subscriptionStatus: SubscriptionStatus.fromJson(json[r'subscription_status']) ?? SubscriptionStatus.unpaid,
+        subscriptionStatus: SubscriptionStatus.fromJson(json[r'subscription_status']) ?? SubscriptionStatus.INCOMPLETE,
         currentPeriodStart: mapDateTime(json, r'current_period_start', r''),
         currentPeriodEnd: mapDateTime(json, r'current_period_end', r''),
         entitlements: json[r'entitlements'] is Iterable
             ? (json[r'entitlements'] as Iterable).cast<String>().toList(growable: false)
             : const [],
+        cancelAtPeriodEnd: mapValueOfType<bool>(json, r'cancel_at_period_end') ?? false,
+        buttonText: mapValueOfType<String>(json, r'button_text'),
         lastPayment: mapDateTime(json, r'last_payment', r''),
         trialEnd: mapDateTime(json, r'trial_end', r''),
         createdAt: mapDateTime(json, r'created_at', r''),

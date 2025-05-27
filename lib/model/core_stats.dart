@@ -25,11 +25,11 @@ class CoreStats {
 
   /// Total sales with currency symbol
   ///
-  /// Minimum value: 0
+  /// Minimum value: 0.0
   num totalSales;
 
-  /// Minimum value: 0
-  /// Maximum value: 100
+  /// Minimum value: 0.0
+  /// Maximum value: 100.0
   num engagementRate;
 
   /// Percentage change with trend arrow
